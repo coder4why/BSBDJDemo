@@ -10,19 +10,19 @@
 
 ### iOS：
 <h2 align"center">
-<img src="/images/1.png" width="210" height="413"/>
-<img src="/images/2.png" width="210" height="413"/>
-<img src="/images/3.png" width="210" height="413"/>
-<img src="/images/4.png" width="210" height="413"/>
+<img src="/pics/1.png" width="210" height="413"/>
+<img src="/pics/2.png" width="210" height="413"/>
+<img src="/pics/3.png" width="210" height="413"/>
+<img src="/pics/4.png" width="210" height="413"/>
 
 </h2>
 
 ### Android：
 <h2 align"center">
-<img src="/images/5.png" width="210" height="457"/>
-<img src="/images/6.png" width="210" height="457"/>
-<img src="/images/7.png" width="210" height="457"/>
-<img src="/images/8.png" width="210" height="457"/>
+<img src="/pics/5.png" width="210" height="457"/>
+<img src="/pics/6.png" width="210" height="457"/>
+<img src="/pics/7.png" width="210" height="457"/>
+<img src="/pics/8.png" width="210" height="457"/>
 
 </h2>
 
