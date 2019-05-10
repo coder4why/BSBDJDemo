@@ -1,10 +1,5 @@
-import {
-    Text,
-    View,
-    TouchableOpacity,
-    NativeModules,
-  } from 'react-native';
-  import React, { Component } from 'react';
+
+  import {THEMEConfig} from './LZKKTabBar';
   //工作台路由
   export default routeIndex = {
         VideoDetail:{
@@ -13,7 +8,7 @@ import {
               title:'视频详情',
               headerTintColor:'white',
               headerStyle: {
-                  backgroundColor: '#333333',
+                  backgroundColor: THEMEConfig.THEMECOLOR,
               },
           })
       },

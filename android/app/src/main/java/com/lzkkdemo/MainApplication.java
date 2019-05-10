@@ -3,6 +3,9 @@ package com.lzkkdemo;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import cn.reactnative.modules.weibo.WeiboPackage;
+import com.theweflex.react.WeChatPackage;
+import cn.reactnative.modules.qq.QQPackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.rnim.rn.audio.ReactNativeAudioPackage;
 import com.brentvatne.react.ReactVideoPackage;
@@ -27,6 +30,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new WeiboPackage(),
+            new WeChatPackage(),
+            new QQPackage(),
             new RNSoundPackage(),
             new ReactNativeAudioPackage(),
             new ReactVideoPackage(),

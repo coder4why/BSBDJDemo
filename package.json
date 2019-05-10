@@ -12,10 +12,13 @@
     "react-native-audio": "^4.3.0",
     "react-native-easy-toast": "^1.2.0",
     "react-native-gesture-handler": "^1.1.0",
+    "react-native-qq": "^2.0.5",
     "react-native-refresh-list-view": "^1.0.10",
     "react-native-refreshlist": "^1.0.3",
     "react-native-sound": "^0.10.12",
     "react-native-video": "^4.4.1",
+    "react-native-wechat": "^1.9.10",
+    "react-native-weibo": "^3.0.4",
     "react-navigation": "^3.9.1"
   },
   "devDependencies": {

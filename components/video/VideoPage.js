@@ -40,7 +40,7 @@ export default class VideoPage extends Component {
       });
     }
     setTimeout(() => {
-            getData('https://api.apiopen.top/getJoke?page=0&count=4&type=video',(response)=>{
+            getData('https://api.apiopen.top/getJoke?page=0&count=20&type=video',(response)=>{
             if(response.code == 200){
               if(array.length>0){
                 array = isMore?this.state.videoLists.concat(response.result):response.result.concat(this.state.videoLists);

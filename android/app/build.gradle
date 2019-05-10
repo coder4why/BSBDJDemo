@@ -138,6 +138,9 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-weibo')
+    implementation project(':react-native-wechat')
+    implementation project(':react-native-qq')
     implementation project(':react-native-sound')
     implementation project(':react-native-audio')
     implementation project(':react-native-video')

@@ -71,7 +71,7 @@ export default class JokePage extends Component {
     }
     var array = Array.from(this.state.jokeLists);
     setTimeout(() => {
-          getData('https://api.apiopen.top/getJoke?page=0&count=3&type=text',(response)=>{
+          getData('https://api.apiopen.top/getJoke?page=0&count=20&type=text',(response)=>{
             if(response.code == 200){
               var array = this.state.jokeLists;
               if(array.length>0){

@@ -2,12 +2,14 @@
 import React, {Component} from 'react';
 import {View,StatusBar,Platform} from 'react-native';
 import Navigator from './components/tabbar/LZKKTabBar';
+import {ShareTool} from './components/tools/ShareTool';
 
 export const iOS = () => Platform.OS === 'ios'
 export default class App extends Component {
 
   componentDidMount(){
    this._setStatusBar();
+   ShareTool.registerThirds();
   }
 
   _setStatusBar(){

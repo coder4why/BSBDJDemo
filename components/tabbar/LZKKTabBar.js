@@ -9,10 +9,12 @@ import {
 } from 'react-navigation';
 import {
   Image,
+  DeviceEventEmitter
 } from 'react-native';
 import VideoPage from '../video/VideoPage';
 import JokePage from '../joke/JokePage';
 import MusicPage from '../music/MusicPage';
+import SettingPage from '../setting/SettingPage';
 import routeIndex from './RouteIndex';
 
 const video_normal = require('../src/home.png');
@@ -21,6 +23,17 @@ const joke_normal = require('../src/joke.png');
 const joke_selected = require('../src/joke_selected.png');
 const music_normal = require('../src/music.png');
 const music_selected = require('../src/music_selected.png');
+const setting_normal = require('../src/setting.png');
+const setting_selected = require('../src/setting_selected.png');
+
+export const THEMEConfig = {
+  THEMECOLOR:'#333333',
+  themeListen(){
+    DeviceEventEmitter.addListener('THEMECOLOR',function(color){
+      THEMEConfig.THEMECOLOR = color;
+  });
+  }
+}
 
 const TabRouteConfigs = {
     VideoPage:{
@@ -46,6 +59,7 @@ const TabRouteConfigs = {
           }),
         },
     MusicPage:{
+
         screen:MusicPage,
         navigationOptions: ({ navigation }) => ({
             tabBarLabel:'听歌',
@@ -56,6 +70,18 @@ const TabRouteConfigs = {
                 />)
             }),
         },
+    SettingPage:{
+
+      screen:SettingPage,
+      navigationOptions: ({ navigation }) => ({
+          tabBarLabel:'设置',
+          tabBarIcon:({focused,tintColor}) => (
+              <Image
+              source={focused ? setting_normal:setting_selected}
+              style={{width:23,height:23,tintColor:tintColor}}
+              />)
+          }),
+      },
         
   };
   
@@ -73,9 +99,12 @@ const TabRouteConfigs = {
         showIcon:true,
       },
   };
-  const titles = ['看视频','刷段子','听音乐'];
-  const colors = ['#333333','#333333','#333333']
+  const titles = ['看视频','刷段子','听音乐','设置'];
   const APP = createBottomTabNavigator(TabRouteConfigs,TabNavigatorConfigs);
+  // DeviceEventEmitter.addListener('THEMECOLOR',function(color){
+  //     themeColor = color;
+  // });
+  THEMEConfig.themeListen();
   const Navigator = createStackNavigator(
       {
             aPP: {
@@ -84,8 +113,9 @@ const TabRouteConfigs = {
                     headerTitle:titles[navigation.state.index],
                     headerTintColor:'white',
                     headerStyle: {
-                        backgroundColor: colors[navigation.state.index],
+                        backgroundColor: THEMEConfig.THEMECOLOR,
                     },
+                    headerRight:null,
                 }),
             },
             ...routeIndex,

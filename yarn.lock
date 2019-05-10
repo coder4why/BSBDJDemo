@@ -1697,6 +1697,16 @@ es-to-primitive@^1.2.0:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
+es6-promise@^3.0.2:
+  version "3.3.1"
+  resolved "https://registry.npm.taobao.org/es6-promise/download/es6-promise-3.3.1.tgz#a08cdde84ccdbf34d027a1451bc91d4bcd28a613"
+
+es6-promisify@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/es6-promisify/download/es6-promisify-3.0.0.tgz#22226b92957317f965247edfde9295f83efebe86"
+  dependencies:
+    es6-promise "^3.0.2"
+
 escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.npm.taobao.org/escape-html/download/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
@@ -1743,6 +1753,10 @@ event-target-shim@^1.0.5:
 eventemitter3@^3.0.0:
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/eventemitter3/download/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
+
+events@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npm.taobao.org/events/download/events-1.0.2.tgz#75849dcfe93d10fb057c30055afdbd51d06a8e24"
 
 exec-sh@^0.2.0:
   version "0.2.2"
@@ -4330,6 +4344,10 @@ react-native-gesture-handler@^1.1.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-qq@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npm.taobao.org/react-native-qq/download/react-native-qq-2.0.5.tgz#91c893bd9dd4be7b7953227e522c9d8bb3982624"
+
 react-native-refresh-list-view@^1.0.10:
   version "1.0.10"
   resolved "https://registry.npm.taobao.org/react-native-refresh-list-view/download/react-native-refresh-list-view-1.0.10.tgz#4f801e8526f9028d4273f04283506f7a1eda8a0b"
@@ -4365,6 +4383,18 @@ react-native-video@^4.4.1:
     keymirror "^0.1.1"
     prop-types "^15.5.10"
     shaka-player "^2.4.4"
+
+react-native-wechat@^1.9.10:
+  version "1.9.10"
+  resolved "https://registry.npm.taobao.org/react-native-wechat/download/react-native-wechat-1.9.10.tgz#e9e26aba60ecf17d878a17047136cb8d223056bb"
+  dependencies:
+    events "1.0.2"
+
+react-native-weibo@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.npm.taobao.org/react-native-weibo/download/react-native-weibo-3.0.4.tgz#d455c51d025e9c81ab7965b25a968c0ed3abeb97"
+  dependencies:
+    es6-promisify "^3.0.0"
 
 react-native@0.59.5:
   version "0.59.5"

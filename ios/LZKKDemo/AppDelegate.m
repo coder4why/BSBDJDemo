@@ -11,16 +11,19 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <AVFoundation/AVFoundation.h>
+#import <React/RCTLinkingManager.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
   AVAudioSession *avSession = [AVAudioSession sharedInstance];
   [avSession setCategory:AVAudioSessionCategoryAmbient error:nil];  // allow
   if ([avSession respondsToSelector:@selector(requestRecordPermission:)]) {
     [avSession requestRecordPermission:^(BOOL available) {}];
   }
+  
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"LZKKDemo"
@@ -34,6 +37,7 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+  
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
@@ -44,5 +48,11 @@
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  return [RCTLinkingManager application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
+
 
 @end
