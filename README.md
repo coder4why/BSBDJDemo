@@ -8,7 +8,8 @@
         4.下拉刷新、上拉加载；
         5.第三方登录与分享：QQ、微信；
         6.数据库react-native-sqlite2：视频收藏功能；
-        7.其他；
+        7.redux;
+        8.其他；
 
 ### iOS：
 <h2 align"center">
