@@ -1,5 +1,5 @@
-## 《遇见》——RN版本：兼容iOS与Android
-####  《遇见》小程序版本 ：<https://github.com/HuPingKang/LZKKDemo>
+#### App RN版本：兼容iOS与Android
+#### App小程序版本 ：<https://github.com/HuPingKang/LZKKDemo>
 
 #### 内容涉及：
         1.基础界面的搭建；
