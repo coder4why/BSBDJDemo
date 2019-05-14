@@ -12,6 +12,16 @@
               },
           })
       },
+      Favorite:{
+        screen:require('../setting/FavoritePage.js').default,
+        navigationOptions:({ navigation }) => ({
+            title:'我的收藏',
+            headerTintColor:'white',
+            headerStyle: {
+                backgroundColor: THEMEConfig.THEMECOLOR,
+            },
+        })
+    },
 
   }
   

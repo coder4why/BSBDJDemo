@@ -70,19 +70,18 @@ export const ShareTool = {
     weiboLogin(){},
     weiboShare(){},
 
-    qqShare(){
+    qqShare(title,imageUrl,webpageUrl){
         let qqshareInfo={
             type: 'news',
-            imageUrl: 'https://gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2019-05-10/198c55835df997249baab0921e4558e5.jpg',
-            title: '标题',
+            imageUrl: imageUrl?imageUrl:"https://gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2019-05-13/27eb2a9330fee0252257d45acfadf62a.gif",
+            title: title?title:"...",
             description: '描述',
-            webpageUrl: 'https://www.jianshu.com/p/a493f6f92b34'
+            webpageUrl: webpageUrl?webpageUrl:"https://www.hao123.com/"
         }
         QQAPI.shareToQQ(qqshareInfo).then((res)=>{  
                 console.log(res);                      
             }).catch((err)=>{
                 console.log('分享失败');   
-                alert(err.message);
         })
     },
     
@@ -121,16 +120,16 @@ export const ShareTool = {
         getData(url, (respnse)=>callBack(respnse));
     },
 
-    wechat(){
+    wechat(title,imageUrl,webpageUrl){
         WeChat.isWXAppInstalled()
         .then((isInstalled) => {
             if (isInstalled) {
                 WeChat.shareToSession({
-                    title:'微信好友测试的链接',
-                    description: '分享的标题内容',
-                    thumbImage: 'https://i0.hdslb.com/bfs/archive/649d0f679aa60253ca06f79700bbd48634537d2f.jpg@880w_440h.jpg',
+                    title:title,
+                    description: title,
+                    thumbImage: imageUrl,
                     type: 'news',
-                    webpageUrl: 'https://www.bilibili.com/blackboard/topic/CLAMP30_web.html?spm_id_from=333.334.b_63686965665f7265636f6d6d656e64.1'
+                    webpageUrl: webpageUrl
                 })
                 .catch((error) => {
                     alert(error.message);
@@ -140,16 +139,16 @@ export const ShareTool = {
             }
         });
     },
-    wechatCircle(){
+    wechatCircle(title,imageUrl,webpageUrl){
         WeChat.isWXAppInstalled()
         .then((isInstalled) => {
             if (isInstalled) {
                 WeChat.shareToTimeline({
-                    title:'分享的标题',
-                    description: '分享的标题内容',
-                    thumbImage: 'https://i0.hdslb.com/bfs/archive/649d0f679aa60253ca06f79700bbd48634537d2f.jpg@880w_440h.jpg',
+                    title:title,
+                    description: title,
+                    thumbImage: imageUrl,
                     type: 'news',
-                    webpageUrl: 'https://www.bilibili.com/blackboard/topic/CLAMP30_web.html?spm_id_from=333.334.b_63686965665f7265636f6d6d656e64.1',
+                    webpageUrl: webpageUrl
                 })
                     .catch((error) => {
                         alert(error.message);

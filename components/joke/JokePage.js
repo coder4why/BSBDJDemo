@@ -7,6 +7,7 @@ import {
   Image
 } from 'react-native';
 import {getData} from '../tools/Fetch';
+
 export default class JokePage extends Component {
 
   constructor(props){
@@ -33,6 +34,7 @@ export default class JokePage extends Component {
            </View>
   }
 
+  
   _renderRow(rowData){
       
     return <View style={{flex:1,marginTop:5}}>

@@ -9,6 +9,7 @@ import {
   DeviceEventEmitter,
   Image
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 var width =  Dimensions.get('window').width;
 import {ShareTool} from '../tools/ShareTool';
@@ -31,7 +32,13 @@ export default class SettingPage extends Component {
                 headerRight:<View></View>
         }
     }
-    componentDidMount(){
+
+    _myFavorite(){
+        const navigateAction = NavigationActions.navigate({
+            routeName: 'Favorite',
+            action: NavigationActions.navigate({ routeName: 'Favorite',title:''}),
+            });
+        this.props.navigation.dispatch(navigateAction);
     }
     
     _selectThemeIndex(color){
@@ -221,11 +228,9 @@ export default class SettingPage extends Component {
                         {this._thirdLoginView()}
                     </View>
                     {this._sepLine()}
-                    <Text style={{color:'#636363',fontSize:18,left:10,marginTop:10,}}>分享</Text>
-                    <View style={{justifyContent:"flex-start",flexDirection:'row',flex:1,}}>
-                        {this._thirdShareView()}
-                    </View>
-                    {this._sepLine()}
+                    <TouchableWithoutFeedback key='sds' onPress={()=>this._myFavorite()}>
+                        <Text style={{color:'#636363',fontSize:18,left:10,marginTop:10,}}> 我的收藏</Text>
+                    </TouchableWithoutFeedback>
                </ScrollView>;
     }
 }

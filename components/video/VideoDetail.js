@@ -4,6 +4,8 @@ import {
   Dimensions
 } from 'react-native';
 import Video from 'react-native-video';
+
+
 export default class VideoDetail extends Component {
 
   componentDidMount(){
@@ -12,14 +14,14 @@ export default class VideoDetail extends Component {
 
   render() {
           return(
-            <View style={{flex:1}}>
+            <View style={{flex:1,justifyContent:'flex-start'}}>
                 <Video source={{uri: this.props.navigation.state.params.rowData.video}}  
                 ref={(ref) => {
                   this.player = ref
                 }}                                      
                 style={{
                   width:Dimensions.get('window').width,
-                  height:250,
+                  height:320
                 }} 
                 resizeMode={'cover'}
                 />
