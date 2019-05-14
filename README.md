@@ -1,12 +1,14 @@
-## 《懒猪看看》——RN版本：兼容iOS与Android
-####  《懒猪看看》小程序版本 ：<https://github.com/HuPingKang/LZKKDemo>
+## 《遇见》——RN版本：兼容iOS与Android
+####  《遇见》小程序版本 ：<https://github.com/HuPingKang/LZKKDemo>
 
 #### 内容涉及：
         1.基础界面的搭建；
         2.网络请求、JSON Parse与数据渲染；
         3.音视频播放；
         4.下拉刷新、上拉加载；
-        5.其他；
+        5.第三方登录与分享：QQ、微信；
+        6.数据库react-native-sqlite2：视频收藏功能；
+        7.其他；
 
 ### iOS：
 <h2 align"center">
