@@ -10,16 +10,12 @@ import {
 import { NavigationActions } from 'react-navigation';
 import ShareView from '../commons/ShareView';
 import {getData} from '../tools/Fetch';
-import configureStore from '../../redux/store';
-const store = configureStore();
-
 export default class VideoPage extends Component {
   
   constructor(props){
     super(props);
     this.state={
       videoLists:[],
-      collectUrls:store.getState().videoLists,
       refreshing:false,
     }
     this._videos.bind(this._videos);
@@ -27,23 +23,7 @@ export default class VideoPage extends Component {
     this._renderRow.bind(this._renderRow);
     this._requestDatas.bind(this._requestDatas);
     this._playAction.bind(this._playAction);
-    store.subscribe(()=>this._storeChanged());
-  }
 
-  _contains(url){
-    for (var i = 0; i < store.getState().videoLists.length; i++){
-        if (store.getState().videoLists[i] == url)//如果要求数据类型也一致，这里可使用恒等号===
-            return true;
-    }
-    return false;
-  }
-
-  //监听store是否更新了；
-  _storeChanged(){
-      alert('Store更新了');
-      this.setState({
-        collectUrls:store.getState().videoLists,
-      });
   }
 
   componentDidMount(){
@@ -121,31 +101,6 @@ export default class VideoPage extends Component {
 
   }
 
-  //更新store 视频数据
-  _shareAction = (rowData,isCol) => {
-
-    alert('你们的');
-    var stroeVideos = this.state.collectUrls;
-    if(isCol){
-        stroeVideos.push(item.videoUrl);
-    }else{
-      const index =  stroeVideos.indexOf(rowData.videoUrl);
-      stroeVideos.splice(index,1);
-    }
-    this.setState({
-      collectUrls:stroeVideos
-    });
-    const action = {
-        //每个action绑定一个type；
-            type:'video_change',
-            //需要更新store中的相关数据；
-            value:stroeVideos
-        };
-        //store将事件派发给reducer；
-    store.dispatch(action);
-
-  }
-
   _shareView(rowData){
     return <ShareView
                up={rowData.up}
@@ -154,9 +109,6 @@ export default class VideoPage extends Component {
                content={rowData.text}
                imageUrl={rowData.thumbnail}
                shareUrl={rowData.video}>
-               isCollected={this._contains(rowData.videoUrl)}
-               collectUrls={this.state.collectUrls}
-               onTapCollect={(isCol)=>this._shareAction(rowData,isCol).bind(this)}
            </ShareView>
  
   }

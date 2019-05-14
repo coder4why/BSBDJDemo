@@ -9,7 +9,8 @@ import {
 } from 'react-navigation';
 import {
   Image,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+  Text
 } from 'react-native';
 import VideoPage from '../video/VideoPage';
 import JokePage from '../joke/JokePage';
@@ -115,7 +116,6 @@ const TabRouteConfigs = {
                     headerStyle: {
                         backgroundColor: THEMEConfig.THEMECOLOR,
                     },
-                    headerRight:null,
                 }),
             },
             ...routeIndex,

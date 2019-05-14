@@ -11,30 +11,12 @@ import {
 } from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
-import configureStore from '../../redux/store';
-const store = configureStore();
 
 import {DBTool} from '../tools/DBTool';
 const rowData = {
     video:''
 }
 export default class FavoritePage extends Component {
-
-    //更新store 视频数据
-    _video_store_change(){
-        var stroeVideos = [];
-        this.state.videoLists.map((item)=>{
-            stroeVideos.push(item.videoUrl);
-        });
-        const action = {
-            //每个action绑定一个type；
-                type:'video_change',
-                //需要更新store中的相关数据；
-                value:stroeVideos
-            };
-            //store将事件派发给reducer；
-        store.dispatch(action);
-    }
 
     constructor(props){
         super(props);
@@ -43,24 +25,6 @@ export default class FavoritePage extends Component {
         }
     }
 
-    _contains(){
-        for (var i = 0; i < store.getState().videoLists.length; i++){
-            if (store.getState().videoLists[i] == this.state.shareUrl)//如果要求数据类型也一致，这里可使用恒等号===
-                return true;
-        }
-        return false;
-    }
-
-    //监听store是否更新了；
-    _storeChanged(){
-        alert('Store更新了');
-        var that = this;
-        //store更新后 重新获取store的state作为当前的state；当前界面上的组件就会被刷新；
-        this.setState({
-            isCollected:that._contains()
-        });
-    }
-    
     componentDidMount(){
         this._requestVideos();
     }
@@ -87,7 +51,7 @@ export default class FavoritePage extends Component {
         this.setState({
             videoLists:newS
         });
-        this._video_store_change();
+        DeviceEventEmitter.emit('CANCEL_COLLECT',item.videoUrl);
     }
 
     _shareHeart(item){

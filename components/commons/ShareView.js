@@ -3,8 +3,9 @@ import {
     View,
     Text,
     Image,
-    TouchableWithoutFeedback
-  } from 'react-native';
+    TouchableWithoutFeedback,
+    DeviceEventEmitter
+} from 'react-native';
 import PropTypes from 'prop-types';
 import Pop from 'rn-global-modal';
 import {ShareTool} from '../tools/ShareTool';
@@ -12,12 +13,6 @@ import {DBTool} from '../tools/DBTool';
 
 export default class ShareView extends Component {
 
-  //分享点击事件：
-    static propTypes = {
-          onTapCollect: PropTypes.func,
-          onTapQQShare: PropTypes.func,
-          onPlayEnd:PropTypes.func,
-    }
     static defaultProps = {
         up:'',
         comment:'',
@@ -27,7 +22,6 @@ export default class ShareView extends Component {
         imageUrl:'',
         shareUrl:'',
         isCollected:false,
-        collectUrls:[]
     }
 
     constructor(props){
@@ -47,6 +41,15 @@ export default class ShareView extends Component {
         this._clickIndex = this._clickIndex.bind(this);
     }
    
+    componentDidMount(){
+        var that = this;
+        DeviceEventEmitter.addListener('CANCEL_COLLECT',function(url){
+            that.setState({
+                isCollected:url===that.state.shareUrl?false:that.state.isCollected
+            });
+        });
+    }
+
     _shareIndex(index){
         switch (index){
             case 0:
@@ -111,12 +114,10 @@ export default class ShareView extends Component {
     _clickIndex(index){
 
         if(index === 2){
-            // alert('sfsg');
             this.setState({
                 isCollected:!this.state.isCollected
             })
             DBTool.insertVideo('',this.state.content,this.state.imageUrl,this.state.shareUrl);
-            this.props.onTapCollect && this.props.onTapCollect(this.state.isCollected);
 
         }else if (index === 3) {
             //分享：
@@ -142,14 +143,6 @@ export default class ShareView extends Component {
         }
 
     }
-
-    _contains(){
-        for (var i = 0; i < this.state.collectUrls.length; i++){
-            if (this.state.collectUrls[i] === this.state.shareUrl)//如果要求数据类型也一致，这里可使用恒等号===
-                return true;
-        }
-        return false;
-      }
 
     _subIndex(index){
 

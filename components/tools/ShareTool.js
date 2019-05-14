@@ -17,22 +17,13 @@ export const ShareTool = {
 
     registerThirds(){
         WeChat.registerApp('wx488555c9eb4004bc');
-        // QQAPI.registerApp('1106762735');
-        // Weibo.registerApp('1432769634');
     },
 
     platform:ShareType,
-    //isLogin:登录还是分享 params登录或者分享参数
-    share(isLogin,params,platform){
-
-    },
     qqLogin(callback)  {
         let scopes ='get_user_info';
         QQAPI.login(scopes)
             .then((data) => {
-                console.log('-----------QQ登录👌-------------');
-                console.log(JSON.stringify(data));
-                console.log('------------QQ登录👌----------------');
             if(data.errCode===0){
                 console.log('------------请求一下--------------');
                 getData('https://graph.qq.com/user/get_simple_userinfo?access_token=' + data.access_token 
@@ -66,10 +57,6 @@ export const ShareTool = {
         })
       
     },
-
-    weiboLogin(){},
-    weiboShare(){},
-
     qqShare(title,imageUrl,webpageUrl){
         let qqshareInfo={
             type: 'news',

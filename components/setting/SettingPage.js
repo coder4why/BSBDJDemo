@@ -7,19 +7,25 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
   DeviceEventEmitter,
-  Image
+  Image,
+  Switch
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 var width =  Dimensions.get('window').width;
 import {ShareTool} from '../tools/ShareTool';
+import * as QQAPI from 'react-native-qq';
+import * as WeChat from 'react-native-wechat';
 
 export default class SettingPage extends Component {
+
     constructor(props){
         super(props);
         this.state = {
-            atavar:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3209991952,3058302493&fm=27&gp=0.jpg',
-            nick_name:'....',
+            atavar:'http://ku.90sjimg.com/element_origin_min_pic/01/31/87/96573b585a7c9c4.jpg',
+            nick_name:'',
+            isQQ:false,
+            isWx:false
         }
     }
     //更换导航栏主题色：
@@ -29,8 +35,16 @@ export default class SettingPage extends Component {
                 headerStyle: {
                     backgroundColor: '#fff',
                 },
-                headerRight:<View></View>
+                tabBarVisible: true, // 隐藏底部导航栏
+                header:null,  //隐藏顶部导航栏
         }
+    }
+
+    componentDidMount(){
+        this.props.navigation.setParams({
+            tabBarVisible:false,
+            header:null,  //隐藏顶部导航栏
+        });
     }
 
     _myFavorite(){
@@ -47,35 +61,29 @@ export default class SettingPage extends Component {
             headerStyle: {
                 backgroundColor: color,
             },
-            headerRight: 
-                    <TouchableWithoutFeedback onPress={()=>{}}>
-                        <View style={{width:60,height:44,marginRight:0,alignItems:'center'}}>
-                        <Text style={{color:'white',textAlign:'center',fontSize:16,marginTop:13}}>拍照</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
-    });
+         });
     }
     _colorViews(){
-        var colors = ['#66CDAA','#FF6A6A','#1E90FF','#AB82FF'];
+        var colors = ['#66CDAA','#FF6A6A','#1E90FF','#AB82FF','#333333'];
         var colorViews = [];
         colors.map((f)=>{
             colorViews.push(
                 <TouchableWithoutFeedback key={f} onPress={()=>this._selectThemeIndex(f)}>
-                    <View style={{
-                        backgroundColor:f,
-                        width:(width-150)/colors.length,
-                        height:1.5*(width-150)/colors.length,
-                        margin:5,
-                        marginTop:10,
-                        borderRadius:10
-                    }}>
+                    <View>
+                        <View style={{
+                            backgroundColor:f,
+                            width:60,
+                            height:60,
+                            borderRadius:30
+                        }}>
+                        </View>
                     </View>
                 </TouchableWithoutFeedback>
             );
         });
 
         return colorViews;
-
+        
     }
 
     _loginIndex(index){
@@ -85,7 +93,8 @@ export default class SettingPage extends Component {
                  ShareTool.qqLogin(function(resp){
                      that.setState({
                         atavar:resp.figureurl_qq,
-                        nick_name:resp.nickname
+                        nick_name:resp.nickname,
+                        isQQ:true
                      });
                  });
                 break;
@@ -93,7 +102,8 @@ export default class SettingPage extends Component {
                 ShareTool.wechatLogin(function(resp){
                     that.setState({
                         atavar:resp.headimgurl,
-                        nick_name:resp.nickname
+                        nick_name:resp.nickname,
+                        isWx:true
                      });
                 });
                 break;
@@ -103,43 +113,6 @@ export default class SettingPage extends Component {
         }
     }
 
-    _thirdLoginView(){
-        var plats = ['../src/qq.png','../src/wechat.png'];
-        var platViews = [];
-        var img ;
-        var index ;
-        plats.map((f)=>{
-           index = plats.indexOf(f);
-           switch (index){
-               case 0:
-                    img = require('../src/qq.png');
-                    break;
-               case 1:
-                    img = require('../src/wechat.png');
-                    break;
-            //    case 2:
-            //         img = require('../src/weibo.png');
-                    break;
-           }
-            platViews.push(
-                <TouchableWithoutFeedback key={f} onPress={()=>this._loginIndex(plats.indexOf(f))}>
-                   
-                    <Image style={{
-                        width:35,
-                        height:35,
-                        margin:20,
-                        marginTop:10,
-                        resizeMode:'contain'
-                    }}
-                    source={img}
-                    >
-                    </Image>
-                </TouchableWithoutFeedback>
-            );
-        });
-
-        return platViews;
-    }
     _shareIndex(index){
         switch (index){
             case 0:
@@ -160,48 +133,24 @@ export default class SettingPage extends Component {
         }
     }
 
-    _thirdShareView(){
-        var plats = [
-                     '../src/qq.png','../src/qqzone.png','../src/wechat.png',
-                     '../src/wechatCircle.png'
-                    ];
-        var platViews = [];
-        plats.forEach((f)=>{
-            var img ;
-            var index = plats.indexOf(f);
-            switch (index){
-                case 0:
-                     img = require('../src/qq.png');
-                     break;
-                case 1:
-                     img = require('../src/qqzone.png');
-                     break;
-                case 2:
-                     img = require('../src/wechat.png');
-                     break;
-                case 3:
-                     img = require('../src/wechatCircle.png');
-                     break;
-                // case 4:
-                //      img = require('../src/weibo.png');
-                //      break;
-            }
-             platViews.push(
-                 <TouchableWithoutFeedback key={f} onPress={()=>this._shareIndex(plats.indexOf(f))}>
-                     <Image style={{
-                         width:35,
-                         height:35,
-                         margin:8,
-                         padding:15,
-                         resizeMode:'contain'
-                     }}
-                     source={img}
-                     >
-                     </Image>
-                 </TouchableWithoutFeedback>
-             );
-        });
-        return platViews;
+    _switchs(isQQ){
+        return <View style={{flex:1,flexDirection:"row",marginTop:5}}>
+                    <Text style={{margin:10,fontSize:16,color:'#333333',width:60}}>{isQQ?'QQ':'微信'}</Text>
+                    <Switch 
+                        value={isQQ?this.state.isQQ:(this.state.isWx?this.state.isWx:false)} 
+                        style={{marginRight:5,marginLeft:Dimensions.get('window').width-70-65}}
+                        disabled={isQQ?QQAPI.isQQInstalled:WeChat.isWXAppInstalled}
+                        trackColor='red'
+                        thumbColor='blue'
+                        onValueChange = {()=>function(value){
+                            if(isQQ){
+                                this._loginIndex(0);
+                            }else{
+                                this._loginIndex(1);
+                            }
+                        }}
+                    ></Switch>
+               </View>
     }
 
     _userMsgs(){
@@ -219,18 +168,20 @@ export default class SettingPage extends Component {
                     {this._userMsgs()}
                     {this._sepLine()}
                     <Text style={{color:'#636363',fontSize:18,left:10,marginTop:10,}}>更换主题色</Text>
-                    <View style={{justifyContent:"flex-start",flexDirection:'row',flex:1,}}>
+                    <View style={{justifyContent:"space-evenly",flexDirection:'row',flex:1,marginBottom:5,margin:5}}>
                         {this._colorViews(1)}
                     </View>
                     {this._sepLine()}
                     <Text style={{color:'#636363',fontSize:18,left:10,marginTop:10,}}>登录</Text>
-                    <View style={{justifyContent:"flex-start",flexDirection:'row',flex:1,}}>
-                        {this._thirdLoginView()}
+                    <View style={{justifyContent:"flex-start",flex:1,marginBottom:5}}>
+                        {this._switchs(true)}
+                        {this._switchs(false)}
                     </View>
                     {this._sepLine()}
                     <TouchableWithoutFeedback key='sds' onPress={()=>this._myFavorite()}>
-                        <Text style={{color:'#636363',fontSize:18,left:10,marginTop:10,}}> 我的收藏</Text>
+                        <Text style={{color:'#636363',fontSize:18,margin:10,}}>我的收藏</Text>
                     </TouchableWithoutFeedback>
+                    {this._sepLine()}
                </ScrollView>;
     }
 }
