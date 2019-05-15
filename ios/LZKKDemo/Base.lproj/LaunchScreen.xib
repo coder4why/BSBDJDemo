@@ -15,16 +15,20 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="xr4-dE-z6i">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sx.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xr4-dE-z6i">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="xr4-dE-z6i" secondAttribute="bottom" id="SH7-qj-mu8"/>
+                <constraint firstAttribute="bottom" secondItem="xr4-dE-z6i" secondAttribute="bottom" id="WIz-zA-Hsl"/>
+                <constraint firstItem="xr4-dE-z6i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="X71-te-MyR"/>
                 <constraint firstAttribute="trailing" secondItem="xr4-dE-z6i" secondAttribute="trailing" id="XEC-tY-6nh"/>
                 <constraint firstItem="xr4-dE-z6i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZQG-pY-iPd"/>
+                <constraint firstItem="xr4-dE-z6i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hG7-TE-VGp"/>
                 <constraint firstItem="xr4-dE-z6i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rXW-Lb-ZGO"/>
+                <constraint firstAttribute="trailing" secondItem="xr4-dE-z6i" secondAttribute="trailing" id="xf1-Aj-ebl"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -32,6 +36,6 @@
         </view>
     </objects>
     <resources>
-        <image name="1.png" width="739" height="263"/>
+        <image name="sx.jpg" width="1125" height="2436"/>
     </resources>
 </document>

@@ -4460,6 +4460,10 @@ react-native-sound@^0.10.12:
   version "0.10.12"
   resolved "https://registry.npm.taobao.org/react-native-sound/download/react-native-sound-0.10.12.tgz#f912d6f9d6e9e2b42b391e0226787628d940f01a"
 
+react-native-splash-screen@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/react-native-splash-screen/download/react-native-splash-screen-3.2.0.tgz#d47ec8557b1ba988ee3ea98d01463081b60fff45"
+
 react-native-sqlite-2@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npm.taobao.org/react-native-sqlite-2/download/react-native-sqlite-2-2.0.2.tgz#7328250b46980b01edaa247a12ff6a41dd6f06d2"

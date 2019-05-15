@@ -5,6 +5,7 @@ import Navigator from './components/tabbar/LZKKTabBar';
 import {ShareTool} from './components/tools/ShareTool';
 import {DBTool} from './components/tools/DBTool';
 import { Provider } from 'react-redux';
+
 import configureStore from './redux/store';
 const store = configureStore();
 

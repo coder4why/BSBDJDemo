@@ -6,7 +6,7 @@
  */
 
 #import "AppDelegate.h"
-
+#import "RNSplashScreen.h"  // here
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -17,7 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  
   AVAudioSession *avSession = [AVAudioSession sharedInstance];
   [avSession setCategory:AVAudioSessionCategoryAmbient error:nil];  // allow
   if ([avSession respondsToSelector:@selector(requestRecordPermission:)]) {
@@ -30,7 +29,7 @@
                                             initialProperties:nil];
 
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-
+  [RNSplashScreen showSplash:@"LaunchScreen" inRootView:rootView];
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;

@@ -11,6 +11,7 @@ import { NavigationActions } from 'react-navigation';
 import ShareView from '../commons/ShareView';
 import {getData} from '../tools/Fetch';
 import setStatusBar from '../tools/StatusTool';
+import SplashScreen from 'react-native-splash-screen'
 
 export default class VideoPage extends Component {
   
@@ -29,6 +30,7 @@ export default class VideoPage extends Component {
   }
 
   componentDidMount(){
+    SplashScreen.hide();
     this._requestDatas(true);
     setStatusBar(true);
   }
