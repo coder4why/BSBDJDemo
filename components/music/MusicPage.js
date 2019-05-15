@@ -123,9 +123,6 @@ export default class MusicPage extends Component {
   }
 
   _searchMusic(text){
-    console.log('------------------------------------');
-    console.log(text);
-    console.log('------------------------------------');
     if(text.length==0){
         return;
     }
@@ -157,7 +154,11 @@ export default class MusicPage extends Component {
                       placeholder="搜索歌名、歌手、专辑"
                       onSubmitEditing = {(event)=>this._searchMusic(event.nativeEvent.text)}
                 />
-                {this._musics()}
+                {this.state.musicLists.length>0?
+                  this._musics():<View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+                    <Image style={{flex:1,resizeMode:'contain'}} source={require('../src/nothing.png')}></Image>
+                  </View>
+                }
                 <Toast ref="toast" position='center' opacity={.8}/>
             </View>
           );
