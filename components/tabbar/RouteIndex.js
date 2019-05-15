@@ -5,7 +5,7 @@
         VideoDetail:{
           screen:require('../video/VideoDetail.js').default,
           navigationOptions:({ navigation }) => ({
-              title:'视频详情',
+              headerTitle:'视频详情',
               headerTintColor:'white',
               headerStyle: {
                   backgroundColor: THEMEConfig.THEMECOLOR,
@@ -15,7 +15,7 @@
       Favorite:{
         screen:require('../setting/FavoritePage.js').default,
         navigationOptions:({ navigation }) => ({
-            title:'我的收藏',
+            headerTitle:'',
             headerTintColor:'white',
             headerStyle: {
                 backgroundColor: THEMEConfig.THEMECOLOR,

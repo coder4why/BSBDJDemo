@@ -9,7 +9,9 @@ import {
 } from 'react-native';
 import Toast, {DURATION} from 'react-native-easy-toast';
 import {getData} from '../tools/Fetch';
-import { TouchableWithoutFeedback, ScrollView } from 'react-native-gesture-handler';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import setStatusBar from '../tools/StatusTool';
+
 var Sound = require('react-native-sound');
 var whoosh;
 export default class MusicPage extends Component {
@@ -117,6 +119,7 @@ export default class MusicPage extends Component {
   componentDidMount(){
     this._searchMusic('薛之谦');
     Sound.setCategory('Playback');
+    setStatusBar(true);
   }
 
   _searchMusic(text){

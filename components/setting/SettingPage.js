@@ -6,86 +6,30 @@ import {
   Text,
   TouchableWithoutFeedback,
   Dimensions,
-  DeviceEventEmitter,
   Image,
-  Switch
+  Switch,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
-var width =  Dimensions.get('window').width;
+import ActionSheet from 'react-native-actionsheet'; //弹窗
 import {ShareTool} from '../tools/ShareTool';
-import * as QQAPI from 'react-native-qq';
-import * as WeChat from 'react-native-wechat';
-
+import setStatusBar from '../tools/StatusTool';
+const defalutAtavar = '';
 export default class SettingPage extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            atavar:'http://ku.90sjimg.com/element_origin_min_pic/01/31/87/96573b585a7c9c4.jpg',
+            atavar:defalutAtavar,
             nick_name:'',
             isQQ:false,
             isWx:false
         }
     }
-    //更换导航栏主题色：
-    static navigationOptions = ({ navigation }) => {
-        const { params } = navigation.state;
-        return {    
-                headerStyle: {
-                    backgroundColor: '#fff',
-                },
-                tabBarVisible: true, // 隐藏底部导航栏
-                header:null,  //隐藏顶部导航栏
-        }
-    }
-
-    componentDidMount(){
-        this.props.navigation.setParams({
-            tabBarVisible:false,
-            header:null,  //隐藏顶部导航栏
-        });
-    }
-
-    _myFavorite(){
-        const navigateAction = NavigationActions.navigate({
-            routeName: 'Favorite',
-            action: NavigationActions.navigate({ routeName: 'Favorite',title:''}),
-            });
-        this.props.navigation.dispatch(navigateAction);
-    }
     
-    _selectThemeIndex(color){
-        DeviceEventEmitter.emit('THEMECOLOR',color);
-        this.props.navigation.setParams({
-            headerStyle: {
-                backgroundColor: color,
-            },
-         });
-    }
-    _colorViews(){
-        var colors = ['#66CDAA','#FF6A6A','#1E90FF','#AB82FF','#333333'];
-        var colorViews = [];
-        colors.map((f)=>{
-            colorViews.push(
-                <TouchableWithoutFeedback key={f} onPress={()=>this._selectThemeIndex(f)}>
-                    <View>
-                        <View style={{
-                            backgroundColor:f,
-                            width:60,
-                            height:60,
-                            borderRadius:30
-                        }}>
-                        </View>
-                    </View>
-                </TouchableWithoutFeedback>
-            );
-        });
-
-        return colorViews;
-        
-    }
-
+  componentWillMount(){
+    setStatusBar(false);
+   } 
     _loginIndex(index){
         var that = this;
         switch (index){
@@ -94,7 +38,8 @@ export default class SettingPage extends Component {
                      that.setState({
                         atavar:resp.figureurl_qq,
                         nick_name:resp.nickname,
-                        isQQ:true
+                        isQQ:true,
+                        isWx:false
                      });
                  });
                 break;
@@ -103,7 +48,8 @@ export default class SettingPage extends Component {
                     that.setState({
                         atavar:resp.headimgurl,
                         nick_name:resp.nickname,
-                        isWx:true
+                        isWx:true,
+                        isQQ:false
                      });
                 });
                 break;
@@ -113,75 +59,159 @@ export default class SettingPage extends Component {
         }
     }
 
-    _shareIndex(index){
-        switch (index){
-            case 0:
-                ShareTool.qqShare();
-                break;
-            case 1:
-                ShareTool.qqShare();
-                break;
-            case 2:
-                ShareTool.wechat();
-                break;
-            case 3:
-                ShareTool.wechatCircle();
-                break;
-            case 4:
-                ShareTool.wechatPay();
-                break;
+    _login(value,isQQ){
+        if(isQQ){
+            this._loginIndex(0);
+        }else{
+            this._loginIndex(1);
         }
     }
 
     _switchs(isQQ){
+
+        var value = false;
+        if(isQQ){
+            value = this.state.isQQ;
+        }else{
+            value = this.state.isWx;
+        }
+        var that = this;
+        var req = isQQ?require('../src/qq_.png'):require('../src/wx.png');
         return <View style={{flex:1,flexDirection:"row",marginTop:5}}>
-                    <Text style={{margin:10,fontSize:16,color:'#333333',width:60}}>{isQQ?'QQ':'微信'}</Text>
+                    <View style={{marginLeft:10,flexDirection:'row',height:40}}>
+                        <Image style={{width:32,height:32,resizeMode:'contain',marginTop:4}} source={req}></Image>
+                    </View>
                     <Switch 
-                        value={isQQ?this.state.isQQ:(this.state.isWx?this.state.isWx:false)} 
-                        style={{marginRight:5,marginLeft:Dimensions.get('window').width-70-65}}
-                        disabled={isQQ?QQAPI.isQQInstalled:WeChat.isWXAppInstalled}
-                        trackColor='red'
-                        thumbColor='blue'
-                        onValueChange = {()=>function(value){
+                        value={value} 
+                        style={{marginRight:5,marginLeft:Dimensions.get('window').width-70-30}}
+                        onValueChange = {(value)=> {
                             if(isQQ){
-                                this._loginIndex(0);
+                                if(that.state.isQQ){
+                                    that.setState({
+                                        isQQ:false,
+                                        atavar:defalutAtavar,
+                                        nick_name:''
+                                    });
+                                }else{
+                                    that._loginIndex(0);
+                                }
                             }else{
-                                this._loginIndex(1);
+                                if(that.state.isWx){
+                                    that.setState({
+                                        isWx:false,
+                                        atavar:defalutAtavar,
+                                        nick_name:''
+                                    });
+                                }else{
+                                    that._loginIndex(1);
+                                }
                             }
-                        }}
+                         }}
                     ></Switch>
                </View>
     }
 
+    _thirds(){
+        return <View style={{position:'absolute',width:160,height:45,flexDirection:'row',
+                             justifyContent:'space-between',
+                             marginLeft:(Dimensions.get('window').width-160)/2.0
+                            }}>
+                <TouchableWithoutFeedback onPress={()=>this._loginIndex(0)}>
+                    <Image style={{width:45,height:45,resizeMode:'contain'}} source={require('../src/qq.png')}></Image>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={()=>this._loginIndex(1)}>
+                    <Image style={{width:45,height:45,resizeMode:'contain'}} source={require('../src/wechat.png')}></Image>
+                </TouchableWithoutFeedback>
+        </View>
+    }
+
     _userMsgs(){
-      return  <View style={{justifyContent:"flex-start",flexDirection:'row',flex:1,margin:10}}>
-                    <Image style={{width:60,height:60,borderRadius:30}} source={{uri: this.state.atavar}}></Image>
-                    <Text style={{height:60,marginLeft:5,fontSize:20,textAlign:'center',lineHeight:60}}>{this.state.nick_name}</Text>
+      var source ;
+      if(this.state.atavar.length>0){
+        source={uri: this.state.atavar};
+      }else{
+        source=require('../src/default.png');
+      }
+      return  <View style={{justifyContent:"center",flex:1}}>
+                    <Image style={{width:Dimensions.get('window').width,height:400,opacity:0.7}} 
+                        source={require('../src/bjt.jpg')}
+                    >
+                    </Image>
+                    {this.state.atavar.length>0?
+                    <View style={{position:'absolute',width:200,height:200,alignContent:'center',backgroundColor:'transparent',alignItems:'center',marginLeft:(Dimensions.get('window').width-200)/2.0}}>
+                        <Image style={{width:100,height:100,borderRadius:50,marginTop:20,resizeMode:'cover'}} source={source}></Image>
+                        <Text style={{height:60,marginLeft:5,fontSize:20,textAlign:'center',lineHeight:60,color:'white'}}>{this.state.nick_name}</Text>        
+                    </View>:this._thirds()
+                    }
               </View>
     }
     _sepLine(){
         return <View style={{height:1,backgroundColor:'#EEE9E9',flex:1,marginHorizontal:10}}></View>
     }
 
+    _clickIndex(index){
+        //更换主题：
+        if(index==0 || index==1){
+            const navigateAction = NavigationActions.navigate({
+                routeName: 'Favorite',
+                params:{index},
+                action: NavigationActions.navigate({ routeName: 'Favorite',title:''}),
+                });
+            this.props.navigation.dispatch(navigateAction);
+        }else{
+            //退出登录
+            this.ActionSheet.show();
+        }
+
+    }
+
+    _items(index){
+        var titles = ['我的收藏','更换主题','退出登录'];
+        return <TouchableWithoutFeedback key={titles[index]} onPress={()=>this._clickIndex(index)}>
+                    <View style={{marginLeft:10,flexDirection:'row',height:60}}>
+                        {/*<Image style={{width:32,height:32,resizeMode:'contain',marginTop:9}} source={require('../src/collect.png')}></Image>*/}
+                        <Text style={{color:'#636363',fontSize:18,marginLeft:0,lineHeight:60}}>{titles[index]}</Text>
+                        <Image style={{width:32,height:32,resizeMode:'contain',marginLeft:Dimensions.get('window').width-123,marginTop:14}} source={require('../src/next.png')}></Image>
+                    </View>
+              </TouchableWithoutFeedback>
+    }
+
+    _handlePress(index){
+        if(index==1){  //退出登录
+            this.setState({
+                atavar:'',
+                nick_name:''
+            });
+        }else if(index==2){
+            //取消
+        }
+    }
     render(){
-        return <ScrollView style={{flex:1}}>
+        const buttons = ['取消', '退出登录'];
+        const CANCEL_INDEX = 0;
+        const DESTRUCTIVE_INDEX = 1;
+        return <ScrollView style={{flex:1,backgroundColor:'#FAFAFA'}}>
                     {this._userMsgs()}
                     {this._sepLine()}
-                    <Text style={{color:'#636363',fontSize:18,left:10,marginTop:10,}}>更换主题色</Text>
-                    <View style={{justifyContent:"space-evenly",flexDirection:'row',flex:1,marginBottom:5,margin:5}}>
-                        {this._colorViews(1)}
-                    </View>
+                    {this._items(0)}
                     {this._sepLine()}
-                    <Text style={{color:'#636363',fontSize:18,left:10,marginTop:10,}}>登录</Text>
-                    <View style={{justifyContent:"flex-start",flex:1,marginBottom:5}}>
-                        {this._switchs(true)}
-                        {this._switchs(false)}
-                    </View>
+                    {this._items(1)}
                     {this._sepLine()}
-                    <TouchableWithoutFeedback key='sds' onPress={()=>this._myFavorite()}>
-                        <Text style={{color:'#636363',fontSize:18,margin:10,}}>我的收藏</Text>
-                    </TouchableWithoutFeedback>
-                    {this._sepLine()}
+                    {this.state.atavar.length>0?
+                        this._items(2):null
+                    }
+                    {
+                        this.state.atavar.length>0?
+                        this._sepLine():null
+                    }
+                    <ActionSheet
+                            ref={(o) => this.ActionSheet = o}
+                            title='是否退出当前账号？'
+                            options={buttons}
+                            cancelButtonIndex={CANCEL_INDEX}
+                            destructiveButtonIndex={DESTRUCTIVE_INDEX}
+                            onPress={this._handlePress.bind(this)}
+                    />
                </ScrollView>;
     }
 }

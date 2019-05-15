@@ -9,7 +9,9 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.5",
+    "react-native-actionsheet": "^2.4.2",
     "react-native-audio": "^4.3.0",
+    "react-native-blur": "^3.2.2",
     "react-native-easy-toast": "^1.2.0",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-qq": "^2.0.5",

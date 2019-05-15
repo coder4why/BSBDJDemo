@@ -7,7 +7,7 @@ import {
   Image
 } from 'react-native';
 import {getData} from '../tools/Fetch';
-
+import setStatusBar from '../tools/StatusTool';
 export default class JokePage extends Component {
 
   constructor(props){
@@ -92,6 +92,7 @@ export default class JokePage extends Component {
 
   componentDidMount(){
     this._requestDatas(true);
+    setStatusBar(true);
   }
 
   render() {

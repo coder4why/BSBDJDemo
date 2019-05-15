@@ -10,6 +10,8 @@ import {
 import { NavigationActions } from 'react-navigation';
 import ShareView from '../commons/ShareView';
 import {getData} from '../tools/Fetch';
+import setStatusBar from '../tools/StatusTool';
+
 export default class VideoPage extends Component {
   
   constructor(props){
@@ -28,6 +30,7 @@ export default class VideoPage extends Component {
 
   componentDidMount(){
     this._requestDatas(true);
+    setStatusBar(true);
   }
   
   _requestDatas = (isMore) => {

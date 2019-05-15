@@ -18,14 +18,22 @@
 <img src="/pics/3.png" width="210" height="413"/>
 <img src="/pics/4.png" width="210" height="413"/>
 
+<img src="/pics/5.png" width="210" height="413"/>
+<img src="/pics/6.png" width="210" height="413"/>
+<img src="/pics/7.png" width="210" height="413"/>
+<img src="/pics/8.png" width="210" height="413"/>
+
+<img src="/pics/9.png" width="210" height="413"/>
+<img src="/pics/10.png" width="210" height="413"/>
+
 </h2>
 
 ### Android：
 <h2 align"center">
-<img src="/pics/5.png" width="210" height="457"/>
-<img src="/pics/6.png" width="210" height="457"/>
-<img src="/pics/7.png" width="210" height="457"/>
-<img src="/pics/8.png" width="210" height="457"/>
+<img src="/pics/11.png" width="210" height="457"/>
+<img src="/pics/12.png" width="210" height="457"/>
+<img src="/pics/13.png" width="210" height="457"/>
+<img src="/pics/14.png" width="210" height="457"/>
 
 </h2>
 

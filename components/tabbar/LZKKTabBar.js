@@ -10,7 +10,9 @@ import {
 import {
   Image,
   DeviceEventEmitter,
-  Text
+  Text,
+  View,
+  Dimensions
 } from 'react-native';
 import VideoPage from '../video/VideoPage';
 import JokePage from '../joke/JokePage';
@@ -111,11 +113,21 @@ const TabRouteConfigs = {
             aPP: {
               screen:APP,
               navigationOptions: ({navigation}) => ({
-                    headerTitle:titles[navigation.state.index],
-                    headerTintColor:'white',
+                    headerTitle:navigation.state.index<3?titles[navigation.state.index]:null,
+                    headerTintColor:navigation.state.index<3?'white':null,
                     headerStyle: {
-                        backgroundColor: THEMEConfig.THEMECOLOR,
+                        backgroundColor: navigation.state.index<3?THEMEConfig.THEMECOLOR:'transparent',
                     },
+                    header:navigation.state.index<3?
+                    <View style={{
+                      width:Dimensions.get('window').width,
+                      height:Dimensions.get('window').height>=812?88:64,
+                      backgroundColor:navigation.state.index<3?THEMEConfig.THEMECOLOR:'transparent',
+                      justifyContent:'center'
+                    }}
+                    >
+                      <Text style={{color:'white',fontSize:18,textAlign:'center',lineHeight:40,marginTop:Dimensions.get('window').height>=812?44:20}}>{navigation.state.index<3?titles[navigation.state.index]:''}</Text>
+                    </View>:null
                 }),
             },
             ...routeIndex,

@@ -9,25 +9,42 @@ import {
   Dimensions,
   DeviceEventEmitter
 } from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
+import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
-
 import {DBTool} from '../tools/DBTool';
 const rowData = {
     video:''
 }
 export default class FavoritePage extends Component {
 
+    static navigationOptions = ({ navigation }) => {
+        const { params } = navigation.state;
+        return { 
+            headerStyle: {
+                backgroundColor: '#fff',
+            },
+    }}
+
     constructor(props){
         super(props);
         this.state = {
-            videoLists:[]
+            videoLists:[],
+            index:0, //0'我的收藏',1'更换主题'
         }
     }
 
     componentDidMount(){
-        this._requestVideos();
+
+        const index = this.props.navigation.state.params.index;
+        this.setState({
+            index:index
+        });
+        
+        if(index==0){
+            this._requestVideos();
+        }
     }
+
     _requestVideos(){
         var that = this;
         DBTool.queryVideo(function(videos){
@@ -55,20 +72,48 @@ export default class FavoritePage extends Component {
     }
 
     _shareHeart(item){
-       return   <TouchableWithoutFeedback onPress={()=>this._deleteCollect(item)}>
-                     <Image style={{
-                         width:25,
-                         height:25,
-                         marginLeft:Dimensions.get('window').width-143,
-                         marginBottom:5,
-                         resizeMode:'contain'
-                     }}
-                     source={require('../src/heart_active.png')}
-                     >
-                     </Image>
-                </TouchableWithoutFeedback>
+     return <TouchableWithoutFeedback onPress={()=>this._deleteCollect(item)}>
+                <Image style={{
+                    width:25,
+                    height:25,
+                    marginLeft:Dimensions.get('window').width-143,
+                    marginBottom:5,
+                    resizeMode:'contain'
+                }}
+                source={require('../src/heart_active.png')}
+                >
+                </Image>
+            </TouchableWithoutFeedback>
     }
+    
+    _selectThemeIndex(color){
+        DeviceEventEmitter.emit('THEMECOLOR',color);
+        this.props.navigation.setParams({
+            headerStyle: {
+                backgroundColor: color,
+            },
+         });
+    }
+    _colorViews(){
+        var colors = ['#66CDAA','#FF6A6A','#1E90FF','#AB82FF','#333333'];
+        var colorViews = [];
+        colors.map((f)=>{
+            colorViews.push(
+                <TouchableWithoutFeedback key={f} onPress={()=>this._selectThemeIndex(f)}>
+                        <View style={{
+                            backgroundColor:f,
+                            width:60,
+                            height:60,
+                            borderRadius:30,
+                        }}>
+                        </View>
+                </TouchableWithoutFeedback>
+            );
+        });
 
+        return colorViews;
+
+    }
     _renderRow(item){
         return <TouchableWithoutFeedback key={item.imageUrl} onPress={()=>this._clickItem(item)}>
                     <View style={{flex:1,height:106,marginHorizontal:5,marginTop:5}}>
@@ -88,12 +133,21 @@ export default class FavoritePage extends Component {
         return "index"+index+item.imageUrl;
     }  
     render(){
-        return  <FlatList
-                    style={{flex:1}}
-                    keyExtractor = {this._extraUniqueKey} 
-                    data={this.state.videoLists}
-                    renderItem = {({item}) => this._renderRow(item)}
-                />;
+        return  <View style={{flex:1}}>
+                {this.state.index==0?
+                    <FlatList
+                        style={{flex:1}}
+                        keyExtractor = {this._extraUniqueKey} 
+                        data={this.state.videoLists}
+                        renderItem = {({item}) => this._renderRow(item)}
+                    />:
+                    <ScrollView style={{flex:1}}>
+                        <View style={{justifyContent:"space-evenly",flexDirection:'row',flex:1,margin:5}}>
+                            {this._colorViews()}
+                        </View>
+                    </ScrollView>
+                }
+        </View>
     }
 
 
