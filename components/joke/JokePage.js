@@ -63,6 +63,7 @@ export default class JokePage extends Component {
   }
 
   _requestDatas(isMore){
+    
     if(this.state.refreshing){
       return;
     }
@@ -91,6 +92,9 @@ export default class JokePage extends Component {
   }
 
   componentDidMount(){
+    this.setState({
+      refreshing:true
+    });
     this._requestDatas(true);
     setStatusBar(true);
   }

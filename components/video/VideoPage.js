@@ -30,6 +30,9 @@ export default class VideoPage extends Component {
   }
 
   componentDidMount(){
+    this.setState({
+      refreshing:true
+    });
     SplashScreen.hide();
     this._requestDatas(true);
     setStatusBar(true);
