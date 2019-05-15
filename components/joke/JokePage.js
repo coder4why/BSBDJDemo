@@ -39,7 +39,7 @@ export default class JokePage extends Component {
       
     return <View style={{flex:1,marginTop:5}}>
               {this._header(rowData)}
-              <Text style={{margin:5,fontSize:17,color:'#333333'}}>{rowData.text}</Text>
+              <Text style={{margin:5,fontSize:16,color:'grey'}}>{rowData.text}</Text>
               <View style={{backgroundColor:'#EBEBEB',flex:1,height:1,marginTop:5}}>
               </View>
           </View>
