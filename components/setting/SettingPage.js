@@ -132,8 +132,9 @@ export default class SettingPage extends Component {
       }else{
         source=require('../src/default.png');
       }
+      const {width,height} = Dimensions.get('window');
       return  <View style={{justifyContent:"center",flex:1}}>
-                    <Image style={{width:Dimensions.get('window').width,height:400,opacity:0.7}} 
+                    <Image style={{width:width,height:height>=812?330:280,opacity:0.7}} 
                         source={require('../src/bjt.jpg')}
                     >
                     </Image>

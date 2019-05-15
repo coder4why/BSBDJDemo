@@ -77,7 +77,7 @@ const TabRouteConfigs = {
 
       screen:SettingPage,
       navigationOptions: ({ navigation }) => ({
-          tabBarLabel:'设置',
+          tabBarLabel:'我的',
           tabBarIcon:({focused,tintColor}) => (
               <Image
               source={focused ? setting_normal:setting_selected}
@@ -102,7 +102,7 @@ const TabRouteConfigs = {
         showIcon:true,
       },
   };
-  const titles = ['看视频','刷段子','听音乐','设置'];
+  const titles = ['看视频','刷段子','听音乐','我的'];
   const APP = createBottomTabNavigator(TabRouteConfigs,TabNavigatorConfigs);
   // DeviceEventEmitter.addListener('THEMECOLOR',function(color){
   //     themeColor = color;
