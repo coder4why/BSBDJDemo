@@ -12,6 +12,7 @@ import ShareView from '../commons/ShareView';
 import {getData} from '../tools/Fetch';
 import setStatusBar from '../tools/StatusTool';
 import SplashScreen from 'react-native-splash-screen'
+import Toast, {DURATION} from 'react-native-easy-toast';
 
 export default class VideoPage extends Component {
   
@@ -108,6 +109,11 @@ export default class VideoPage extends Component {
       this.props.navigation.dispatch(navigateAction);
 
   }
+  _onTapCollected(collected){
+
+    this.refs.toast.show(collected==false?'收藏成功':'取消成功', 500, () => {});
+
+  }
 
   _shareView(rowData){
     return <ShareView
@@ -116,7 +122,8 @@ export default class VideoPage extends Component {
                forward={rowData.forward}
                content={rowData.text}
                imageUrl={rowData.thumbnail}
-               shareUrl={rowData.video}>
+               shareUrl={rowData.video}
+               onTapCollected={(collected) => this._onTapCollected(collected)}>
            </ShareView>
  
   }
@@ -158,6 +165,14 @@ export default class VideoPage extends Component {
           return(
             <View style={{flex:1}}>
                 {this._videos()}
+                <Toast  ref="toast"
+                        position='center'
+                        positionValue={10}
+                        fadeInDuration={750}
+                        fadeOutDuration={1000}
+                        opacity={0.8}
+                        textStyle={{color:'white',fontSize:20}}
+                />
               </View>
           );
       }

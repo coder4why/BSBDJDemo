@@ -6,13 +6,16 @@ import {
     TouchableWithoutFeedback,
     DeviceEventEmitter
 } from 'react-native';
-import PropTypes from 'prop-types';
 import Pop from 'rn-global-modal';
+import PropTypes from 'prop-types';
 import {ShareTool} from '../tools/ShareTool';
 import {DBTool} from '../tools/DBTool';
 
 export default class ShareView extends Component {
-
+    //分享点击事件：
+    static propTypes = {
+        onTapCollected: PropTypes.func,
+    }
     static defaultProps = {
         up:'',
         comment:'',
@@ -118,6 +121,7 @@ export default class ShareView extends Component {
                 isCollected:!this.state.isCollected
             })
             DBTool.insertVideo('',this.state.content,this.state.imageUrl,this.state.shareUrl);
+            this.props.onTapCollected && this.props.onTapCollected(this.state.isCollected);
 
         }else if (index === 3) {
             //分享：

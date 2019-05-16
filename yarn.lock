@@ -4434,6 +4434,10 @@ react-native-gesture-handler@^1.1.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-lahk-marquee-label@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.npm.taobao.org/react-native-lahk-marquee-label/download/react-native-lahk-marquee-label-1.1.4.tgz#4cee6b8c81bb91afc92844206374bad05d5477f1"
+
 react-native-qq@^2.0.5:
   version "2.0.5"
   resolved "https://registry.npm.taobao.org/react-native-qq/download/react-native-qq-2.0.5.tgz#91c893bd9dd4be7b7953227e522c9d8bb3982624"

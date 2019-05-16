@@ -12,6 +12,8 @@ import {
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
 import {DBTool} from '../tools/DBTool';
+import Toast from 'react-native-easy-toast';
+
 const rowData = {
     video:''
 }
@@ -62,6 +64,7 @@ export default class FavoritePage extends Component {
     }
     _deleteCollect(item){
         DBTool.deleteVideo(item.videoUrl);
+        this.refs.toast.show('取消成功', 500, () => {});
         var newS = this.state.videoLists;
         const index =  newS.indexOf(item);
         newS.splice(index,1);
@@ -129,6 +132,7 @@ export default class FavoritePage extends Component {
                 </TouchableWithoutFeedback>
 
     }
+
     _extraUniqueKey(item ,index){
         return "index"+index+item.imageUrl;
     }  
@@ -147,7 +151,15 @@ export default class FavoritePage extends Component {
                         </View>
                     </ScrollView>
                 }
-        </View>
+                <Toast  ref="toast"
+                        position='center'
+                        positionValue={200}
+                        fadeInDuration={750}
+                        fadeOutDuration={1000}
+                        opacity={0.8}
+                        textStyle={{color:'white',fontSize:20}}
+                />
+                </View>
     }
 
 
