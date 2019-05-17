@@ -77,13 +77,13 @@ export default class FavoritePage extends Component {
     _shareHeart(item){
      return <TouchableWithoutFeedback onPress={()=>this._deleteCollect(item)}>
                 <Image style={{
-                    width:25,
-                    height:25,
-                    marginLeft:Dimensions.get('window').width-143,
+                    width:26,
+                    height:26,
+                    marginLeft:Dimensions.get('window').width-142,
                     marginBottom:5,
                     resizeMode:'contain'
                 }}
-                source={require('../src/heart_active.png')}
+                source={require('../src/heart_grey.png')}
                 >
                 </Image>
             </TouchableWithoutFeedback>
@@ -98,17 +98,21 @@ export default class FavoritePage extends Component {
          });
     }
     _colorViews(){
-        var colors = ['#66CDAA','#FF6A6A','#1E90FF','#AB82FF','#333333'];
+        var colors = ['#66CDAA','#FF6A6A','#1E90FF','#AB82FF','#333333',
+                      '#ADADAD','#8FBC8F','#32CD32','#6E7B8B','#7AC5CD'];
         var colorViews = [];
         colors.map((f)=>{
             colorViews.push(
                 <TouchableWithoutFeedback key={f} onPress={()=>this._selectThemeIndex(f)}>
                         <View style={{
                             backgroundColor:f,
-                            width:60,
-                            height:60,
-                            borderRadius:30,
+                            borderRadius:10,
+                            height:40,
+                            margin:10,
+                            marginBottom:0,
+                            justifyContent:'center'
                         }}>
+                            <Text style={{textAlign:'center',color:'white',fontSize:16}}>{f}</Text>
                         </View>
                 </TouchableWithoutFeedback>
             );
@@ -119,11 +123,11 @@ export default class FavoritePage extends Component {
     }
     _renderRow(item){
         return <TouchableWithoutFeedback key={item.imageUrl} onPress={()=>this._clickItem(item)}>
-                    <View style={{flex:1,height:106,marginHorizontal:5,marginTop:5}}>
+                    <View style={{flex:1,height:76,marginHorizontal:5,marginTop:5}}>
                         <View style={{flex:1,flexDirection:'row',justifyContent:'center'}}>
-                            <Image style={{width:100,height:100,borderRadius:5}} source={{uri:item.imageUrl}}></Image>
+                            <Image style={{width:100,height:70,borderRadius:5}} source={{uri:item.imageUrl}}></Image>
                             <View style={{flex:1}}>
-                                <Text numberOfLines={3} ellipsizeMode="tail" style={{flex:1,fontSize:16,color:'#333333',textAlign:'left',marginLeft:8,overflow:'hidden'}}>{item.content}</Text>
+                                <Text numberOfLines={2} ellipsizeMode="tail" style={{flex:1,fontSize:15,color:'grey',textAlign:'left',marginLeft:8,overflow:'hidden'}}>{item.content}</Text>
                                 {this._shareHeart(item)}
                             </View>
                         </View>
@@ -146,7 +150,7 @@ export default class FavoritePage extends Component {
                         renderItem = {({item}) => this._renderRow(item)}
                     />:
                     <ScrollView style={{flex:1}}>
-                        <View style={{justifyContent:"space-evenly",flexDirection:'row',flex:1,margin:5}}>
+                        <View style={{flex:1,margin:5}}>
                             {this._colorViews()}
                         </View>
                     </ScrollView>

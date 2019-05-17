@@ -21,7 +21,6 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		2E0511B6228BEC17008D2C42 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E051185228BEC17008D2C42 /* 1.png */; };
 		2E46DDE6228BFC6800269E35 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E46DDE5228BFC4B00269E35 /* libSplashScreen.a */; };
 		2E46DED9228C043C00269E35 /* sx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E46DEA7228C043C00269E35 /* sx.jpg */; };
 		2E5042BF22896FC5000ADBF5 /* libRNSqlite2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5042BE22896FAD000ADBF5 /* libRNSqlite2.a */; };
@@ -413,7 +412,6 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		16AF01C54C3A41CC9FE849E9 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E051185228BEC17008D2C42 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = LZKKDemo/1.png; sourceTree = "<group>"; };
 		2E46DDB0228BFC4B00269E35 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		2E46DEA7228C043C00269E35 /* sx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sx.jpg; path = LZKKDemo/Images.xcassets/LaunchImage.launchimage/sx.jpg; sourceTree = "<group>"; };
 		2E50428A22896FAD000ADBF5 /* RNSqlite2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSqlite2.xcodeproj; path = "../node_modules/react-native-sqlite-2/ios/RNSqlite2.xcodeproj"; sourceTree = "<group>"; };
@@ -576,7 +574,6 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				2E051185228BEC17008D2C42 /* 1.png */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -1299,7 +1296,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E46DED9228C043C00269E35 /* sx.jpg in Resources */,
-				2E0511B6228BEC17008D2C42 /* 1.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);

@@ -8,8 +8,8 @@
         4.下拉刷新、上拉加载；
         5.第三方登录与分享：QQ、微信；
         6.数据库react-native-sqlite2：视频收藏功能；
-        7.redux;
-        8.其他；
+        7.更换主题;
+        8.redux等其他内容；
 
 ### iOS：
 <h2 align"center">
@@ -25,15 +25,6 @@
 
 <img src="/pics/9.png" width="210" height="413"/>
 <img src="/pics/10.png" width="210" height="413"/>
-
-</h2>
-
-### Android：
-<h2 align"center">
-<img src="/pics/11.png" width="210" height="457"/>
-<img src="/pics/12.png" width="210" height="457"/>
-<img src="/pics/13.png" width="210" height="457"/>
-<img src="/pics/14.png" width="210" height="457"/>
 
 </h2>
 

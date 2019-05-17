@@ -30,7 +30,7 @@ const setting_normal = require('../src/setting.png');
 const setting_selected = require('../src/setting_selected.png');
 
 export const THEMEConfig = {
-  THEMECOLOR:'#333333',
+  THEMECOLOR:'#ADADAD',
   themeListen(){
     DeviceEventEmitter.addListener('THEMECOLOR',function(color){
       THEMEConfig.THEMECOLOR = color;
@@ -124,8 +124,8 @@ const TabRouteConfigs = {
                           paddingLeft:15,
                         }}
                         >
-                        <Text style={{color:'white',fontSize:30,textAlign:'left',fontWeight:'bold',
-                                      width:100,lineHeight:40,marginTop:Dimensions.get('window').height>=812?40:16
+                        <Text style={{color:'white',fontSize:27,textAlign:'left',fontWeight:'bold',
+                                      width:100,lineHeight:40,marginTop:Dimensions.get('window').height>=812?45:21
                                     }}>
                            {titles[navigation.state.index]}
                           </Text>
@@ -137,18 +137,20 @@ const TabRouteConfigs = {
                           flexDirection:'row',
                           justifyContent:"space-between",
                           paddingLeft:15,
+
                         }}
                         >
-                          <Text style={{color:'white',fontSize:30,textAlign:'left',fontWeight:'bold',
-                                          width:120,lineHeight:40,marginTop:Dimensions.get('window').height>=812?40:16
+                          <Text style={{color:'white',fontSize:27,textAlign:'left',fontWeight:'bold',
+                                          width:120,lineHeight:40,
+                                          marginTop:Dimensions.get('window').height>=812?45:21
                                         }}>
                                   我的音乐
                             </Text>
-                          <Image style={{resizeMode:'contain',width:50,height:20,
-                                        marginTop:Dimensions.get('window').height>=812?58:34,
-                                        paddingTop:10,
+                          <Image style={{resizeMode:'contain',width:50,height:25,
+                                        marginTop:Dimensions.get('window').height>=812?60:34,
+                                        paddingTop:0,
                                       }} 
-                                  source={require('../src/dot-more.png')}>
+                                  source={require('../src/more.png')}>
                           </Image>
                         </View>:null
                 }),

@@ -48,7 +48,8 @@ export default class ShareView extends Component {
         var that = this;
         DeviceEventEmitter.addListener('CANCEL_COLLECT',function(url){
             that.setState({
-                isCollected:url===that.state.shareUrl?false:that.state.isCollected
+                isCollected:url===that.state.shareUrl?false:that.state.isCollected,
+                forward:url===that.state.shareUrl?parseInt(that.state.forward)-1:parseInt(that.state.forward)+1
             });
         });
     }
@@ -122,6 +123,9 @@ export default class ShareView extends Component {
             })
             DBTool.insertVideo('',this.state.content,this.state.imageUrl,this.state.shareUrl);
             this.props.onTapCollected && this.props.onTapCollected(this.state.isCollected);
+            this.setState({
+                forward:this.state.isCollected?parseInt(this.state.forward)-1:parseInt(this.state.forward)+1
+            })
 
         }else if (index === 3) {
             //分享：
@@ -162,14 +166,14 @@ export default class ShareView extends Component {
         if (this.state.up.slice(0,1) == '"') {
             upMsg = this.state.up.slice(1,-1);
           }
-
-        const textDes = [upMsg,`${this.state.comment}`];
+        
+        const textDes = [upMsg,`${this.state.comment}`,`${this.state.forward}`];
         
         return <TouchableWithoutFeedback onPress={()=>this._clickIndex(index)}>
             <View style={{flex:1,justifyContent:'center',flexDirection:'row',}}>
             <Image style={{resizeMode:'contain',width:20,height:20}} source={img[index]}></Image>
-            {index<2?
-                <Text style={{fontSize:15,color:'grey',height:60,marginLeft:5,textAlign:'left',paddingTop:0}}>{textDes[index]}</Text>
+            {index<3?
+                <Text style={{fontSize:15,color:'grey',height:60,marginLeft:5,textAlign:'left',paddingTop:3}}>{textDes[index]}</Text>
                 :null
             }
             </View>
@@ -178,7 +182,11 @@ export default class ShareView extends Component {
 
     render(){
 
-        return <View style={{flex:1,height:40,alignContent:'space-between',justifyContent:'center',flexDirection:'row',marginHorizontal:20,paddingTop:10}}>
+        return <View style={{flex:1,height:40,
+                            justifyContent:'space-between',flexDirection:'row',
+                            marginHorizontal:0,paddingTop:13
+                           }}
+               >
                     {this._subIndex(0)}
                     {this._subIndex(1)}
                     {this._subIndex(2)}
