@@ -139,9 +139,12 @@ export default class SettingPage extends Component {
                     >
                     </Image>
                     {this.state.atavar.length>0?
-                    <View style={{position:'absolute',width:200,height:200,alignContent:'center',backgroundColor:'transparent',alignItems:'center',marginLeft:(Dimensions.get('window').width-200)/2.0}}>
-                        <Image style={{width:100,height:100,borderRadius:50,marginTop:20,resizeMode:'cover'}} source={source}></Image>
-                        <Text style={{height:60,marginLeft:5,fontSize:20,textAlign:'center',lineHeight:60,color:'white'}}>{this.state.nick_name}</Text>        
+                    <View style={{position:'absolute',width:320,height:200,alignContent:'center',
+                    backgroundColor:'transparent',alignItems:'center',marginLeft:(Dimensions.get('window').width-320)/2.0}}>
+                        <Image style={{width:130,height:130,borderRadius:65,marginTop:20,resizeMode:'cover'}} source={source}></Image>
+                        <Text style={{height:60,marginLeft:5,fontSize:30,textAlign:'center',fontWeight:'bold',lineHeight:60,color:'white'}}>
+                           {this.state.nick_name}
+                        </Text>        
                     </View>:this._thirds()
                     }
               </View>

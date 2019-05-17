@@ -104,10 +104,8 @@ const TabRouteConfigs = {
   };
   const titles = ['看视频','刷段子','听音乐','我的'];
   const APP = createBottomTabNavigator(TabRouteConfigs,TabNavigatorConfigs);
-  // DeviceEventEmitter.addListener('THEMECOLOR',function(color){
-  //     themeColor = color;
-  // });
   THEMEConfig.themeListen();
+
   const Navigator = createStackNavigator(
       {
             aPP: {
@@ -118,16 +116,41 @@ const TabRouteConfigs = {
                     headerStyle: {
                         backgroundColor: navigation.state.index<3?THEMEConfig.THEMECOLOR:'transparent',
                     },
-                    header:navigation.state.index<3?
-                    <View style={{
-                      width:Dimensions.get('window').width,
-                      height:Dimensions.get('window').height>=812?88:64,
-                      backgroundColor:navigation.state.index<3?THEMEConfig.THEMECOLOR:'transparent',
-                      justifyContent:'center'
-                    }}
-                    >
-                      <Text style={{color:'white',fontSize:18,textAlign:'center',lineHeight:40,marginTop:Dimensions.get('window').height>=812?44:20}}>{navigation.state.index<3?titles[navigation.state.index]:''}</Text>
-                    </View>:null
+                    header:navigation.state.index<2?
+                        <View style={{
+                          width:Dimensions.get('window').width,
+                          height:Dimensions.get('window').height>=812?88:64,
+                          backgroundColor:THEMEConfig.THEMECOLOR,
+                          paddingLeft:15,
+                        }}
+                        >
+                        <Text style={{color:'white',fontSize:30,textAlign:'left',fontWeight:'bold',
+                                      width:100,lineHeight:40,marginTop:Dimensions.get('window').height>=812?40:16
+                                    }}>
+                           {titles[navigation.state.index]}
+                          </Text>
+                        </View>:navigation.state.index==2?
+                        <View style={{
+                          width:Dimensions.get('window').width,
+                          height:Dimensions.get('window').height>=812?88:64,
+                          backgroundColor:THEMEConfig.THEMECOLOR,
+                          flexDirection:'row',
+                          justifyContent:"space-between",
+                          paddingLeft:15,
+                        }}
+                        >
+                          <Text style={{color:'white',fontSize:30,textAlign:'left',fontWeight:'bold',
+                                          width:120,lineHeight:40,marginTop:Dimensions.get('window').height>=812?40:16
+                                        }}>
+                                  我的音乐
+                            </Text>
+                          <Image style={{resizeMode:'contain',width:50,height:20,
+                                        marginTop:Dimensions.get('window').height>=812?58:34,
+                                        paddingTop:10,
+                                      }} 
+                                  source={require('../src/dot-more.png')}>
+                          </Image>
+                        </View>:null
                 }),
             },
             ...routeIndex,
