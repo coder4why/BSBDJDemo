@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import {getData} from '../tools/Fetch';
 import setStatusBar from '../tools/StatusTool';
+import Toast from 'react-native-easy-toast';
+
 export default class JokePage extends Component {
 
   constructor(props){
@@ -73,22 +75,24 @@ export default class JokePage extends Component {
       });
     }
     var array = Array.from(this.state.jokeLists);
-    setTimeout(() => {
-          getData('https://api.apiopen.top/getJoke?page=0&count=20&type=text',(response)=>{
-            if(response.code == 200){
-              var array = this.state.jokeLists;
-              if(array.length>0){
-                array = isMore?this.state.jokeLists.concat(response.result):response.result.concat(this.state.jokeLists);
-              }else{
-                array = response.result;
-              }
-              this.setState({
-                jokeLists:array,
-                refreshing:false,
-              });
-            }
-          });
-    },500);
+    getData('https://api.apiopen.top/getJoke?page=0&count=20&type=text',(response)=>{
+      this.setState({
+        refreshing:false,
+      });
+      if(response.code == 200){
+        var array = this.state.jokeLists;
+        if(array.length>0){
+          array = isMore?this.state.jokeLists.concat(response.result):response.result.concat(this.state.jokeLists);
+        }else{
+          array = response.result;
+        }
+        this.setState({
+          jokeLists:array,
+        });
+      }else{
+        this.refs.toast.show('请求失败', 500, () => {});
+      }
+    });
   }
 
   componentDidMount(){
@@ -103,6 +107,14 @@ export default class JokePage extends Component {
           return(
             <View style={{flex:1}}>
                 {this._jokes()}
+                <Toast ref="toast"
+                       position='center'
+                       positionValue={10}
+                       fadeInDuration={750}
+                       fadeOutDuration={1000}
+                       opacity={0.8}
+                       textStyle={{color:'white',fontSize:15}}
+                />
             </View>
           );
       }

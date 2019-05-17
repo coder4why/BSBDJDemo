@@ -12,7 +12,7 @@ import ShareView from '../commons/ShareView';
 import {getData} from '../tools/Fetch';
 import setStatusBar from '../tools/StatusTool';
 import SplashScreen from 'react-native-splash-screen'
-import Toast, {DURATION} from 'react-native-easy-toast';
+import Toast from 'react-native-easy-toast';
 
 export default class VideoPage extends Component {
   
@@ -49,25 +49,24 @@ export default class VideoPage extends Component {
         refreshing:true
       });
     }
-    setTimeout(() => {
-            getData('https://api.apiopen.top/getJoke?page=0&count=20&type=video',(response)=>{
-            if(response.code == 200){
-              if(array.length>0){
-                array = isMore?this.state.videoLists.concat(response.result):response.result.concat(this.state.videoLists);
-              }else{
-                array = response.result;
-              }
-              this.setState({
-                videoLists:array,
-                refreshing:false
-              });
-            }else{
-              this.setState({
-                refreshing:false
-              });
-            }
-          }); 
-    },500);
+    getData('https://api.apiopen.top/getJoke?page=0&count=20&type=video',(response)=>{
+    if(response.code == 200){
+      if(array.length>0){
+        array = isMore?this.state.videoLists.concat(response.result):response.result.concat(this.state.videoLists);
+      }else{
+        array = response.result;
+      }
+      this.setState({
+        videoLists:array,
+        refreshing:false
+      });
+    }else{
+      this.setState({
+        refreshing:false
+      });
+      this.refs.toast.show('请求失败', 500, () => {});
+    }
+  }); 
     
   }
  
@@ -171,7 +170,7 @@ export default class VideoPage extends Component {
                         fadeInDuration={750}
                         fadeOutDuration={1000}
                         opacity={0.8}
-                        textStyle={{color:'white',fontSize:20}}
+                        textStyle={{color:'white',fontSize:15}}
                 />
               </View>
           );

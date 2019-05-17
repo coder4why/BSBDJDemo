@@ -4420,6 +4420,10 @@ react-native-blur@^3.2.2:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-easy-loading@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npm.taobao.org/react-native-easy-loading/download/react-native-easy-loading-1.0.6.tgz#ba0b0599cfffec18770821124d749ee993c79a3e"
+
 react-native-easy-toast@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/react-native-easy-toast/download/react-native-easy-toast-1.2.0.tgz#0f70bcb99e3306cda4800c244bfb4a67d42276ed"

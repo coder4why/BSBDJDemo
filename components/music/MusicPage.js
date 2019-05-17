@@ -7,11 +7,11 @@ import {
   TextInput,
   Image,
 } from 'react-native';
-import Toast, {DURATION} from 'react-native-easy-toast';
+import Toast from 'react-native-easy-toast';
 import {getData} from '../tools/Fetch';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import setStatusBar from '../tools/StatusTool';
-
+var { Loading, EasyLoading } = require('react-native-easy-loading');
 var Sound = require('react-native-sound');
 var whoosh;
 export default class MusicPage extends Component {
@@ -112,7 +112,7 @@ export default class MusicPage extends Component {
                     data={this.state.musicLists}
                     renderItem = {({item}) => this._renderRow(item)}
                 />
-             </View>;
+            </View>;
         
   }
 
@@ -123,11 +123,14 @@ export default class MusicPage extends Component {
   }
 
   _searchMusic(text){
+
     if(text.length==0){
         return;
     }
     
+    EasyLoading.show('Loading...', 3000000);
     getData('https://api.apiopen.top/searchMusic?name=='+text,(response)=>{
+      EasyLoading.dismis();
       if(response.code == 200){
         this.setState({
           musicLists:response.result
@@ -155,11 +158,13 @@ export default class MusicPage extends Component {
                       onSubmitEditing = {(event)=>this._searchMusic(event.nativeEvent.text)}
                 />
                 {this.state.musicLists.length>0?
-                  this._musics():<View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                    <Image style={{flex:1,resizeMode:'contain'}} source={require('../src/nothing.png')}></Image>
-                  </View>
+                  this._musics():
+                    <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+                      <Image style={{flex:1,resizeMode:'contain'}} source={require('../src/nothing.png')}></Image>
+                    </View>
                 }
                 <Toast ref="toast" position='center' opacity={.8}/>
+                <Loading loadingStyle={{ backgroundColor: "#333333" }} />
             </View>
           );
       }

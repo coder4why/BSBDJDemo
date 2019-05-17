@@ -8,8 +8,9 @@ export function getData(url,callBack){
     .then((responseData)=>callBack(responseData))
     .catch((error)=>{
         console.log('------------------------------------');
-        console.log('微信🈚️'+error.message);
+        console.log(error.message);
         console.log('------------------------------------');
+        callBack(error);
     })
     .done();
 };

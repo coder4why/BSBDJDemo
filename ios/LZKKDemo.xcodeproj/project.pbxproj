@@ -1394,6 +1394,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.welltalent.dzblistening;
 				PRODUCT_NAME = LZKKDemo;
 				PROVISIONING_PROFILE_SPECIFIER = devUse;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s i386";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1442,6 +1443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.welltalent.dzblistening;
 				PRODUCT_NAME = LZKKDemo;
 				PROVISIONING_PROFILE_SPECIFIER = devUse;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s i386";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
