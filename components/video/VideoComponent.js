@@ -6,26 +6,27 @@ import {
   Dimensions,
   Image,
   TouchableWithoutFeedback,
-  Modal
 } from 'react-native';
-import ImageViewer from 'react-native-image-zoom-viewer';
 import { NavigationActions } from 'react-navigation';
+import PropTypes from 'prop-types';
 import ShareView from '../commons/ShareView';
 import {getData} from '../tools/Fetch';
 import setStatusBar from '../tools/StatusTool';
 import SplashScreen from 'react-native-splash-screen'
 import Toast from 'react-native-easy-toast';
-import CustomTabBar from './CustomTabBar';
 
-export default class VideoPage extends Component {
+export default class VideComponent extends Component {
   
+   //分享点击事件：
+   static propTypes = {
+    onTapPlay: PropTypes.func,
+   }
+
   constructor(props){
     super(props);
     this.state={
       videoLists:[],
       refreshing:false,
-      imageUrl:'',
-      showPic:false
     }
     this._videos.bind(this._videos);
     this._header.bind(this._header);
@@ -110,7 +111,7 @@ export default class VideoPage extends Component {
         params: {rowData},
         action: NavigationActions.navigate({ routeName: 'VideoDetail',title:''}),
         });
-      this.props.navigation.dispatch(navigateAction);
+      this.props.onTapPlay && this.props.onTapPlay(navigateAction);
 
   }
   _onTapCollected(collected){
@@ -165,36 +166,10 @@ export default class VideoPage extends Component {
            </View>
   }
 
-  _play = (navigateAction)=>{
-    this.props.navigation.dispatch(navigateAction);
-  }
-  _onShowPic(imageUrl){
-    this.setState({
-      imageUrl:imageUrl,
-      showPic:!this.state.showPic
-    });
-  }
-
-  _showModel(){
-    return <Modal visible={true} transparent={true} 
-              onRequestClose={()=> {this.setState({showPic: false,})
-           }}>
-              <ImageViewer 
-                  onCancel={()=> {this.setState({showPic: false,});}}
-                  saveToLocalByLongPress={true}
-                  onClick={()=>{this.setState({showPic:!this.state.showPic});}}
-                  imageUrls={[{url:this.state.imageUrl,props:{}}]}/>
-           </Modal>;
-  }
-
   render() {
           return(
-            this.state.showPic && this.state.imageUrl.length>0?this._showModel():<View style={{flex:1}}>
-               
-                <CustomTabBar
-                   onTapPlay={(navigateAction)=>this._play(navigateAction)}
-                   onShowPic={(imageUrl)=>this._onShowPic(imageUrl)}
-                />
+            <View style={{flex:1}}>
+                {this._videos()}
                 <Toast  ref="toast"
                         position='center'
                         positionValue={10}

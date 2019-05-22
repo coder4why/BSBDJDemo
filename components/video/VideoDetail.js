@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import {
-  View,
-  Dimensions
+  ScrollView,
+  Dimensions,
+  Image,
+  View
 } from 'react-native';
 import Video from 'react-native-video';
 import MarqueeLabel from 'react-native-lahk-marquee-label';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 export default class VideoDetail extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      showDM:true,
+    }
+  }
 
   componentDidMount(){
     console.log(JSON.stringify(this.props.navigation.state.params.rowData.video));
@@ -42,20 +52,30 @@ export default class VideoDetail extends Component {
             </View>
   }
   render() {
+      const req = this.state.showDM?require('../src/closeDM.png'):require('../src/openDM.png');
           return(
-            <View style={{flex:1,justifyContent:'flex-start'}}>
+            <ScrollView style={{flex:1}}>
+              <View style={{flex:1}}>
                 <Video source={{uri: this.props.navigation.state.params.rowData.video}}  
-                ref={(ref) => {
-                  this.player = ref
-                }}                                      
-                style={{
-                  width:Dimensions.get('window').width,
-                  height:320
-                }} 
-                resizeMode={'cover'}
-              />
-              {this._runHorseLabel()}
-            </View>
+                  ref={(ref) => {
+                    this.player = ref
+                  }}                                      
+                  style={{
+                    width:Dimensions.get('window').width,
+                    height:420
+                  }} 
+                  resizeMode={'cover'}
+                />
+                {this.state.showDM?this._runHorseLabel():null}
+                <TouchableWithoutFeedback onPress={()=>{this.setState({showDM:!this.state.showDM})}}>
+                  <View style={{width:40,height:40,marginLeft:Dimensions.get('window').width-50,marginTop:5}}>
+                      <Image source={req} 
+                        style={{flex:1,resizeMode:'contain'}}>
+                      </Image>
+                  </View>
+                </TouchableWithoutFeedback>
+              </View>
+            </ScrollView>
           );
       }
 }

@@ -21,15 +21,22 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		2E1F993C229388300084B6EC /* bs.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2E1F993B229388300084B6EC /* bs.jpeg */; };
+		2E1F9A34229398520084B6EC /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1F9A2E229398430084B6EC /* libRNCWebView.a */; };
+		2E1F9A812293B2CD0084B6EC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1F9A802293B2CC0084B6EC /* AVFoundation.framework */; };
+		2E1F9A832293B2DE0084B6EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1F9A822293B2DE0084B6EC /* CoreGraphics.framework */; };
+		2E1F9A9D2293B3A60084B6EC /* libRCTWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD0792285405D00617FF8 /* libRCTWeChat.a */; };
+		2E1F9B212293C8F80084B6EC /* CADisplayLineImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F9AE72293C8F80084B6EC /* CADisplayLineImageView.m */; };
+		2E1F9B222293C8F80084B6EC /* GIFImageViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F9AE82293C8F80084B6EC /* GIFImageViewManager.m */; };
+		2E1F9B232293C8F80084B6EC /* CADisplayLineImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F9AEA2293C8F80084B6EC /* CADisplayLineImage.m */; };
+		2E1F9B242293C8F80084B6EC /* GIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F9AEC2293C8F80084B6EC /* GIFImageView.m */; };
 		2E46DDE6228BFC6800269E35 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E46DDE5228BFC4B00269E35 /* libSplashScreen.a */; };
-		2E46DED9228C043C00269E35 /* sx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E46DEA7228C043C00269E35 /* sx.jpg */; };
 		2E5042BF22896FC5000ADBF5 /* libRNSqlite2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5042BE22896FAD000ADBF5 /* libRNSqlite2.a */; };
 		2E8FD0C3228540CF00617FF8 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD0C2228540CF00617FF8 /* libiconv.tbd */; };
 		2E8FD0C5228540D900617FF8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD0C4228540D900617FF8 /* libsqlite3.tbd */; };
 		2E8FD0C7228540DF00617FF8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD0C6228540DF00617FF8 /* libz.tbd */; };
 		2E8FD0C9228540E900617FF8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD0C8228540E900617FF8 /* libc++.tbd */; };
 		2E8FD0DD2285433400617FF8 /* libRCTQQAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD0352285405800617FF8 /* libRCTQQAPI.a */; };
-		2E8FD0DE2285434100617FF8 /* libRCTWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD0792285405D00617FF8 /* libRCTWeChat.a */; };
 		2E8FD15322854E4F00617FF8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD15222854E4F00617FF8 /* ImageIO.framework */; };
 		2E8FD15522854E5600617FF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD15422854E5500617FF8 /* SystemConfiguration.framework */; };
 		2E8FD15722854E5C00617FF8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD15622854E5C00617FF8 /* Security.framework */; };
@@ -164,6 +171,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
 			remoteInfo = "double-conversion-tvOS";
+		};
+		2E1F9A2D229398430084B6EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E1F99FD229398420084B6EC /* RNCWebView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNCWebView;
 		};
 		2E46DDE4228BFC4B00269E35 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -412,8 +426,19 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		16AF01C54C3A41CC9FE849E9 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E1F993B229388300084B6EC /* bs.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bs.jpeg; path = LZKKDemo/Images.xcassets/LaunchImage.launchimage/bs.jpeg; sourceTree = "<group>"; };
+		2E1F99FD229398420084B6EC /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCWebView.xcodeproj; path = "../node_modules/react-native-webview/ios/RNCWebView.xcodeproj"; sourceTree = "<group>"; };
+		2E1F9A802293B2CC0084B6EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2E1F9A822293B2DE0084B6EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2E1F9AE72293C8F80084B6EC /* CADisplayLineImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADisplayLineImageView.m; sourceTree = "<group>"; };
+		2E1F9AE82293C8F80084B6EC /* GIFImageViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIFImageViewManager.m; sourceTree = "<group>"; };
+		2E1F9AE92293C8F80084B6EC /* GIFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIFImageView.h; sourceTree = "<group>"; };
+		2E1F9AEA2293C8F80084B6EC /* CADisplayLineImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADisplayLineImage.m; sourceTree = "<group>"; };
+		2E1F9AEB2293C8F80084B6EC /* CADisplayLineImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADisplayLineImageView.h; sourceTree = "<group>"; };
+		2E1F9AEC2293C8F80084B6EC /* GIFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIFImageView.m; sourceTree = "<group>"; };
+		2E1F9AED2293C8F80084B6EC /* CADisplayLineImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADisplayLineImage.h; sourceTree = "<group>"; };
+		2E1F9AEE2293C8F80084B6EC /* GIFImageViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIFImageViewManager.h; sourceTree = "<group>"; };
 		2E46DDB0228BFC4B00269E35 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
-		2E46DEA7228C043C00269E35 /* sx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sx.jpg; path = LZKKDemo/Images.xcassets/LaunchImage.launchimage/sx.jpg; sourceTree = "<group>"; };
 		2E50428A22896FAD000ADBF5 /* RNSqlite2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSqlite2.xcodeproj; path = "../node_modules/react-native-sqlite-2/ios/RNSqlite2.xcodeproj"; sourceTree = "<group>"; };
 		2E8FD0C2228540CF00617FF8 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		2E8FD0C4228540D900617FF8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -452,6 +477,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1F9A832293B2DE0084B6EC /* CoreGraphics.framework in Frameworks */,
+				2E1F9A812293B2CD0084B6EC /* AVFoundation.framework in Frameworks */,
 				2E8FD15B22854E6900617FF8 /* CoreText.framework in Frameworks */,
 				2E8FD15922854E6300617FF8 /* CoreTelephony.framework in Frameworks */,
 				2E8FD15722854E5C00617FF8 /* Security.framework in Frameworks */,
@@ -466,6 +493,7 @@
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
+				2E1F9A34229398520084B6EC /* libRNCWebView.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -473,14 +501,14 @@
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				2E5042BF22896FC5000ADBF5 /* libRNSqlite2.a in Frameworks */,
+				2E8FD0DD2285433400617FF8 /* libRCTQQAPI.a in Frameworks */,
+				2E1F9A9D2293B3A60084B6EC /* libRCTWeChat.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				EB09FDF0B5AE4699A5018326 /* libRNGestureHandler.a in Frameworks */,
 				8C71824182E448668C068D1D /* libRCTVideo.a in Frameworks */,
 				B3553901003E4E4CB645D669 /* libRNAudio.a in Frameworks */,
-				2E8FD0DD2285433400617FF8 /* libRCTQQAPI.a in Frameworks */,
-				2E8FD0DE2285434100617FF8 /* libRCTWeChat.a in Frameworks */,
 				E4BD2BC5B9BF430E9C775C69 /* libRNSound.a in Frameworks */,
 				66C013583AE54CB788456D4B /* RCTWeChatTests.xctest in Frameworks */,
 			);
@@ -574,10 +602,11 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				2E1F9AE62293C8F80084B6EC /* ios_gifview */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
-				2E46DEA7228C043C00269E35 /* sx.jpg */,
+				2E1F993B229388300084B6EC /* bs.jpeg */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = LZKKDemo;
@@ -609,6 +638,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E1F9A822293B2DE0084B6EC /* CoreGraphics.framework */,
+				2E1F9A802293B2CC0084B6EC /* AVFoundation.framework */,
 				2E8FD15A22854E6900617FF8 /* CoreText.framework */,
 				2E8FD15822854E6300617FF8 /* CoreTelephony.framework */,
 				2E8FD15622854E5C00617FF8 /* Security.framework */,
@@ -623,6 +654,29 @@
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E1F99FE229398420084B6EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E1F9A2E229398430084B6EC /* libRNCWebView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E1F9AE62293C8F80084B6EC /* ios_gifview */ = {
+			isa = PBXGroup;
+			children = (
+				2E1F9AE72293C8F80084B6EC /* CADisplayLineImageView.m */,
+				2E1F9AE82293C8F80084B6EC /* GIFImageViewManager.m */,
+				2E1F9AE92293C8F80084B6EC /* GIFImageView.h */,
+				2E1F9AEA2293C8F80084B6EC /* CADisplayLineImage.m */,
+				2E1F9AEB2293C8F80084B6EC /* CADisplayLineImageView.h */,
+				2E1F9AEC2293C8F80084B6EC /* GIFImageView.m */,
+				2E1F9AED2293C8F80084B6EC /* CADisplayLineImage.h */,
+				2E1F9AEE2293C8F80084B6EC /* GIFImageViewManager.h */,
+			);
+			path = ios_gifview;
 			sourceTree = "<group>";
 		};
 		2E46DDB1228BFC4B00269E35 /* Products */ = {
@@ -737,6 +791,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2E1F99FD229398420084B6EC /* RNCWebView.xcodeproj */,
 				2E46DDB0228BFC4B00269E35 /* SplashScreen.xcodeproj */,
 				2E50428A22896FAD000ADBF5 /* RNSqlite2.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -921,6 +976,10 @@
 					ProjectRef = 34641DCEC6434BE18E7AF778 /* RNAudio.xcodeproj */;
 				},
 				{
+					ProductGroup = 2E1F99FE229398420084B6EC /* Products */;
+					ProjectRef = 2E1F99FD229398420084B6EC /* RNCWebView.xcodeproj */;
+				},
+				{
 					ProductGroup = 2E5B171D227577A100A29556 /* Products */;
 					ProjectRef = 16AF01C54C3A41CC9FE849E9 /* RNGestureHandler.xcodeproj */;
 				},
@@ -1062,6 +1121,13 @@
 			fileType = archive.ar;
 			path = "libdouble-conversion.a";
 			remoteRef = 2DF0FFE82056DD460020B375 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2E1F9A2E229398430084B6EC /* libRNCWebView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCWebView.a;
+			remoteRef = 2E1F9A2D229398430084B6EC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2E46DDE5228BFC4B00269E35 /* libSplashScreen.a */ = {
@@ -1295,7 +1361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E46DED9228C043C00269E35 /* sx.jpg in Resources */,
+				2E1F993C229388300084B6EC /* bs.jpeg in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -1325,8 +1391,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1F9B212293C8F80084B6EC /* CADisplayLineImageView.m in Sources */,
+				2E1F9B232293C8F80084B6EC /* CADisplayLineImage.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				2E1F9B222293C8F80084B6EC /* GIFImageViewManager.m in Sources */,
+				2E1F9B242293C8F80084B6EC /* GIFImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1385,7 +1455,7 @@
 					"-ObjC",
 					"-lc++",
 					"-framework",
-					"\"TencentOpenAPI\"",
+					TencentOpenAPI,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.welltalent.dzblistening;
 				PRODUCT_NAME = LZKKDemo;
@@ -1434,7 +1504,7 @@
 					"-ObjC",
 					"-lc++",
 					"-framework",
-					"\"TencentOpenAPI\"",
+					TencentOpenAPI,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.welltalent.dzblistening;
 				PRODUCT_NAME = LZKKDemo;

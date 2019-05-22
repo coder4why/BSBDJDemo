@@ -128,7 +128,7 @@ export default class MusicPage extends Component {
         return;
     }
     
-    EasyLoading.show('Loading...', 3000000);
+    EasyLoading.show('Loading...', 10000);
     getData('https://api.apiopen.top/searchMusic?name=='+text,(response)=>{
       EasyLoading.dismis();
       if(response.code == 200){
@@ -152,6 +152,8 @@ export default class MusicPage extends Component {
                         borderRadius: 20,
                         fontSize:18,
                       }}
+                      clearButtonMode='while-editing'
+                      underlineColorAndroid='transparent'
                       numberOfLines={1}
                       returnKeyType="search"
                       placeholder="搜索歌名、歌手、专辑"
