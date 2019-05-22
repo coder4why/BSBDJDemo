@@ -73,18 +73,7 @@ export default class MusicPage extends Component {
                 isPlaying:true,
                 playIndex:rowIndex,
               });
-              whoosh.play((success) => {
-                if (success) {
-                  console.log('successfully finished playing');
-                  this.setState({
-                    isPlaying:false,
-                  });
-                  whoosh.pause();
-                } else {
-                  // this.refs.toast.show('播放失败!',500);
-                  console.log('playback failed due to audio decoding errors');
-                }
-              });
+              this._play();
     });
   }
 
@@ -116,6 +105,20 @@ export default class MusicPage extends Component {
         
   }
 
+  _play(){
+    whoosh.play((success) => {
+      if (success) {
+        console.log('successfully finished playing');
+        this.setState({
+          isPlaying:false,
+        });
+        whoosh.pause();
+      } else {
+        console.log('playback failed due to audio decoding errors');
+      }
+    });
+  }
+
   componentDidMount(){
     this._searchMusic('薛之谦');
     Sound.setCategory('Playback');
@@ -123,11 +126,8 @@ export default class MusicPage extends Component {
     var that = this;
     DeviceEventEmitter.addListener('PLAYVIDEO',function(value){
       if(whoosh){
-        that.setState({
-          isPlaying:value,
-          playIndex:that.state.playIndex
-        });
-        value?whoosh.play():whoosh.pause();
+        that.setState({isPlaying:false});
+        whoosh.pause();
       }
     });
   }

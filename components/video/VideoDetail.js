@@ -23,7 +23,7 @@ export default class VideoDetail extends Component {
       DeviceEventEmitter.emit('PLAYVIDEO',false);
   }
   componentWillUnmount(){
-    DeviceEventEmitter.emit('PLAYVIDEO',true);
+    // DeviceEventEmitter.emit('PLAYVIDEO',true);
   }
 
   async _getDM() {
