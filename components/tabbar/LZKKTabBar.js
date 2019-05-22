@@ -151,7 +151,7 @@ const TabRouteConfigs = {
                             style={{
                                 height:35,
                                 paddingLeft:15,
-                                marginTop:Dimensions.get('window').height>812?45:22,
+                                marginTop:Dimensions.get('window').height>=812?45:22,
                                 marginRight:15,
                                 borderRadius: 20,
                                 fontSize:16,
