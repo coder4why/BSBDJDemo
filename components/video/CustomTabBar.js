@@ -12,30 +12,20 @@ import {TuiJian,Video,Picture,Joke} from '../commons/API';
 export default class CustomTabBar extends Component {
 
    //分享点击事件：
-   static propTypes = {
-    onTapPlay: PropTypes.func,
-    onShowPic:PropTypes.func,
-   }
+    static propTypes = {
+      onTapPlay: PropTypes.func,
+      onShowPic:PropTypes.func,
+    }
+    static defaultProps = {
+      themeColor:'#1E90FF',
+    }
 
     constructor(props){
         super(props);
         this.state={
-            mainColor:'white',
-            textColor:'grey'
+            mainColor:this.props.themeColor,
         }
     }
-
-    componentDidMount(){
-        var that = this;
-        DeviceEventEmitter.addListener('THEMECOLOR',function(color){
-            that.setState({
-                mainColor:color,
-                textColor:'white'
-            });
-        });
-    }
-
-
     _onTapPlay(navigateAction){
       this.props.onTapPlay && this.props.onTapPlay(navigateAction);
     }
@@ -52,17 +42,18 @@ export default class CustomTabBar extends Component {
       for(var i=0;i<titles.length;i++){
         if(i<titles.length-1){
           items.push(
-            <View tabLabel={titles[i]} style={{flex:1}}>
+            <View key={i} tabLabel={titles[i]} style={{flex:1}}>
                 <JokeItemComponent url={urls[i]} 
                   onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}
                   onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
+                  themeColor={this.state.mainColor}
                 />
             </View>
           );
         }else{
           items.push(
-            <View tabLabel='娱乐' style={style}>
-                <VideoComponent onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}/>
+            <View key={i} tabLabel='娱乐' style={style}>
+                <VideoComponent themeColor={this.state.mainColor} onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}/>
             </View>
           );
         } 
@@ -86,11 +77,11 @@ export default class CustomTabBar extends Component {
                 console.log('scroll position:' + postion);
               }
             }
-            tabStyle={{backgroundColor:this.state.mainColor}}/>}
-            tabBarBackgroundColor={this.state.mainColor}
-            tabBarActiveTextColor='red'
-            tabBarInactiveTextColor={this.state.textColor}
-            tabBarUnderlineStyle={{backgroundColor: 'red',height: 2,}}
+            tabStyle={{backgroundColor:'white'}}/>}
+            tabBarBackgroundColor='white'
+            tabBarActiveTextColor={this.state.mainColor}
+            tabBarInactiveTextColor='grey'
+            tabBarUnderlineStyle={{backgroundColor: this.state.mainColor,height: 2,}}
             tabBarTextStyle={{fontSize: 17}}
             >
 

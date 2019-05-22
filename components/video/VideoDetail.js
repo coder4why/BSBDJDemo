@@ -2,24 +2,30 @@ import React, { Component } from 'react';
 import {
   ScrollView,
   Dimensions,
-  Image,
-  View
+  View,
 } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Video from 'react-native-video';
 import MarqueeLabel from 'react-native-lahk-marquee-label';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { async } from 'rsvp';
 export default class VideoDetail extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      showDM:true,
+      showDM:false,
     }
   }
 
   componentDidMount(){
-    console.log(JSON.stringify(this.props.navigation.state.params.rowData.video));
+      this._getDM();
   }
+
+  async _getDM() {
+    const value = await AsyncStorage.getItem('isCloseDM');
+    this.setState({ showDM:(value=='true')});
+  }
+
   _runHorseLabel(){
 
     var dmTexts = [
@@ -52,7 +58,6 @@ export default class VideoDetail extends Component {
             </View>
   }
   render() {
-      const req = this.state.showDM?require('../src/closeDM.png'):require('../src/openDM.png');
           return(
             <ScrollView style={{flex:1}}>
               <View style={{flex:1}}>
@@ -67,13 +72,6 @@ export default class VideoDetail extends Component {
                   resizeMode={'cover'}
                 />
                 {this.state.showDM?this._runHorseLabel():null}
-                <TouchableWithoutFeedback onPress={()=>{this.setState({showDM:!this.state.showDM})}}>
-                  <View style={{width:40,height:40,marginLeft:Dimensions.get('window').width-50,marginTop:5}}>
-                      <Image source={req} 
-                        style={{flex:1,resizeMode:'contain'}}>
-                      </Image>
-                  </View>
-                </TouchableWithoutFeedback>
               </View>
             </ScrollView>
           );

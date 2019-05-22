@@ -710,6 +710,10 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/yargs" "^12.0.9"
 
+"@react-native-community/async-storage@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.npm.taobao.org/@react-native-community/async-storage/download/@react-native-community/async-storage-1.4.0.tgz#11864c8ff61b7f8c7062cb8f5c3a721f6a648ede"
+
 "@react-native-community/cli@^1.2.1":
   version "1.9.2"
   resolved "https://registry.npm.taobao.org/@react-native-community/cli/download/@react-native-community/cli-1.9.2.tgz#d033ab141df3a476e628aecd9c99534b5cb0d63e"

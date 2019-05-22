@@ -46,6 +46,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8C71824182E448668C068D1D /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C930BD831747D3BD9EC07B /* libRCTVideo.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B2F34D5E585E4194AB7E2152 /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7545AEE3B24C4840AE86F90F /* libRNCAsyncStorage.a */; };
 		B3553901003E4E4CB645D669 /* libRNAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E3E33CA4B44220B3E531FB /* libRNAudio.a */; };
 		E4BD2BC5B9BF430E9C775C69 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F94811290E49E3A6661B63 /* libRNSound.a */; };
 		EB09FDF0B5AE4699A5018326 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B2798002AC4598A58E9DC6 /* libRNGestureHandler.a */; };
@@ -263,6 +264,13 @@
 			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
 			remoteInfo = RNSound;
 		};
+		2E67145E229500C5004E72BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 691C83C209DB49CBA324796A /* RNCAsyncStorage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNCAsyncStorage;
+		};
 		2E8FD0342285405800617FF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7CABA7BC6D254456B1DC29FF /* RCTQQAPI.xcodeproj */;
@@ -454,7 +462,9 @@
 		34641DCEC6434BE18E7AF778 /* RNAudio.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAudio.xcodeproj; path = "../node_modules/react-native-audio/ios/RNAudio.xcodeproj"; sourceTree = "<group>"; };
 		43F94811290E49E3A6661B63 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		691C83C209DB49CBA324796A /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
 		6E24F80E00444F5D8AC564B6 /* libRCTQQAPI.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTQQAPI.a; sourceTree = "<group>"; };
+		7545AEE3B24C4840AE86F90F /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCAsyncStorage.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7CABA7BC6D254456B1DC29FF /* RCTQQAPI.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTQQAPI.xcodeproj; path = "../node_modules/react-native-qq/ios/RCTQQAPI.xcodeproj"; sourceTree = "<group>"; };
 		7CB1E33557B74A9CB704806D /* libRCTWeiboAPI.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTWeiboAPI.a; sourceTree = "<group>"; };
@@ -511,6 +521,7 @@
 				B3553901003E4E4CB645D669 /* libRNAudio.a in Frameworks */,
 				E4BD2BC5B9BF430E9C775C69 /* libRNSound.a in Frameworks */,
 				66C013583AE54CB788456D4B /* RCTWeChatTests.xctest in Frameworks */,
+				B2F34D5E585E4194AB7E2152 /* libRNCAsyncStorage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +718,7 @@
 				FAF6054CEB124EEF83B078E5 /* libRCTWeChat.a */,
 				C6C2369C357642CCAC130F0A /* RCTWeChatTests.xctest */,
 				7CB1E33557B74A9CB704806D /* libRCTWeiboAPI.a */,
+				7545AEE3B24C4840AE86F90F /* libRNCAsyncStorage.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -741,6 +753,14 @@
 			isa = PBXGroup;
 			children = (
 				2E5B17DA2275955E00A29556 /* libRNSound.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E67145B229500C5004E72BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E67145F229500C5004E72BC /* libRNCAsyncStorage.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -813,6 +833,7 @@
 				7CABA7BC6D254456B1DC29FF /* RCTQQAPI.xcodeproj */,
 				2E93FA39145246ADB78D8E79 /* RCTWeChat.xcodeproj */,
 				E4AB1EF01FD146A8BF7E793F /* RCTWeiboAPI.xcodeproj */,
+				691C83C209DB49CBA324796A /* RNCAsyncStorage.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -974,6 +995,10 @@
 				{
 					ProductGroup = 2E5B17982275920100A29556 /* Products */;
 					ProjectRef = 34641DCEC6434BE18E7AF778 /* RNAudio.xcodeproj */;
+				},
+				{
+					ProductGroup = 2E67145B229500C5004E72BC /* Products */;
+					ProjectRef = 691C83C209DB49CBA324796A /* RNCAsyncStorage.xcodeproj */;
 				},
 				{
 					ProductGroup = 2E1F99FE229398420084B6EC /* Products */;
@@ -1214,6 +1239,13 @@
 			remoteRef = 2E5B17D92275955E00A29556 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		2E67145F229500C5004E72BC /* libRNCAsyncStorage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCAsyncStorage.a;
+			remoteRef = 2E67145E229500C5004E72BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		2E8FD0352285405800617FF8 /* libRCTQQAPI.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1436,11 +1468,13 @@
 					"$(SRCROOT)/../node_modules/react-native-wechat/ios",
 					"$(SRCROOT)/../node_modules/react-native-weibo/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
 				);
 				INFOPLIST_FILE = LZKKDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
@@ -1485,11 +1519,13 @@
 					"$(SRCROOT)/../node_modules/react-native-wechat/ios",
 					"$(SRCROOT)/../node_modules/react-native-weibo/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
 				);
 				INFOPLIST_FILE = LZKKDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",

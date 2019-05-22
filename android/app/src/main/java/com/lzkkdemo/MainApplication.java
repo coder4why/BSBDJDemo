@@ -3,6 +3,7 @@ package com.lzkkdemo;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import cn.reactnative.modules.weibo.WeiboPackage;
 import com.theweflex.react.WeChatPackage;
 import cn.reactnative.modules.qq.QQPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new AsyncStoragePackage(),
             new WeiboPackage(),
             new WeChatPackage(),
             new QQPackage(),

@@ -6,6 +6,7 @@ import {
   Dimensions,
   Image,
   TouchableWithoutFeedback,
+  DeviceEventEmitter
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import PropTypes from 'prop-types';
@@ -21,12 +22,15 @@ export default class VideComponent extends Component {
    static propTypes = {
     onTapPlay: PropTypes.func,
    }
-
+   static defaultProps = {
+    themeColor:'#1E90FF',
+  }
   constructor(props){
     super(props);
     this.state={
       videoLists:[],
       refreshing:false,
+      themeColor:this.props.themeColor
     }
     this._videos.bind(this._videos);
     this._header.bind(this._header);
@@ -37,6 +41,7 @@ export default class VideComponent extends Component {
   }
 
   componentDidMount(){
+
     this.setState({
       refreshing:true
     });
@@ -93,14 +98,14 @@ export default class VideComponent extends Component {
   }  
   _header(rowData){
     return <View style={{justifyContent:"center",flexDirection:'row',flex:1,}}> 
-                <View style={{shadowColor:'#333333',shadowOffset:{h:3,w:3},shadowRadius:3,shadowOpacity:0.25,}}>
+                <View>
                     <Image style={{width:50,height:50,borderRadius:25, marginLeft:5,}} 
                     source={{uri:rowData.header}}>
                     </Image>
                 </View>
                 <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:5}}>
-                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'#663399',fontSize:14,fontWeight:'bold',overflow:"hidden"}}>{rowData.name}</Text>
-                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:12,overflow:"hidden",margin:5}}>{rowData.top_comments_content!=null?rowData.top_comments_content:rowData.passtime}</Text>
+                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:this.state.themeColor,fontSize:16,fontWeight:'bold',overflow:"hidden"}}>{rowData.name}</Text>
+                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:14,overflow:"hidden",margin:5}}>{rowData.top_comments_content!=null?rowData.top_comments_content:rowData.passtime}</Text>
                 </View>
            </View>
   }
@@ -136,7 +141,7 @@ export default class VideComponent extends Component {
   _renderRow(rowData){
     return <View style={{flex:1,marginTop:5}}>
                 {this._header(rowData)}
-                <Text style={{margin:5,fontSize:16,color:'#333333'}}>{rowData.text}</Text>
+                <Text style={{margin:5,fontSize:17,color:'grey',letterSpacing:2,lineHeight:20}}>{rowData.text}</Text>
                 <View style={{alignItems:'center'}}>
                     <Image 
                       style={{
@@ -149,7 +154,7 @@ export default class VideComponent extends Component {
                       }}
                       source={{uri:rowData.thumbnail}}
                     />
-                    <TouchableWithoutFeedback onPressIn = {() => this._playAction(rowData)}> 
+                    <TouchableWithoutFeedback onPress = {() => this._playAction(rowData)}> 
                         <Image style={{
                               position:'absolute',
                               marginTop:80,

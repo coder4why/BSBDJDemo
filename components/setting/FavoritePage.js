@@ -7,44 +7,39 @@ import {
   TouchableWithoutFeedback,
   Image,
   Dimensions,
-  DeviceEventEmitter
+  DeviceEventEmitter,
 } from 'react-native';
-import {FlatList, ScrollView} from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-community/async-storage';
+import {FlatList, ScrollView, Switch} from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
 import {DBTool} from '../tools/DBTool';
 import Toast from 'react-native-easy-toast';
-
 const rowData = {
     video:''
 }
 export default class FavoritePage extends Component {
 
-    static navigationOptions = ({ navigation }) => {
-        const { params } = navigation.state;
-        return { 
-            headerStyle: {
-                backgroundColor: '#fff',
-            },
-    }}
-
     constructor(props){
         super(props);
         this.state = {
             videoLists:[],
-            index:0, //0'我的收藏',1'更换主题'
+            index:0, //0'我的收藏',1'更换主题',2设置弹幕
+            closeDM:true,
         }
     }
-
+ 
     componentDidMount(){
-
+        this._getDM();
         const index = this.props.navigation.state.params.index;
-        this.setState({
-            index:index
-        });
-        
+        this.setState({index:index});
         if(index==0){
             this._requestVideos();
         }
+    }
+
+    async _getDM(){
+        const value = await AsyncStorage.getItem('isCloseDM');
+        this.setState({closeDM:!(value=='true')});
     }
 
     _requestVideos(){
@@ -90,15 +85,12 @@ export default class FavoritePage extends Component {
     }
     
     _selectThemeIndex(color){
-        DeviceEventEmitter.emit('THEMECOLOR',color);
-        this.props.navigation.setParams({
-            headerStyle: {
-                backgroundColor: color,
-            },
-         });
+        // DeviceEventEmitter.emit('THEMECOLOR',color);
+        this.refs.toast.show('Redux未实现', 500, () => {});
     }
+
     _colorViews(){
-        var colors = ['#66CDAA','#FF6A6A','#1E90FF','#AB82FF','#333333',
+        var colors = ['#7A378B','#66CDAA','#FF6A6A','#1E90FF','#AB82FF','#333333',
                       '#ADADAD','#8FBC8F','#32CD32','#6E7B8B','#7AC5CD'];
         var colorViews = [];
         colors.map((f)=>{
@@ -140,6 +132,10 @@ export default class FavoritePage extends Component {
     _extraUniqueKey(item ,index){
         return "index"+index+item.imageUrl;
     }  
+
+   async _setDM(){
+        await AsyncStorage.setItem('isCloseDM', this.state.closeDM==true?'true':'false');
+    }
     render(){
         return  <View style={{flex:1}}>
                 {this.state.index==0?
@@ -150,9 +146,22 @@ export default class FavoritePage extends Component {
                         renderItem = {({item}) => this._renderRow(item)}
                     />:
                     <ScrollView style={{flex:1}}>
-                        <View style={{flex:1,margin:5}}>
-                            {this._colorViews()}
-                        </View>
+                        {
+                            this.state.index==1?
+                            <View style={{flex:1,margin:5}}>
+                                {this._colorViews()}
+                            </View>:
+                            <View style={{margin:10,flexDirection:'row'}}>
+                                <Text style={{fontSize:20,color:'#333333',textAlign:'center',marginTop:5}}>关闭弹幕</Text>
+                                <Switch value={this.state.closeDM} 
+                                style={{marginLeft:Dimensions.get('window').width-150}}
+                                onValueChange = {(value)=> {
+                                    this.setState({closeDM:value});
+                                    this._setDM();
+                                 }}></Switch>
+                            </View>
+                        }
+                        {this.state.index==2?<View style={{height:1,backgroundColor:'#EEE9E9',flex:1}}></View>:null}
                     </ScrollView>
                 }
                 <Toast  ref="toast"

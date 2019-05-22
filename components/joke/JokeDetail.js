@@ -21,7 +21,7 @@ export default class JokeDetail extends Component{
     }
 
     _showModel(){
-      return <Modal visible={true} transparent={true} 
+      return <Modal visible={this.state.showPic && this.state.imageUrl.length>0} transparent={true} 
                 onRequestClose={()=> {this.setState({showPic: false,})
              }}>
                 <ImageViewer 
@@ -39,25 +39,25 @@ export default class JokeDetail extends Component{
     }
 
     _showContents(){
-        return <View style={{flex:1}}>
-                {
-                    this.state.type=='0'?
-                    <WebView
-                        source={{uri: this.state.info}}
-                        style={{flex:1}}
-                    />:
-                    <JokeDTComponent
-                        theme_id={this.state.info} 
-                        onTapPlay={(navigation)=>this._play(navigation)}
-                        showPic={(imageUrl)=>this._showPic(imageUrl)}
-                        />
-                }
-            </View>
+        if(this.state.type=='0'){
+            return  <WebView source={{uri: this.state.info}} style={{flex:1}}/>
+        }else{
+           return <JokeDTComponent
+                    theme_id={this.state.info} 
+                    onTapPlay={(navigation)=>this._play(navigation)}
+                    showPic={(imageUrl)=>this._showPic(imageUrl)}
+                    scrollEnabled={true}
+                  />
+        }
+                    
     }
-
+   
     render(){
-        
-        return  this.state.showPic && this.state.imageUrl.length>0? this._showModel():this._showContents();
+
+        return  <View style={{flex:1}}>
+                    {this._showModel()}
+                    {this._showContents()}
+                </View>
 
     }
 

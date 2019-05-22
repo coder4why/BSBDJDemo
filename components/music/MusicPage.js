@@ -32,12 +32,12 @@ export default class MusicPage extends Component {
 
   _header(rowData,rowIndex){
     return <View style={{justifyContent:"center",flexDirection:'row',width:Dimensions.get('window').width,}}> 
-                <View style={{shadowColor:'#333333',shadowOffset:{h:3,w:3},shadowRadius:3,shadowOpacity:0.25,}}>
+                <View>
                   <Image style={{width:50,height:50,borderRadius:25,marginLeft:10}} source={{uri:rowData.pic}}></Image>
                 </View>
                 <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:10}}>
-                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'#663399',fontSize:14,fontWeight:'bold',overflow:"hidden"}}>{rowData.title}</Text>
-                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:12,overflow:"hidden",marginTop:5}}>{rowData.author}</Text>
+                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'#1E90FF',fontSize:16,fontWeight:'bold',overflow:"hidden"}}>{rowData.title}</Text>
+                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:14,overflow:"hidden",marginTop:5}}>{rowData.author}</Text>
                 </View>
                 <Image style={{marginTop:15,marginRight:15,width:15,height:15,resizeMode:'contain'}} source={ (this.state.isPlaying&&this.state.playIndex==rowIndex)?require('../src/pause.png'):require('../src/play.png')}></Image>
            </View>
@@ -52,7 +52,6 @@ export default class MusicPage extends Component {
   _playMusic(rowData,rowIndex){
     if(whoosh){
       whoosh.pause();
-      whoosh.release();
       this.setState({
         isPlaying:true,
         playIndex:rowIndex,
@@ -62,7 +61,7 @@ export default class MusicPage extends Component {
     whoosh = new Sound(musciPath, null, (error) => {
               if (error) {
                 console.log('failed to load the sound', error);
-                this.refs.toast.show('播放失败!',500);
+                this.refs.toast.show('播放失败啦!',500);
                 this.setState({
                   isPlaying:false,
                 });
@@ -74,14 +73,14 @@ export default class MusicPage extends Component {
                 playIndex:rowIndex,
               });
               whoosh.play((success) => {
-                whoosh.release();
-                this.setState({
-                  isPlaying:false,
-                });
                 if (success) {
                   console.log('successfully finished playing');
+                  this.setState({
+                    isPlaying:false,
+                  });
+                  whoosh.pause();
                 } else {
-                  this.refs.toast.show('播放失败!',500);
+                  // this.refs.toast.show('播放失败!',500);
                   console.log('playback failed due to audio decoding errors');
                 }
               });

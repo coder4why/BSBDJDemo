@@ -16,13 +16,17 @@ export default class JokeDTComponent extends Component{
     }
     static defaultProps = {
         theme_id:'',
+        scrollEnabled:true,
+        themeColor:'#1E90FF',
     }
 
     constructor(props){
       super(props);
     
       this.state = {
+        scrollEnabled:this.props.scrollEnabled,
         theme_id:this.props.theme_id,
+        themeColor:this.props.themeColor,
         urls:[
           `http://d.api.budejie.com/topic/forum/${this.props.theme_id}/1/new/bsbdjhd-iphone-5.0.9/0-20.json`,
           `http://d.api.budejie.com/topic/forum/${this.props.theme_id}/1/hot/bsbdjhd-iphone-5.0.9/0-20.json`,
@@ -30,7 +34,7 @@ export default class JokeDTComponent extends Component{
         ]
       }
     }
-
+    
     _onTapPlay(navigateAction){
       this.props.onTapPlay && this.props.onTapPlay(navigateAction);
     }
@@ -39,49 +43,58 @@ export default class JokeDTComponent extends Component{
       this.props.showPic && this.props.showPic(imageUrl);
     }
 
-    render(){
-       return <ScrollableTabView 
-            locked={false}
-            initialPage={0}
-            renderTabBar={() =><ScrollableTabBar style={{height: 45}}
-            onChangeTab={(obj) => {
-                console.log('index:' + obj.i);
-              }
-            }
-            onScroll={(postion) => {  
-                console.log('scroll position:' + postion);
-              }
-            }
-            tabStyle={{backgroundColor:'#fff'}}/>}
-            tabBarBackgroundColor={'#fff'}
-            tabBarActiveTextColor='red'
-            tabBarInactiveTextColor='grey'
-            tabBarUnderlineStyle={{backgroundColor: 'red',height: 2,}}
-            tabBarTextStyle={{fontSize: 17}}
-            >
-            <View tabLabel='最新' style={{flex:1}}>
-                <JokeItemComponent 
-                url={this.state.urls[0]} 
-                onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}
-                onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
-                />
-            </View>
-            <View tabLabel='精华' style={{flex:1}}>
-                <JokeItemComponent
-                 url={this.state.urls[1]}
-                 onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}
-                 onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
-                 />
-            </View>
-            <View tabLabel='最热' style={{flex:1}}>
-                <JokeItemComponent 
-                url={this.state.urls[2]} 
-                onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}
-                onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
-                />
-            </View>
-
+    _switchTab(){
+      return <ScrollableTabView 
+      locked={false}
+      initialPage={0}
+      renderTabBar={() =><ScrollableTabBar style={{height: 45}}
+      onChangeTab={(obj) => {
+          console.log('index:' + obj.i);
+        }
+      }
+      onScroll={(postion) => {  
+          console.log('scroll position:' + postion);
+        }
+      }
+      tabStyle={{backgroundColor:'#fff'}}/>}
+      tabBarBackgroundColor={'#fff'}
+      tabBarActiveTextColor={this.state.themeColor}
+      tabBarInactiveTextColor='grey'
+      tabBarUnderlineStyle={{backgroundColor:this.state.themeColor,height: 2,}}
+      tabBarTextStyle={{fontSize: 17}}
+      >
+      <View tabLabel='最新' style={{flex:1}}>
+          <JokeItemComponent 
+          url={this.state.urls[0]} 
+          onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}
+          onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
+          scrollEnabled={this.state.scrollEnabled}
+          canLoadMore={false}
+          />
+      </View>
+      <View tabLabel='精华' style={{flex:1}}>
+          <JokeItemComponent
+           url={this.state.urls[1]}
+           onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}
+           onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
+           scrollEnabled={this.state.scrollEnabled}
+           canLoadMore={false}
+           />
+      </View>
+      <View tabLabel='最热' style={{flex:1}}>
+          <JokeItemComponent 
+          url={this.state.urls[2]} 
+          onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}
+          onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
+          scrollEnabled={this.state.scrollEnabled}
+          canLoadMore={false}
+          />
+      </View>
       </ScrollableTabView>
+    }
+
+    render(){
+      return this._switchTab();
     }
 
 }

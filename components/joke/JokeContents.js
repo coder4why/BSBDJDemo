@@ -5,7 +5,7 @@ import {
   Dimensions,
   FlatList,
   Image,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
 } from 'react-native';
 import {getData} from '../tools/Fetch';
 import PropTypes from 'prop-types';
@@ -18,13 +18,17 @@ export default class JokeContents extends Component {
    static propTypes = {
     showDetail: PropTypes.func,
    }
+   static defaultProps = {
+        themeColor:'#1E90FF',
+    }
     constructor(props){
         super(props);
         this.state={
-            items:[]
+            items:[],
+            themeColor:this.props.themeColor,
         }
     }
-
+   
     componentDidMount(){
         var that = this;
         getData(Forum,(response)=>{
@@ -32,7 +36,6 @@ export default class JokeContents extends Component {
                 items:response.list
             });
         });
-
     }
 
     _showDetail(rowData){
@@ -47,7 +50,7 @@ export default class JokeContents extends Component {
                                     <Image style={{width:70,height:70,borderRadius:5,margin:10}} source={{uri:rowData.image_list}}></Image>
                                     <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:5}}>
                                         <Text numberOfLines={1} ellipsizeMode="tail" 
-                                            style={{color:'black',fontSize:16,fontWeight:'bold',overflow:"hidden"}}>
+                                            style={{color:this.state.themeColor,fontSize:16,fontWeight:'bold',overflow:"hidden"}}>
                                             {rowData.theme_name}
                                         </Text>
                                         <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:12,overflow:"hidden",marginTop:5}}>{rowData.info}</Text>
@@ -73,7 +76,5 @@ export default class JokeContents extends Component {
                 />;
 
     }
-
-    
 
 }

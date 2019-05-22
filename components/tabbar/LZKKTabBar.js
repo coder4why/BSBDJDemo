@@ -1,7 +1,5 @@
 
-
-
-import React, { Component } from 'react';
+import React from 'react';
 import {
   createBottomTabNavigator,
   createStackNavigator,
@@ -9,7 +7,6 @@ import {
 } from 'react-navigation';
 import {
   Image,
-  DeviceEventEmitter,
   Text,
   View,
   TextInput,
@@ -21,6 +18,7 @@ import ReleasePage from '../plus/ReleasePage';
 import MusicPage from '../music/MusicPage';
 import SettingPage from '../setting/SettingPage';
 import routeIndex from './RouteIndex';
+import {THEMEConfig} from './Theme';
 
 const video_normal = require('../src/home.png');
 const video_selected = require('../src/home_selected.png');
@@ -31,17 +29,6 @@ const music_selected = require('../src/music_selected.png');
 const setting_normal = require('../src/mine.png');
 const setting_selected = require('../src/mine_selected.png');
 const plus = require('../src/plus_small.png');
-
-export const THEMEConfig = {
-  THEMECOLOR:'white',
-  MUSICCOLOR:'#515151',
-  themeListen(){
-    DeviceEventEmitter.addListener('THEMECOLOR',function(color){
-      THEMEConfig.THEMECOLOR = color,
-      MUSICCOLOR='#fff';
-  });
-  }
-}
 
 const TabRouteConfigs = {
     VideoPage:{
@@ -145,7 +132,7 @@ const TabRouteConfigs = {
                     headerTitle:navigation.state.index<3?titles[navigation.state.index]:null,
                     headerTintColor:navigation.state.index<3?'white':null,
                     headerStyle: {
-                        backgroundColor: navigation.state.index<3?THEMEConfig.THEMECOLOR:'transparent',
+                        backgroundColor: navigation.state.index<3?'white':'transparent',
                     },
 
                     headerBackTitle:null,
@@ -155,7 +142,7 @@ const TabRouteConfigs = {
                         <View style={{
                           width:Dimensions.get('window').width,
                           height:Dimensions.get('window').height>=812?(navigation.state.index==0?44:88):(navigation.state.index==0?20:64),
-                          backgroundColor:navigation.state.index==0?THEMEConfig.THEMECOLOR:'white',
+                          backgroundColor:'white',
                           paddingLeft:15,
                         }}
                         >
@@ -197,12 +184,12 @@ const TabRouteConfigs = {
                         >
                           <Text style={{color:'#515151',fontSize:27,textAlign:'left',fontWeight:'bold',
                                           width:120,lineHeight:40,
-                                          marginTop:Dimensions.get('window').height>=812?45:21
+                                          marginTop:Dimensions.get('window').height>=812?45:30
                                         }}>
                                   我的音乐
                             </Text>
                           <Image style={{resizeMode:'contain',width:50,height:25,
-                                        marginTop:Dimensions.get('window').height>=812?60:34,
+                                        marginTop:Dimensions.get('window').height>=812?60:43,
                                         paddingTop:0,
                                       }} 
                                   source={require('../src/more.png')}>

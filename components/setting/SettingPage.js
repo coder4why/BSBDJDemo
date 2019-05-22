@@ -67,50 +67,6 @@ export default class SettingPage extends Component {
         }
     }
 
-    _switchs(isQQ){
-
-        var value = false;
-        if(isQQ){
-            value = this.state.isQQ;
-        }else{
-            value = this.state.isWx;
-        }
-        var that = this;
-        var req = isQQ?require('../src/qq_.png'):require('../src/wx.png');
-        return <View style={{flex:1,flexDirection:"row",marginTop:5}}>
-                    <View style={{marginLeft:10,flexDirection:'row',height:40}}>
-                        <Image style={{width:32,height:32,resizeMode:'contain',marginTop:4}} source={req}></Image>
-                    </View>
-                    <Switch 
-                        value={value} 
-                        style={{marginRight:5,marginLeft:Dimensions.get('window').width-70-30}}
-                        onValueChange = {(value)=> {
-                            if(isQQ){
-                                if(that.state.isQQ){
-                                    that.setState({
-                                        isQQ:false,
-                                        atavar:defalutAtavar,
-                                        nick_name:''
-                                    });
-                                }else{
-                                    that._loginIndex(0);
-                                }
-                            }else{
-                                if(that.state.isWx){
-                                    that.setState({
-                                        isWx:false,
-                                        atavar:defalutAtavar,
-                                        nick_name:''
-                                    });
-                                }else{
-                                    that._loginIndex(1);
-                                }
-                            }
-                         }}
-                    ></Switch>
-               </View>
-    }
-
     _thirds(){
         return <View style={{position:'absolute',width:160,height:45,flexDirection:'row',
                              justifyContent:'space-between',
@@ -155,7 +111,7 @@ export default class SettingPage extends Component {
 
     _clickIndex(index){
         //更换主题：
-        if(index==0 || index==1){
+        if(index!=3){
             const navigateAction = NavigationActions.navigate({
                 routeName: 'Favorite',
                 params:{index},
@@ -170,12 +126,12 @@ export default class SettingPage extends Component {
     }
 
     _items(index){
-        var titles = ['我的收藏','更换主题','退出登录'];
+        var titles = ['我的收藏','更换主题','弹幕设置','退出登录'];
         return <TouchableWithoutFeedback key={titles[index]} onPress={()=>this._clickIndex(index)}>
-                    <View style={{marginLeft:10,flexDirection:'row',height:60}}>
+                    <View style={{marginLeft:10,flexDirection:'row',height:50}}>
                         {/*<Image style={{width:32,height:32,resizeMode:'contain',marginTop:9}} source={require('../src/collect.png')}></Image>*/}
-                        <Text style={{color:'#636363',fontSize:18,marginLeft:0,lineHeight:60}}>{titles[index]}</Text>
-                        <Image style={{width:32,height:32,resizeMode:'contain',marginLeft:Dimensions.get('window').width-123,marginTop:14}} source={require('../src/next.png')}></Image>
+                        <Text style={{color:'#636363',fontSize:18,marginLeft:0,lineHeight:50}}>{titles[index]}</Text>
+                        <Image style={{width:32,height:32,resizeMode:'contain',marginLeft:Dimensions.get('window').width-113,marginTop:9}} source={require('../src/next.png')}></Image>
                     </View>
               </TouchableWithoutFeedback>
     }
@@ -201,8 +157,10 @@ export default class SettingPage extends Component {
                     {this._sepLine()}
                     {this._items(1)}
                     {this._sepLine()}
+                    {this._items(2)}
+                    {this._sepLine()}
                     {this.state.atavar.length>0?
-                        this._items(2):null
+                        this._items(3):null
                     }
                     {
                         this.state.atavar.length>0?

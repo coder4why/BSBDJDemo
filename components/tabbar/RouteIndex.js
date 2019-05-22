@@ -1,7 +1,7 @@
 
-  import React, { Component } from 'react';
+  import React from 'react';
   import {Image} from 'react-native';
-  import {THEMEConfig} from './LZKKTabBar';
+  import {THEMEConfig} from './Theme';
   //工作台路由
   export default routeIndex = {
         VideoDetail:{
@@ -10,7 +10,7 @@
               headerTitle:'视频详情',
               headerTintColor:'white',
               headerStyle: {
-                  backgroundColor: THEMEConfig.THEMECOLOR,
+                  backgroundColor: 'white',
               },
               headerBackImage:<Image style={{marginLeft:5,width:28,height:28,resizeMode:'contain'}} source={require('../src/back.png')}></Image>
           })
@@ -21,7 +21,7 @@
             headerTitle:'',
             headerTintColor:'white',
             headerStyle: {
-                backgroundColor: THEMEConfig.THEMECOLOR,
+                backgroundColor: 'white',
             },
             headerBackImage:<Image style={{marginLeft:5,width:28,height:28,resizeMode:'contain'}} source={require('../src/back.png')}></Image>
         })
@@ -32,9 +32,9 @@
             headerTitle:'',
             headerTintColor:'white',
             headerStyle: {
-                backgroundColor: THEMEConfig.THEMECOLOR,
+                backgroundColor: 'white',
             },
-            headerBackImage:<Image style={{marginLeft:5,width:28,height:28,resizeMode:'contain'}} source={require('../src/back.png')}></Image>
+            headerBackImage:<Image style={{marginLeft:5,padding:10,width:28,height:28,resizeMode:'contain'}} source={require('../src/back.png')}></Image>
         })
     },
 
