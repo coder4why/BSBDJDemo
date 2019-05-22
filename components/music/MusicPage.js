@@ -6,6 +6,7 @@ import {
   FlatList,
   TextInput,
   Image,
+  DeviceEventEmitter
 } from 'react-native';
 import Toast from 'react-native-easy-toast';
 import {getData} from '../tools/Fetch';
@@ -119,6 +120,16 @@ export default class MusicPage extends Component {
     this._searchMusic('薛之谦');
     Sound.setCategory('Playback');
     setStatusBar(true);
+    var that = this;
+    DeviceEventEmitter.addListener('PLAYVIDEO',function(value){
+      if(whoosh){
+        that.setState({
+          isPlaying:value,
+          playIndex:that.state.playIndex
+        });
+        value?whoosh.play():whoosh.pause();
+      }
+    });
   }
 
   _searchMusic(text){

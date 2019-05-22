@@ -182,7 +182,7 @@ const TabRouteConfigs = {
 
                         }}
                         >
-                          <Text style={{color:'#515151',fontSize:27,textAlign:'left',fontWeight:'bold',
+                          <Text style={{color:'grey',fontSize:27,textAlign:'left',fontWeight:'bold',
                                           width:120,lineHeight:40,
                                           marginTop:Dimensions.get('window').height>=812?45:30
                                         }}>

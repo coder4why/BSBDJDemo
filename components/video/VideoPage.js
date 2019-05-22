@@ -27,6 +27,7 @@ export default class VideoPage extends Component {
             themeColor:color
         });
     });
+    
     SplashScreen.hide();
     setStatusBar(true);
   }

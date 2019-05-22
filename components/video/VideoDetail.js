@@ -3,7 +3,8 @@ import {
   Dimensions,
   View,
   TouchableWithoutFeedback,
-  Image
+  Image,
+  DeviceEventEmitter
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Video from 'react-native-video';
@@ -19,6 +20,10 @@ export default class VideoDetail extends Component {
 
   componentDidMount(){
       this._getDM();
+      DeviceEventEmitter.emit('PLAYVIDEO',false);
+  }
+  componentWillUnmount(){
+    DeviceEventEmitter.emit('PLAYVIDEO',true);
   }
 
   async _getDM() {
