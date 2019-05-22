@@ -12,11 +12,13 @@
 #import <React/RCTRootView.h>
 #import <AVFoundation/AVFoundation.h>
 #import <React/RCTLinkingManager.h>
+ #import <Bugly/Bugly.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [Bugly startWithAppId:@"779dd9c0fd"];
   AVAudioSession *avSession = [AVAudioSession sharedInstance];
   [avSession setCategory:AVAudioSessionCategoryAmbient error:nil];  // allow
   if ([avSession respondsToSelector:@selector(requestRecordPermission:)]) {

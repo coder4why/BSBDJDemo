@@ -42,6 +42,7 @@
 		2E8FD15722854E5C00617FF8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD15622854E5C00617FF8 /* Security.framework */; };
 		2E8FD15922854E6300617FF8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD15822854E6300617FF8 /* CoreTelephony.framework */; };
 		2E8FD15B22854E6900617FF8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD15A22854E6900617FF8 /* CoreText.framework */; };
+		2EFE3FAB229558D500F4B47C /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFE3FAA229558D500F4B47C /* Bugly.framework */; };
 		66C013583AE54CB788456D4B /* RCTWeChatTests.xctest in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2369C357642CCAC130F0A /* RCTWeChatTests.xctest */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8C71824182E448668C068D1D /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C930BD831747D3BD9EC07B /* libRCTVideo.a */; };
@@ -458,6 +459,7 @@
 		2E8FD15822854E6300617FF8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		2E8FD15A22854E6900617FF8 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		2E93FA39145246ADB78D8E79 /* RCTWeChat.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTWeChat.xcodeproj; path = "../node_modules/react-native-wechat/ios/RCTWeChat.xcodeproj"; sourceTree = "<group>"; };
+		2EFE3FAA229558D500F4B47C /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		31E3E33CA4B44220B3E531FB /* libRNAudio.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAudio.a; sourceTree = "<group>"; };
 		34641DCEC6434BE18E7AF778 /* RNAudio.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAudio.xcodeproj; path = "../node_modules/react-native-audio/ios/RNAudio.xcodeproj"; sourceTree = "<group>"; };
 		43F94811290E49E3A6661B63 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 				2E8FD15922854E6300617FF8 /* CoreTelephony.framework in Frameworks */,
 				2E8FD15722854E5C00617FF8 /* Security.framework in Frameworks */,
 				2E8FD15522854E5600617FF8 /* SystemConfiguration.framework in Frameworks */,
+				2EFE3FAB229558D500F4B47C /* Bugly.framework in Frameworks */,
 				2E8FD15322854E4F00617FF8 /* ImageIO.framework in Frameworks */,
 				2E8FD0C9228540E900617FF8 /* libc++.tbd in Frameworks */,
 				2E8FD0C7228540DF00617FF8 /* libz.tbd in Frameworks */,
@@ -613,6 +616,7 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				2EFE3FAA229558D500F4B47C /* Bugly.framework */,
 				2E1F9AE62293C8F80084B6EC /* ios_gifview */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -1457,7 +1461,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 2R8GD39REK;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-qq/ios/RCTQQAPI";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../node_modules/react-native-qq/ios/RCTQQAPI",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
@@ -1508,7 +1515,10 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2R8GD39REK;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-qq/ios/RCTQQAPI";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../node_modules/react-native-qq/ios/RCTQQAPI",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
