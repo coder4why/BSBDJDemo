@@ -7,6 +7,7 @@
         VideoDetail:{
           screen:require('../video/VideoDetail.js').default,
           navigationOptions:({ navigation }) => ({
+              header:null,
               headerTitle:'视频详情',
               headerTintColor:'white',
               headerStyle: {

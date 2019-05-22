@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
-  ScrollView,
   Dimensions,
   View,
+  TouchableWithoutFeedback,
+  Image
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Video from 'react-native-video';
 import MarqueeLabel from 'react-native-lahk-marquee-label';
-import { async } from 'rsvp';
 export default class VideoDetail extends Component {
 
   constructor(props){
@@ -59,21 +59,23 @@ export default class VideoDetail extends Component {
   }
   render() {
           return(
-            <ScrollView style={{flex:1}}>
               <View style={{flex:1}}>
-                <Video source={{uri: this.props.navigation.state.params.rowData.video}}  
-                  ref={(ref) => {
-                    this.player = ref
-                  }}                                      
-                  style={{
-                    width:Dimensions.get('window').width,
-                    height:420
-                  }} 
-                  resizeMode={'cover'}
-                />
-                {this.state.showDM?this._runHorseLabel():null}
+                <View style={{flex:1}}>
+                    <Video source={{uri: this.props.navigation.state.params.rowData.video}}  
+                      ref={(ref) => {
+                        this.player = ref
+                      }}        
+                      style={{flex:1}}                              
+                    />
+                </View>
+                <TouchableWithoutFeedback 
+                    onPress={()=>{ this.props.navigation.goBack();}}
+                >
+                    <Image style={{position:'absolute',width:50,height:40,marginTop:Dimensions.get('window').height-40-40,marginLeft:Dimensions.get('window').width-65}}
+                      source={require('../src/back_blue.png')}
+                    />
+                </TouchableWithoutFeedback>
               </View>
-            </ScrollView>
           );
       }
 }
