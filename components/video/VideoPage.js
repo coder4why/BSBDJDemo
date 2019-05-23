@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import setStatusBar from '../tools/StatusTool';
-import SplashScreen from 'react-native-splash-screen'
 import CustomTabBar from './CustomTabBar';
 
 export default class VideoPage extends Component {
@@ -28,7 +27,6 @@ export default class VideoPage extends Component {
         });
     });
     
-    SplashScreen.hide();
     setStatusBar(true);
   }
   

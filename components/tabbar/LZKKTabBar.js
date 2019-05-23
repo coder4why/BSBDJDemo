@@ -94,7 +94,6 @@ const TabRouteConfigs = {
           }),
       },
       
-        
   };
   
   const TabNavigatorConfigs = {
