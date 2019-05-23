@@ -77,7 +77,7 @@ export default class JokeItemComponent extends Component{
                     </View>
                     <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:5}}>
                       <Text numberOfLines={1} ellipsizeMode="tail" style={{color:this.state.themeColor,fontSize:16,fontWeight:'bold',overflow:"hidden"}}>{rowData.u.name}</Text>
-                      <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:14,overflow:"hidden"}}>{rowData.passtime}</Text>
+                      <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:14,overflow:"hidden",marginTop:3}}>{rowData.passtime}</Text>
                     </View>
                     <TouchableWithoutFeedback onPress={()=>{
                         const index = this.state.results.indexOf(rowData);

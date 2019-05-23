@@ -131,7 +131,7 @@ export default class SettingPage extends Component {
                     <View style={{marginLeft:10,flexDirection:'row',height:50}}>
                         {/*<Image style={{width:32,height:32,resizeMode:'contain',marginTop:9}} source={require('../src/collect.png')}></Image>*/}
                         <Text style={{color:'#636363',fontSize:18,marginLeft:0,lineHeight:50}}>{titles[index]}</Text>
-                        <Image style={{width:32,height:32,resizeMode:'contain',marginLeft:Dimensions.get('window').width-113,marginTop:9}} source={require('../src/next.png')}></Image>
+                        <Image style={{width:32,height:32,resizeMode:'contain',marginLeft:Dimensions.get('window').width-115,marginTop:9}} source={require('../src/next.png')}></Image>
                     </View>
               </TouchableWithoutFeedback>
     }

@@ -62,6 +62,7 @@ export default class JokeDTComponent extends Component{
       tabBarInactiveTextColor='grey'
       tabBarUnderlineStyle={{backgroundColor:this.state.themeColor,height: 2,}}
       tabBarTextStyle={{fontSize: 17}}
+      tabUnderlineDefaultWidth={10}
       >
       <View tabLabel='最新' style={{flex:1}}>
           <JokeItemComponent 

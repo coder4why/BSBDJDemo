@@ -7,12 +7,6 @@
           screen:require('../video/VideoDetail.js').default,
           navigationOptions:({ navigation }) => ({
               header:null,
-              headerTitle:'视频详情',
-              headerTintColor:'white',
-              headerStyle: {
-                  backgroundColor: 'white',
-              },
-              headerBackImage:<Image style={{marginLeft:5,width:28,height:28,resizeMode:'contain'}} source={require('../src/back.png')}></Image>
           })
       },
       Favorite:{
@@ -23,18 +17,19 @@
             headerStyle: {
                 backgroundColor: 'white',
             },
-            headerBackImage:<Image style={{marginLeft:5,width:28,height:28,resizeMode:'contain'}} source={require('../src/back.png')}></Image>
+            headerBackImage:<Image style={{marginLeft:5,width:20,height:20}} source={require('../src/back.png')}></Image>
         })
     },
     JokeDetail:{
         screen:require('../joke/JokeDetail.js').default,
         navigationOptions:({ navigation }) => ({
-            headerTitle:'',
-            headerTintColor:'white',
+            headerTitle:'社区详情',
+            headerTintColor:'#333333',
             headerStyle: {
                 backgroundColor: 'white',
+                fontSize:18
             },
-            headerBackImage:<Image style={{marginLeft:5,padding:10,width:28,height:28,resizeMode:'contain'}} source={require('../src/back.png')}></Image>
+            headerBackImage:<Image style={{marginLeft:5,padding:10,width:20,height:20,}} source={require('../src/back.png')}></Image>
         })
     },
     Release:{

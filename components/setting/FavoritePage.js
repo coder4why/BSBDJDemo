@@ -90,8 +90,7 @@ export default class FavoritePage extends Component {
     }
 
     _colorViews(){
-        var colors = ['#7A378B','#66CDAA','#FF6A6A','#1E90FF','#AB82FF','#333333',
-                      '#ADADAD','#8FBC8F','#32CD32','#6E7B8B','#7AC5CD'];
+        var colors = ['#7A378B','#FF6A6A','#1E90FF','#AB82FF','#6E7B8B','#7AC5CD'];
         var colorViews = [];
         colors.map((f)=>{
             colorViews.push(

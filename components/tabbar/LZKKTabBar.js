@@ -49,7 +49,7 @@ const TabRouteConfigs = {
           tabBarLabel:'社区',
           tabBarIcon:({focused,tintColor}) => (
             <Image
-              source={focused ? joke_normal:joke_selected}
+              source={focused ? joke_selected:joke_normal}
               style={{width:23,height:23,tintColor:tintColor}}
             />)
           }),
@@ -76,7 +76,7 @@ const TabRouteConfigs = {
             tabBarLabel:'听歌',
             tabBarIcon:({focused,tintColor}) => (
                 <Image
-                source={focused ? music_normal:music_selected}
+                source={focused ?music_selected:music_normal}
                 style={{width:23,height:23,tintColor:tintColor}}
                 />)
             }),
@@ -88,7 +88,7 @@ const TabRouteConfigs = {
           tabBarLabel:'我的',
           tabBarIcon:({focused,tintColor}) => (
               <Image
-              source={focused ? setting_normal:setting_selected}
+              source={focused ? setting_selected:setting_normal}
               style={{width:23,height:23,tintColor:tintColor}}
               />)
           }),
