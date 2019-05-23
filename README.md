@@ -11,9 +11,10 @@
         9.更换主题;
         10.redux等其他内容；
 
-<iframe src="/pics/bsbdj.gif" width="308" height="599"/>
+
 ### iOS：
 <h2 align"center">
+<img src="/pics/bsbdj.gif" width="308" height="599"/>
 <img src="/pics/1.png" width="210" height="413"/>
 <img src="/pics/2.png" width="210" height="413"/>
 <img src="/pics/3.png" width="210" height="413"/>
