@@ -174,7 +174,7 @@ export default class JokeItemComponent extends Component{
         var tyle = 0;
         if(rowData.image != null){
             imageUrl = rowData.image.thumbnail_small[0];
-            bigImageUrl = rowData.image.big[0];
+            bigImageUrl = rowData.image.download_url[0];
             type=0;
         }else if(rowData.video != null){
             imageUrl = rowData.video.thumbnail_small[0];

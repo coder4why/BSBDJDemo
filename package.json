@@ -16,6 +16,7 @@
     "react-native-easy-loading": "^1.0.6",
     "react-native-easy-toast": "^1.2.0",
     "react-native-gesture-handler": "^1.1.0",
+    "react-native-image-picker": "^0.28.1",
     "react-native-image-zoom-viewer": "^2.2.26",
     "react-native-lahk-marquee-label": "^1.1.4",
     "react-native-qq": "^2.0.5",

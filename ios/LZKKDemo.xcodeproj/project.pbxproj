@@ -43,6 +43,7 @@
 		2E8FD15922854E6300617FF8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD15822854E6300617FF8 /* CoreTelephony.framework */; };
 		2E8FD15B22854E6900617FF8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD15A22854E6900617FF8 /* CoreText.framework */; };
 		2EFE3FAB229558D500F4B47C /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFE3FAA229558D500F4B47C /* Bugly.framework */; };
+		4573CEA3024F41859F0A547B /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 345CFF98DD7743EFAC851FED /* libRNImagePicker.a */; };
 		66C013583AE54CB788456D4B /* RCTWeChatTests.xctest in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2369C357642CCAC130F0A /* RCTWeChatTests.xctest */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8C71824182E448668C068D1D /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C930BD831747D3BD9EC07B /* libRCTVideo.a */; };
@@ -180,6 +181,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNCWebView;
+		};
+		2E370B232296537F00B82BC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED17C7F1E67E47A299E46523 /* RNImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
+			remoteInfo = RNImagePicker;
 		};
 		2E46DDE4228BFC4B00269E35 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -461,6 +469,7 @@
 		2E93FA39145246ADB78D8E79 /* RCTWeChat.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTWeChat.xcodeproj; path = "../node_modules/react-native-wechat/ios/RCTWeChat.xcodeproj"; sourceTree = "<group>"; };
 		2EFE3FAA229558D500F4B47C /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		31E3E33CA4B44220B3E531FB /* libRNAudio.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAudio.a; sourceTree = "<group>"; };
+		345CFF98DD7743EFAC851FED /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		34641DCEC6434BE18E7AF778 /* RNAudio.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAudio.xcodeproj; path = "../node_modules/react-native-audio/ios/RNAudio.xcodeproj"; sourceTree = "<group>"; };
 		43F94811290E49E3A6661B63 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -476,6 +485,7 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		C6C2369C357642CCAC130F0A /* RCTWeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = RCTWeChatTests.xctest; sourceTree = "<group>"; };
 		E4AB1EF01FD146A8BF7E793F /* RCTWeiboAPI.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTWeiboAPI.xcodeproj; path = "../node_modules/react-native-weibo/ios/RCTWeiboAPI.xcodeproj"; sourceTree = "<group>"; };
+		ED17C7F1E67E47A299E46523 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F5B2798002AC4598A58E9DC6 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
@@ -525,6 +535,7 @@
 				E4BD2BC5B9BF430E9C775C69 /* libRNSound.a in Frameworks */,
 				66C013583AE54CB788456D4B /* RCTWeChatTests.xctest in Frameworks */,
 				B2F34D5E585E4194AB7E2152 /* libRNCAsyncStorage.a in Frameworks */,
+				4573CEA3024F41859F0A547B /* libRNImagePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +705,14 @@
 			path = ios_gifview;
 			sourceTree = "<group>";
 		};
+		2E370B202296537F00B82BC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E370B242296537F00B82BC5 /* libRNImagePicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2E46DDB1228BFC4B00269E35 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,6 +742,7 @@
 				C6C2369C357642CCAC130F0A /* RCTWeChatTests.xctest */,
 				7CB1E33557B74A9CB704806D /* libRCTWeiboAPI.a */,
 				7545AEE3B24C4840AE86F90F /* libRNCAsyncStorage.a */,
+				345CFF98DD7743EFAC851FED /* libRNImagePicker.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -838,6 +858,7 @@
 				2E93FA39145246ADB78D8E79 /* RCTWeChat.xcodeproj */,
 				E4AB1EF01FD146A8BF7E793F /* RCTWeiboAPI.xcodeproj */,
 				691C83C209DB49CBA324796A /* RNCAsyncStorage.xcodeproj */,
+				ED17C7F1E67E47A299E46523 /* RNImagePicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1013,6 +1034,10 @@
 					ProjectRef = 16AF01C54C3A41CC9FE849E9 /* RNGestureHandler.xcodeproj */;
 				},
 				{
+					ProductGroup = 2E370B202296537F00B82BC5 /* Products */;
+					ProjectRef = ED17C7F1E67E47A299E46523 /* RNImagePicker.xcodeproj */;
+				},
+				{
 					ProductGroup = 2E5B17D62275955E00A29556 /* Products */;
 					ProjectRef = FDE0E32AA9F7478DA4047A8A /* RNSound.xcodeproj */;
 				},
@@ -1157,6 +1182,13 @@
 			fileType = archive.ar;
 			path = libRNCWebView.a;
 			remoteRef = 2E1F9A2D229398430084B6EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2E370B242296537F00B82BC5 /* libRNImagePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImagePicker.a;
+			remoteRef = 2E370B232296537F00B82BC5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2E46DDE5228BFC4B00269E35 /* libSplashScreen.a */ = {
@@ -1476,11 +1508,13 @@
 					"$(SRCROOT)/../node_modules/react-native-weibo/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = LZKKDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
@@ -1530,11 +1564,13 @@
 					"$(SRCROOT)/../node_modules/react-native-weibo/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = LZKKDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",
 					"\"$(SRCROOT)/LZKKDemo\"",

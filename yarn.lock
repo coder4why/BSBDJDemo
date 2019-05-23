@@ -4446,6 +4446,10 @@ react-native-image-pan-zoom@^2.1.9:
   version "2.1.11"
   resolved "https://registry.npm.taobao.org/react-native-image-pan-zoom/download/react-native-image-pan-zoom-2.1.11.tgz#61bcb69219d95e76a9797d23e4a2e8e0bd654ae9"
 
+react-native-image-picker@^0.28.1:
+  version "0.28.1"
+  resolved "https://registry.npm.taobao.org/react-native-image-picker/download/react-native-image-picker-0.28.1.tgz#1127460522e0c9741fc62f3d040271d298fb6a6e"
+
 react-native-image-zoom-viewer@^2.2.26:
   version "2.2.26"
   resolved "https://registry.npm.taobao.org/react-native-image-zoom-viewer/download/react-native-image-zoom-viewer-2.2.26.tgz#c6f070abb094cfbe1b3b7d8a38ad979a5facbdc5"

@@ -151,17 +151,17 @@ export default class FavoritePage extends Component {
                             <View style={{flex:1,margin:5}}>
                                 {this._colorViews()}
                             </View>:
-                            <View style={{margin:10,flexDirection:'row'}}>
-                                <Text style={{fontSize:20,color:'#333333',textAlign:'center',marginTop:5}}>关闭弹幕</Text>
+                            <View style={{height:50,flexDirection:'row',alignItems:'center'}}>
+                                <Text style={{fontSize:18,color:'#636363',textAlign:'center',marginLeft:5,lineHeight:50}}>关闭弹幕</Text>
                                 <Switch value={this.state.closeDM} 
-                                style={{marginLeft:Dimensions.get('window').width-150}}
+                                style={{marginLeft:Dimensions.get('window').width-140}}
                                 onValueChange = {(value)=> {
                                     this.setState({closeDM:value});
                                     this._setDM();
                                  }}></Switch>
                             </View>
                         }
-                        {this.state.index==2?<View style={{height:1,backgroundColor:'#EEE9E9',flex:1}}></View>:null}
+                        {this.state.index==2?<View style={{height:1,backgroundColor:'#EEE9E9',flex:1,marginHorizontal:5}}></View>:null}
                     </ScrollView>
                 }
                 <Toast  ref="toast"

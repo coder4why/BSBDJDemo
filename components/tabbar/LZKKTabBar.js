@@ -1,9 +1,10 @@
 
-import React from 'react';
+import React,{Component} from 'react';
 import {
   createBottomTabNavigator,
   createStackNavigator,
-  createAppContainer
+  createAppContainer,
+  TabBarBottom
 } from 'react-navigation';
 import {
   Image,
@@ -14,11 +15,11 @@ import {
 } from 'react-native';
 import VideoPage from '../video/VideoPage';
 import JokePage from '../joke/JokePage';
-import ReleasePage from '../plus/ReleasePage';
 import MusicPage from '../music/MusicPage';
 import SettingPage from '../setting/SettingPage';
 import routeIndex from './RouteIndex';
 import {THEMEConfig} from './Theme';
+import TabBar from './TabBar';
 
 const video_normal = require('../src/home.png');
 const video_selected = require('../src/home_selected.png');
@@ -55,12 +56,10 @@ const TabRouteConfigs = {
         },
 
       ReleasePage:{
-      screen:ReleasePage,
+      screen:Component,
       navigationOptions: ({ navigation }) => ({
-          tabBarLabel:' ',
           tabBarIcon:({focused,tintColor}) => (
             <View style={{width:44,height:44,backgroundColor:'#FF3030',justifyContent:'center',
-                  marginTop:Dimensions.get('window').height>812?20:15,
                   borderRadius:22,
                   borderWidth:1,
                   borderColor: '#EBEBEB',
@@ -113,6 +112,7 @@ const TabRouteConfigs = {
         inactiveTintColor:'grey',
         showIcon:true,
       },
+      tabBarComponent:(props) => <TabBar {...props} />,// 自定义tab样式
   };
   const titles = ['','','','听音乐','我的'];
   const APP = createBottomTabNavigator(TabRouteConfigs,TabNavigatorConfigs);
@@ -182,7 +182,7 @@ const TabRouteConfigs = {
 
                         }}
                         >
-                          <Text style={{color:'grey',fontSize:27,textAlign:'left',fontWeight:'bold',
+                          <Text style={{color:'grey',fontSize:27,textAlign:'left',fontWeight:'400',
                                           width:120,lineHeight:40,
                                           marginTop:Dimensions.get('window').height>=812?45:30
                                         }}>
