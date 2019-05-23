@@ -1,5 +1,4 @@
-#### App RN版本：兼容iOS 
-
+##  React-Native : 高仿百思不得姐 —— 《仅限学习，不做任何商业用途》
 #### 内容涉及：
         1.基础界面的搭建；
         2.网络请求、JSON Parse与数据渲染；
@@ -12,8 +11,7 @@
         9.更换主题;
         10.redux等其他内容；
 
-<img src="/pics/bsbdj.gif" width="308" height="599"/>
-
+<iframe src="/pics/bsbdj.gif" width="308" height="599"/>
 ### iOS：
 <h2 align"center">
 <img src="/pics/1.png" width="210" height="413"/>
