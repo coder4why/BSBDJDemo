@@ -110,8 +110,15 @@ export default class SettingPage extends Component {
     }
 
     _clickIndex(index){
+        if(index==0){
+            const navigateAction = NavigationActions.navigate({
+                routeName: 'RobotPage',
+                action: NavigationActions.navigate({ routeName: 'RobotPage',title:''}),
+                });
+            this.props.navigation.dispatch(navigateAction);
+        }
         //更换主题：
-        if(index!=3){
+       else if(index>0 && index<3){
             const navigateAction = NavigationActions.navigate({
                 routeName: 'Favorite',
                 params:{index},
@@ -126,7 +133,7 @@ export default class SettingPage extends Component {
     }
 
     _items(index){
-        var titles = ['我的收藏','更换主题','弹幕设置','退出登录'];
+        var titles = ['图灵聊天','我的收藏','更换主题','弹幕设置','退出登录'];
         return <TouchableWithoutFeedback key={titles[index]} onPress={()=>this._clickIndex(index)}>
                     <View style={{marginLeft:10,flexDirection:'row',height:50}}>
                         {/*<Image style={{width:32,height:32,resizeMode:'contain',marginTop:9}} source={require('../src/collect.png')}></Image>*/}

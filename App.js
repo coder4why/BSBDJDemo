@@ -30,9 +30,9 @@ export default class App extends Component {
   _requestSplash(){
       var that = this;
       getData('http://dspsdk.spriteapp.com/get?ad=self.baisibudejieHD.iphone.banner.18110717000',(response)=>{
-
+        const seq = response.body.config.sequence[0];
         that.setState({
-          imageUrl:response.body.data['sdk.baidu.banner.iphone.image.5.107.35.2841'].pic
+          imageUrl:response.body.data[seq].pic
         });
        timer = setInterval(function(){
           if(that.state.second==0){
@@ -54,7 +54,7 @@ export default class App extends Component {
             { 
               this.state.second>0?
               <View style={{flex:1}}>
-                <Image source={{uri:this.state.imageUrl}} style={{flex:1}}></Image>
+                <Image source={{uri:this.state.imageUrl}} style={{flex:1,resizeMode:'cover'}}></Image>
                 <TouchableWithoutFeedback onPress={()=>{
                   this.setState({second:0});
                   SplashScreen.hide();

@@ -15,15 +15,11 @@ export function getData(url,callBack){
     .done();
 };
     
-export function postData(url,options,callBack){
-
-    let formData = new FormData();
-    FormData.options = options;
+export function postData(url,bodyStr,callBack){
 
     fetch(url, {
         method:'POST',
-        headers:{},
-        body:formData,
+        body:bodyStr,
     })
     .then((response) => response.json())
     .then((responseData)=>callBack(responseData))
