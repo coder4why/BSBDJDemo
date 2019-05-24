@@ -24,7 +24,8 @@ export default class MusicPage extends Component {
       isPlaying:false,
       playIndex:0,
       degree:0,
-      timer: null
+      timer: null,
+      musciUrl:''
     }
     this._musics.bind(this._musics);
     this._header.bind(this._header);
@@ -51,15 +52,16 @@ export default class MusicPage extends Component {
   }
 
   _header(rowData,rowIndex){
+    const playMe = this.state.isPlaying==true && this.state.musciUrl==rowData.url;
     return <View style={{justifyContent:"center",flexDirection:'row',width:Dimensions.get('window').width,}}> 
                 <View>
-                  <Image style={{transform: [{rotateZ:`${this.state.playIndex==rowIndex && this.state.isPlaying==true?this.state.degree:0}deg`}],width:50,height:50,borderRadius:25,marginLeft:10}} source={{uri:rowData.pic}}></Image>
+                  <Image style={{transform: [{rotateZ:`${playMe?this.state.degree:0}deg`}],width:50,height:50,borderRadius:25,marginLeft:10}} source={{uri:rowData.pic}}></Image>
                 </View>
                 <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:10}}>
                   <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'#1E90FF',fontSize:16,fontWeight:'bold',overflow:"hidden"}}>{rowData.title}</Text>
                   <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:14,overflow:"hidden",marginTop:5}}>{rowData.author}</Text>
                 </View>
-                <Image style={{marginTop:15,marginRight:15,width:15,height:15,resizeMode:'contain'}} source={ (this.state.isPlaying&&this.state.playIndex==rowIndex)?require('../src/pause.png'):require('../src/play.png')}></Image>
+                <Image style={{marginTop:15,marginRight:15,width:15,height:15,resizeMode:'contain'}} source={ (playMe)?require('../src/pause.png'):require('../src/play.png')}></Image>
            </View>
   }
   componentWillUnmount(){
@@ -79,7 +81,8 @@ export default class MusicPage extends Component {
       this.setState({
         isPlaying:true,
         playIndex:rowIndex,
-        degree:0
+        degree:0,
+        musciUrl:rowData.url,
       });
       this._animated();
     }
@@ -90,7 +93,8 @@ export default class MusicPage extends Component {
                 this.refs.toast.show('播放失败啦!',500);
                 this.setState({
                   isPlaying:false,
-                  degree:0
+                  degree:0,
+                  musciUrl:'',
                 });
                 whoosh.reset();
                 clearInterval(this.state.timer);
@@ -99,7 +103,8 @@ export default class MusicPage extends Component {
               this.setState({
                 isPlaying:true,
                 playIndex:rowIndex,
-                degree:0
+                degree:0,
+                musciUrl:musciPath,
               });
               this._animated();
               this._play();
@@ -140,7 +145,8 @@ export default class MusicPage extends Component {
         console.log('successfully finished playing');
         this.setState({
           isPlaying:false,
-          degree:0
+          degree:0,
+          musciUrl:''
         });
         whoosh.pause();
         clearInterval(this.state.timer);
@@ -157,7 +163,7 @@ export default class MusicPage extends Component {
     var that = this;
     DeviceEventEmitter.addListener('PLAYVIDEO',function(value){
       if(whoosh){
-        that.setState({isPlaying:false,degree:0});
+        that.setState({isPlaying:false,degree:0,musciUrl:''});
         whoosh.pause();
       }
       clearInterval(that.state.timer);
