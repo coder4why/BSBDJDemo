@@ -118,7 +118,7 @@ export default class SettingPage extends Component {
             this.props.navigation.dispatch(navigateAction);
         }
         //更换主题：
-       else if(index>0 && index<3){
+       else if(index>0 && index<=3){
             const navigateAction = NavigationActions.navigate({
                 routeName: 'Favorite',
                 params:{index},

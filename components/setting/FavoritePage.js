@@ -23,7 +23,7 @@ export default class FavoritePage extends Component {
         super(props);
         this.state = {
             videoLists:[],
-            index:0, //0'我的收藏',1'更换主题',2设置弹幕
+            index:0, //1'我的收藏',2'更换主题',3设置弹幕
             closeDM:true,
         }
     }
@@ -32,7 +32,7 @@ export default class FavoritePage extends Component {
         this._getDM();
         const index = this.props.navigation.state.params.index;
         this.setState({index:index});
-        if(index==0){
+        if(index==1){
             this._requestVideos();
         }
     }
@@ -137,7 +137,7 @@ export default class FavoritePage extends Component {
     }
     render(){
         return  <View style={{flex:1}}>
-                {this.state.index==0?
+                {this.state.index==1?
                     <FlatList
                         style={{flex:1}}
                         keyExtractor = {this._extraUniqueKey} 
@@ -146,7 +146,7 @@ export default class FavoritePage extends Component {
                     />:
                     <ScrollView style={{flex:1}}>
                         {
-                            this.state.index==1?
+                            this.state.index==2?
                             <View style={{flex:1,margin:5}}>
                                 {this._colorViews()}
                             </View>:
@@ -160,7 +160,7 @@ export default class FavoritePage extends Component {
                                  }}></Switch>
                             </View>
                         }
-                        {this.state.index==2?<View style={{height:1,backgroundColor:'#EEE9E9',flex:1,marginHorizontal:5}}></View>:null}
+                        {this.state.index==3?<View style={{height:1,backgroundColor:'#EEE9E9',flex:1,marginHorizontal:5}}></View>:null}
                     </ScrollView>
                 }
                 <Toast  ref="toast"

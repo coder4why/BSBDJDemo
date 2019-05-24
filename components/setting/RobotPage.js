@@ -10,9 +10,10 @@ import {
   TextInput,
   FlatList
 } from 'react-native';
-import { NavigationActions } from 'react-navigation';
-const key = 'f0d11b6cae4647b2bd810a6a3df2136f';
-const {width,height} = Dimensions.get('window');
+
+const userId = 'D0956E62B9E84CC4BEF424F8CED306AB';
+const key = 'b8a7ec5c2661de89008bc900c105995c'; //'f0d11b6cae4647b2bd810a6a3df2136f';
+const {width} = Dimensions.get('window');
 
 export default class RobotPage extends Component{
 
@@ -39,16 +40,24 @@ export default class RobotPage extends Component{
             inputText:''
         });
         const options = {
-            'key':key,
-            'info':text,
-        };
+            "reqType":0,
+            "perception": {
+                "inputText": {
+                    "text": "你叫什么"
+                }
+            },
+            "userInfo": {
+                "apiKey": key,
+                "userId": userId
+            }
+        }
 
         var that = this;
         const bodyStr =  JSON.stringify(options);  //`key=${key}&info=${text}`;
         postData(TULINGAPI,bodyStr,(response)=>{
             var lists = that.state.dataSources;
             lists.push({
-                text:response.text,
+                text:response.results[0].values.text,
                 isLeft:true
             });
             that.setState({
