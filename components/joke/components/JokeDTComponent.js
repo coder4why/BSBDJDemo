@@ -60,7 +60,7 @@ export default class JokeDTComponent extends Component{
       tabBarBackgroundColor={'#fff'}
       tabBarActiveTextColor={this.state.themeColor}
       tabBarInactiveTextColor='grey'
-      tabBarUnderlineStyle={{backgroundColor:this.state.themeColor,height: 2,}}
+      tabBarUnderlineStyle={{backgroundColor:this.state.themeColor,height: 1,}}
       tabBarTextStyle={{fontSize: 17}}
       tabUnderlineDefaultWidth={10}
       >

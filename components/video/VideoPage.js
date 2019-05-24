@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   Modal,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+  ActivityIndicator
 } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import setStatusBar from '../tools/StatusTool';
@@ -47,7 +48,10 @@ export default class VideoPage extends Component {
            }}>
               <ImageViewer 
                   onCancel={()=> {this.setState({showPic: false,});}}
-                  saveToLocalByLongPress={true}
+                  saveToLocalByLongPress={false}
+                  loadingRender={()=>{
+                    return <ActivityIndicator color='white' size="large"/>
+                  }}
                   onClick={()=>{this.setState({showPic:!this.state.showPic});}}
                   imageUrls={[{url:this.state.imageUrl,props:{}}]}/>
            </Modal>;

@@ -73,6 +73,7 @@ export default class VideoDetail extends Component {
                       style={{flex:1}}                              
                     />
                 </View>
+                {this.state.showDM?this._runHorseLabel():null}
                 <TouchableWithoutFeedback 
                     onPress={()=>{ this.props.navigation.goBack();}}
                 >

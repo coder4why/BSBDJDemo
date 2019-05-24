@@ -17,7 +17,7 @@ export default class App extends Component {
       super(props);
       this.state={
         second:4,
-        imageUrl:''
+        imageUrl:'http://img.spriteapp.cn/spritead/20160812/134021885613.jpg'
       }
   }
 

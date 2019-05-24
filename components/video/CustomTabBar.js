@@ -67,7 +67,7 @@ export default class CustomTabBar extends Component {
       <ScrollableTabView 
             locked={false}
             initialPage={0}
-            renderTabBar={() =><ScrollableTabBar style={{height: 45}}
+            renderTabBar={() =><ScrollableTabBar underlineStyle={{backgroundColor:'#fff'}} style={{height: 45}}
             onChangeTab={(obj) => {
                 console.log('index:' + obj.i);
               }
@@ -81,7 +81,7 @@ export default class CustomTabBar extends Component {
             tabBarBackgroundColor='white'
             tabBarActiveTextColor={this.state.mainColor}
             tabBarInactiveTextColor='grey'
-            tabBarUnderlineStyle={{backgroundColor: this.state.mainColor,height: 2,}}
+            tabBarUnderlineStyle={{backgroundColor: this.state.mainColor,height: 1}}
             tabBarTextStyle={{fontSize: 17}}
             >
 

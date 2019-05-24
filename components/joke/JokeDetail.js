@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {View,Modal } from 'react-native';
+import {View,Modal,ActivityIndicator } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import { WebView } from 'react-native-webview';
 import JokeDTComponent from './components/JokeDTComponent';
@@ -26,7 +26,10 @@ export default class JokeDetail extends Component{
              }}>
                 <ImageViewer 
                     onCancel={()=> {this.setState({showPic: false,});}}
-                    saveToLocalByLongPress={true}
+                    saveToLocalByLongPress={false}
+                    loadingRender={()=>{
+                        return <ActivityIndicator color='white' size="large"/>
+                    }}
                     onClick={()=>{this.setState({showPic:!this.state.showPic});}}
                     imageUrls={[{url:this.state.imageUrl,props:{}}]}/>
              </Modal>;

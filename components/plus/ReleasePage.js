@@ -73,7 +73,7 @@ export default class ReleasePage extends Component {
     const options = {
         
         title: '选择视频',
-      cancelButtonTitle: '取消',
+        cancelButtonTitle: '取消',
         takePhotoButtonTitle: '录制视频',
         chooseFromLibraryButtonTitle: '选择视频',
         mediaType: 'video',

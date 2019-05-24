@@ -87,7 +87,7 @@ export default class JokeItemComponent extends Component{
                             results:newRe
                         });
                     }}>
-                        <Image style={{width:20,height:20,marginTop:15,marginRight:15,resizeMode:'contain'}} 
+                        <Image style={{width:28,height:28,marginTop:11,marginRight:11,resizeMode:'contain'}} 
                                source={require('../../src/delete.png')}>
                         </Image>
                     </TouchableWithoutFeedback>
