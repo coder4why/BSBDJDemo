@@ -20,6 +20,7 @@ export default class RobotPage extends Component{
         super(props);
         this.state={
             dataSources:[],
+            inputText:''
         }
     }
 
@@ -35,6 +36,7 @@ export default class RobotPage extends Component{
         });
         this.setState({
             dataSources:lists,
+            inputText:''
         });
         const options = {
             'key':key,
@@ -90,6 +92,8 @@ export default class RobotPage extends Component{
                         borderRadius: 4,
                         fontSize:18,
                         }}
+                        onChangeText={(text) => {this.setState({inputText:text})}}
+                        value = {this.state.inputText}
                         clearButtonMode='while-editing'
                         underlineColorAndroid='transparent'
                         numberOfLines={1}
