@@ -166,8 +166,10 @@ export default class SettingPage extends Component {
                     {this._sepLine()}
                     {this._items(2)}
                     {this._sepLine()}
+                    {this._items(3)}
+                    {this._sepLine()}
                     {this.state.atavar.length>0?
-                        this._items(3):null
+                        this._items(4):null
                     }
                     {
                         this.state.atavar.length>0?

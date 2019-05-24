@@ -9,7 +9,8 @@
         7.拍照与相册；
         8.图片预览；
         9.更换主题;
-        10.redux等其他内容；
+        10.图灵聊天室；
+        11.redux等其他内容；
 
 
 ### iOS：
@@ -31,6 +32,8 @@
 <img src="/pics/12.png" width="210" height="413"/>
 
 <img src="/pics/13.png" width="210" height="413"/>
+<img src="/pics/14.png" width="210" height="413"/>
+
 
 </h2>
 
