@@ -69,6 +69,7 @@ export default class MusicPage extends Component {
       whoosh.pause();
       whoosh.release();
       clearInterval(this.state.timer);
+      this.state.timer=null;
       this.setState({
         degree:0
       });
@@ -98,6 +99,7 @@ export default class MusicPage extends Component {
                 });
                 whoosh.reset();
                 clearInterval(this.state.timer);
+                this.state.timer=null;
                 return;
               }
               this.setState({
@@ -150,6 +152,7 @@ export default class MusicPage extends Component {
         });
         whoosh.pause();
         clearInterval(this.state.timer);
+        this.state.timer=null;
       } else {
         console.log('playback failed due to audio decoding errors');
       }
@@ -167,6 +170,7 @@ export default class MusicPage extends Component {
         whoosh.pause();
       }
       clearInterval(that.state.timer);
+      that.state.timer=null;
     });
   }
 
