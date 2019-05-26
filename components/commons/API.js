@@ -41,4 +41,4 @@ export const UserMsgs = 'http://d.api.budejie.com/user/profile?userid=23101975';
 export const MineAds = 'http://s.budejie.com/op/square2/bsbdjhd-iphone-5.0.9/appstore/0-100.json';
 
 //图灵聊天机器人       
-export const TULINGAPI = 'http://openapi.tuling123.com/openapi/api/v2';// 'http://www.tuling123.com/openapi/api';
+export const TULINGAPI = 'http://www.tuling123.com/openapi/api'; //'http://openapi.tuling123.com/openapi/api/v2';// 
