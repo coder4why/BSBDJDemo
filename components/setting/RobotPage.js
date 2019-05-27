@@ -60,7 +60,6 @@ export default class RobotPage extends Component{
         var that = this;
         const bodyStr =  JSON.stringify(options);  //`key=${key}&info=${text}`;
         postData(TULINGAPI,bodyStr,(response)=>{
-            // alert(JSON.stringify(response));
             var lists = that.state.dataSources;
             lists.push({
                 text: response.text, //response.results[0].values.text,

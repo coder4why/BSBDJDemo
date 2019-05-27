@@ -11,7 +11,6 @@ export default class JokeDetail extends Component{
   
     constructor(props){
         super(props);
-        alert(store.getState().themeColor);
         this.state={
             type:this.props.navigation.state.params.data.type,
             info:this.props.navigation.state.params.data.info,

@@ -32,7 +32,7 @@ export default class FavoritePage extends Component {
         store.subscribe(()=>this._storeChanged());
     }
     _storeChanged(){
-        alert(store.getState().themeColor);
+        // alert(store.getState().themeColor);
         // return 
     }
 
@@ -106,7 +106,7 @@ export default class FavoritePage extends Component {
     }
 
     _colorViews(){
-        var colors = ['#7A378B','#FF6A6A','#1E90FF','#AB82FF','#6E7B8B','#7AC5CD'];
+        var colors = ['#FF0000','#7A378B','#FF6A6A','#1E90FF','#AB82FF','#6E7B8B','#7AC5CD'];
         var colorViews = [];
         colors.map((f)=>{
             colorViews.push(

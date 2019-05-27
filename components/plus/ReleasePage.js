@@ -126,7 +126,6 @@ export default class ReleasePage extends Component {
 
 
   _clickBottom(index){
-      alert(index);
       if(index==0){
           this._selectVideoTapped();
       }else if (index==1) {
