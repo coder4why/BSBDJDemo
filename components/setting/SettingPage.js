@@ -7,7 +7,7 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
   Image,
-  Switch,
+  
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -135,8 +135,7 @@ export default class SettingPage extends Component {
     _items(index){
         var titles = ['图灵聊天','我的收藏','更换主题','弹幕设置','退出登录'];
         return <TouchableWithoutFeedback key={titles[index]} onPress={()=>this._clickIndex(index)}>
-                    <View style={{marginLeft:10,flexDirection:'row',height:50}}>
-                        {/*<Image style={{width:32,height:32,resizeMode:'contain',marginTop:9}} source={require('../src/collect.png')}></Image>*/}
+                     <View style={{marginLeft:10,flexDirection:'row',height:50}}>
                         <Text style={{color:'#636363',fontSize:18,marginLeft:0,lineHeight:50}}>{titles[index]}</Text>
                         <Image style={{width:32,height:32,resizeMode:'contain',marginLeft:Dimensions.get('window').width-115,marginTop:9}} source={require('../src/next.png')}></Image>
                     </View>

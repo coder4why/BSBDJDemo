@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   View,
   Modal,
-  DeviceEventEmitter,
   ActivityIndicator
 } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -16,18 +15,9 @@ export default class VideoPage extends Component {
     this.state={
       imageUrl:'',
       showPic:false,
-      themeColor:'#1E90FF'
     }
   }
-
   componentDidMount(){
-    var that = this;
-    DeviceEventEmitter.addListener('THEMECOLOR',function(color){
-      that.setState({
-            themeColor:color
-        });
-    });
-    
     setStatusBar(true);
   }
   
@@ -64,7 +54,6 @@ export default class VideoPage extends Component {
                 <CustomTabBar
                     onTapPlay={(navigateAction)=>this._play(navigateAction)}
                     onShowPic={(imageUrl)=>this._onShowPic(imageUrl)}
-                    themeColor = {this.state.themeColor}
                 />
               </View>
           );

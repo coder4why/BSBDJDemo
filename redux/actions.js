@@ -6,6 +6,6 @@ const changeThemeColor = (color)=>{
       };
 }
 
-module.exports = {
-    changeThemeColor,
-};
+// module.exports = {
+//     changeThemeColor,
+// };

@@ -60,6 +60,7 @@ export default class RobotPage extends Component{
         var that = this;
         const bodyStr =  JSON.stringify(options);  //`key=${key}&info=${text}`;
         postData(TULINGAPI,bodyStr,(response)=>{
+            // alert(JSON.stringify(response));
             var lists = that.state.dataSources;
             lists.push({
                 text: response.text, //response.results[0].values.text,
@@ -74,9 +75,7 @@ export default class RobotPage extends Component{
     _renderRow(rowData){
         const req = rowData.isLeft?require('../src/robot.png'):require('../src/me.png');
         return rowData.isLeft? <View style={{flexDirection:'row',width:width,marginTop:5}}>
-                <View>
-                  <Image style={{width:40,height:40,borderRadius:20,marginLeft:10}} source={req}></Image>
-                </View>
+                  <Image style={{width:50,height:50,borderRadius:25,marginLeft:10,resizeMode:'contain'}} source={req}></Image>
                 <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:5,marginTop:5}}>
                   <Text style={{color:'#1E90FF',fontSize:16,fontWeight:'bold',textAlign:'left'}}>图灵小儿</Text>
                   <Text style={{lineHeight:22,letterSpacing:2,color:'grey',fontSize:18,marginTop:5,textAlign:'left',maxWidth:width-100}}>{rowData.text}</Text>
@@ -124,7 +123,7 @@ export default class RobotPage extends Component{
     render(){
 
         return  <View style={{flex:1,backgroundColor:'#F8F8FF'}}>
-                    <FlatList style={{flex:1,marginTop:10}}
+                    <FlatList style={{flex:1}}
                     ref={(flatList) => this._flatList = flatList}
                     keyExtractor = {this._extraUniqueKey} 
                     data={this.state.dataSources}

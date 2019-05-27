@@ -1,13 +1,6 @@
+
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  Dimensions,
-  FlatList,
-  Image
-} from 'react-native';
 import { NavigationActions } from 'react-navigation';
-import {getData} from '../tools/Fetch';
 import setStatusBar from '../tools/StatusTool';
 import Toast from 'react-native-easy-toast';
 import TopSwiper from './TopSwiper';
@@ -18,7 +11,7 @@ export default class JokePage extends Component {
   componentDidMount(){
     setStatusBar(true);
   }
-
+  
   _showSwiper(url){
     const data = {
       type:'0',

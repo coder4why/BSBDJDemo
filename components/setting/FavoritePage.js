@@ -14,6 +14,9 @@ import {FlatList, ScrollView, Switch} from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
 import {DBTool} from '../tools/DBTool';
 import Toast from 'react-native-easy-toast';
+import configureStore from '../../redux/store';
+const store = configureStore();
+
 const rowData = {
     video:''
 }
@@ -26,8 +29,13 @@ export default class FavoritePage extends Component {
             index:0, //1'我的收藏',2'更换主题',3设置弹幕
             closeDM:true,
         }
+        store.subscribe(()=>this._storeChanged());
     }
- 
+    _storeChanged(){
+        alert(store.getState().themeColor);
+        // return 
+    }
+
     componentDidMount(){
         this._getDM();
         const index = this.props.navigation.state.params.index;
@@ -85,8 +93,16 @@ export default class FavoritePage extends Component {
     }
     
     _selectThemeIndex(color){
-        // DeviceEventEmitter.emit('THEMECOLOR',color);
-        this.refs.toast.show('Redux未实现', 500, () => {});
+        this._changeThemeColor(color);
+        DeviceEventEmitter.emit('THEME_COLOR',color);
+    }
+
+    _changeThemeColor(color){
+        const action = {
+            type:'theme_color_change',
+            value:color
+        }
+        store.dispatch(action);
     }
 
     _colorViews(){
@@ -98,10 +114,10 @@ export default class FavoritePage extends Component {
                         <View style={{
                             backgroundColor:f,
                             borderRadius:10,
-                            height:40,
+                            height:50,
                             margin:10,
                             marginBottom:0,
-                            justifyContent:'center'
+                            justifyContent:'center',
                         }}>
                             <Text style={{textAlign:'center',color:'white',fontSize:16}}>{f}</Text>
                         </View>
@@ -176,3 +192,5 @@ export default class FavoritePage extends Component {
 
 
 }
+
+

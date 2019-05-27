@@ -7,8 +7,11 @@ import {
 import ScrollableTabView , {ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import VideoComponent from './VideoComponent';
 import PropTypes from 'prop-types';
-import JokeItemComponent from '../joke/components/JokeItemComponent';
+import  JokeItemComponent from '../joke/components/JokeItemComponent';
 import {TuiJian,Video,Picture,Joke} from '../commons/API';
+import configureStore from '../../redux/store';
+const store = configureStore();
+
 export default class CustomTabBar extends Component {
 
    //分享点击事件：
@@ -16,16 +19,23 @@ export default class CustomTabBar extends Component {
       onTapPlay: PropTypes.func,
       onShowPic:PropTypes.func,
     }
-    static defaultProps = {
-      themeColor:'#1E90FF',
-    }
-
+    
     constructor(props){
         super(props);
         this.state={
-            mainColor:this.props.themeColor,
+            mainColor:store.getState().themeColor,
         }
     }
+
+    componentDidMount(){
+      var that = this;
+      DeviceEventEmitter.addListener('THEME_COLOR',function(color){
+            that.setState({
+              mainColor:color
+            });
+      });
+    }
+    
     _onTapPlay(navigateAction){
       this.props.onTapPlay && this.props.onTapPlay(navigateAction);
     }

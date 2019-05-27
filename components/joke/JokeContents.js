@@ -6,11 +6,14 @@ import {
   FlatList,
   Image,
   TouchableWithoutFeedback,
+  DeviceEventEmitter
 } from 'react-native';
 import {getData} from '../tools/Fetch';
 import PropTypes from 'prop-types';
 import {Forum} from '../commons/API';
 const {width} = Dimensions.get('window');
+import configureStore from '../../redux/store';
+const store = configureStore();
 
 export default class JokeContents extends Component {
 
@@ -19,7 +22,7 @@ export default class JokeContents extends Component {
     showDetail: PropTypes.func,
    }
    static defaultProps = {
-        themeColor:'#1E90FF',
+        themeColor: store.getState().themeColor //'#1E90FF',
     }
     constructor(props){
         super(props);
@@ -35,6 +38,10 @@ export default class JokeContents extends Component {
             that.setState({
                 items:response.list
             });
+        });
+
+        DeviceEventEmitter.addListener('THEME_COLOR', (color)=>{
+            that.setState({themeColor:color});
         });
     }
 

@@ -1,19 +1,31 @@
 
 import React, { Component } from 'react';
-import {View,Modal,ActivityIndicator } from 'react-native';
+import {View,Modal,ActivityIndicator,DeviceEventEmitter } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import { WebView } from 'react-native-webview';
 import JokeDTComponent from './components/JokeDTComponent';
+import configureStore from '../../redux/store';
+const store = configureStore();
+
 export default class JokeDetail extends Component{
   
     constructor(props){
         super(props);
+        alert(store.getState().themeColor);
         this.state={
             type:this.props.navigation.state.params.data.type,
             info:this.props.navigation.state.params.data.info,
             imageUrl:'',
-            showPic:false
+            showPic:false,
+            themeColor:store.getState().themeColor
         }
+    }
+
+    componentDidMount(){
+        var that = this;
+        DeviceEventEmitter.addListener('THEME_COLOR', (color)=>{
+            that.setState({themeColor:color});
+        });
     }
 
     _play(navigation){
@@ -50,6 +62,7 @@ export default class JokeDetail extends Component{
                     onTapPlay={(navigation)=>this._play(navigation)}
                     showPic={(imageUrl)=>this._showPic(imageUrl)}
                     scrollEnabled={true}
+                    themeColor={this.state.themeColor}
                   />
         }
                     

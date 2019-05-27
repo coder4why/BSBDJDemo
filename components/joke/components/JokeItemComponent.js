@@ -1,5 +1,6 @@
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+// import { connect } from 'react-redux';
 import {
     Text,View,Image,FlatList,Dimensions,
     TouchableWithoutFeedback,
@@ -10,7 +11,6 @@ import ShareView from '../../commons/ShareView';
 import {getData} from '../../tools/Fetch';
 import { NavigationActions } from 'react-navigation';
 import RCTGIFView from './RCTGIFView';
-
 export default class JokeItemComponent extends Component{
     //播放点击事件：
     static propTypes = {
@@ -22,7 +22,7 @@ export default class JokeItemComponent extends Component{
         url:'',
         scrollEnabled:true,
         canLoadMore:true,
-        themeColor:'#1E90FF',
+        themeColor: '#7A378B',
     }
     constructor(props){
         super(props);
@@ -32,13 +32,17 @@ export default class JokeItemComponent extends Component{
             refreshing:false,
             scrollEnabled:this.props.scrollEnabled,
             canLoadMore:this.props.canLoadMore,
-            themeColor:this.props.themeColor,
+            themeColor: this.props.themeColor,
         }
     }
 
     componentDidMount(){
        this.setState({refreshing:true});
        this._requestDatas();
+       var that = this;
+        DeviceEventEmitter.addListener('THEME_COLOR', (color)=>{
+            that.setState({themeColor:color});
+        });
     }
 
     _requestDatas = (isMore)=> {
@@ -231,6 +235,5 @@ export default class JokeItemComponent extends Component{
                 {this._jokes()}
                </View>
     }
-
 
 }

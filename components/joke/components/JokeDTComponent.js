@@ -17,12 +17,11 @@ export default class JokeDTComponent extends Component{
     static defaultProps = {
         theme_id:'',
         scrollEnabled:true,
-        themeColor:'#1E90FF',
+        themeColor: '#1E90FF',
     }
 
     constructor(props){
       super(props);
-    
       this.state = {
         scrollEnabled:this.props.scrollEnabled,
         theme_id:this.props.theme_id,
@@ -34,7 +33,7 @@ export default class JokeDTComponent extends Component{
         ]
       }
     }
-    
+   
     _onTapPlay(navigateAction){
       this.props.onTapPlay && this.props.onTapPlay(navigateAction);
     }
@@ -71,6 +70,7 @@ export default class JokeDTComponent extends Component{
           onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
           scrollEnabled={this.state.scrollEnabled}
           canLoadMore={false}
+          themeColor={this.state.themeColor}
           />
       </View>
       <View tabLabel='精华' style={{flex:1}}>
@@ -80,6 +80,7 @@ export default class JokeDTComponent extends Component{
            onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
            scrollEnabled={this.state.scrollEnabled}
            canLoadMore={false}
+           themeColor={this.state.themeColor}
            />
       </View>
       <View tabLabel='最热' style={{flex:1}}>
@@ -89,6 +90,7 @@ export default class JokeDTComponent extends Component{
           onTapShowImg={(imageUrl)=>this._onShowPic(imageUrl)}
           scrollEnabled={this.state.scrollEnabled}
           canLoadMore={false}
+          themeColor={this.state.themeColor}
           />
       </View>
       </ScrollableTabView>
