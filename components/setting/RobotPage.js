@@ -13,7 +13,7 @@ import {
 
 const userId = 'D0956E62B9E84CC4BEF424F8CED306AB';
 const key = 'f0d11b6cae4647b2bd810a6a3df2136f';// 'b8a7ec5c2661de89008bc900c105995c';
-const {width} = Dimensions.get('window');
+const {width,height} = Dimensions.get('window');
 
 export default class RobotPage extends Component{
 
@@ -70,25 +70,28 @@ export default class RobotPage extends Component{
             });
         });
     }
-
     _renderRow(rowData){
-        const req = rowData.isLeft?require('../src/robot.png'):require('../src/me.png');
-        return rowData.isLeft? <View style={{flexDirection:'row',width:width,marginTop:5}}>
-                  <Image style={{width:50,height:50,borderRadius:25,marginLeft:10,resizeMode:'contain'}} source={req}></Image>
+        const req = rowData.isLeft?require('../src/robot.jpg'):require('../src/me.jpg');
+        return rowData.isLeft? 
+            <View style={{flexDirection:'row',width:width}}>
+                <Image style={{width:50,height:50,borderRadius:25,marginLeft:10,resizeMode:'contain'}} source={req}></Image>
                 <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:5,marginTop:5}}>
-                  <Text style={{color:'#1E90FF',fontSize:16,fontWeight:'bold',textAlign:'left'}}>图灵小儿</Text>
-                  <Text style={{lineHeight:22,letterSpacing:2,color:'grey',fontSize:18,marginTop:5,textAlign:'left',maxWidth:width-100}}>{rowData.text}</Text>
-                </View>
-           </View>:
-           <View style={{justifyContent:'center',flexDirection:'row',width:width,marginTop:5}}>
-                <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:60}}>
-                    <Text style={{color:'#1E90FF',fontSize:16,fontWeight:'bold',textAlign:'right',lineHeight:25}}>我</Text>
-                    <View style={{alignSelf:'flex-end'}}>
-                        <Text style={{lineHeight:22,letterSpacing:2,color:'grey',fontSize:18,textAlign:'left',maxWidth:width-120}}>{rowData.text}</Text>
+                    <View style={{flex:1,alignSelf:'flex-start',borderRadius:10}}>
+                        <Text style={{backgroundColor:'#F2F2F2',lineHeight:22,letterSpacing:2,color:'grey',fontSize:18,
+                                    textAlign:'left',maxWidth:width-120,padding:8}}>{rowData.text}
+                        </Text>
                     </View>
                 </View>
-                <View style={{width:50,height:50,marginLeft:10}}>
-                    <Image style={{width:40,height:40,borderRadius:20,resizeMode:'contain'}} source={req}></Image>
+           </View>:
+           <View style={{justifyContent:'center',flexDirection:'row',width:width-10,marginTop:5}}>
+                <View style={{flexDirection:'column',flex:1,marginLeft:60,}}>
+                    <View style={{flex:1,alignSelf:'flex-end',justifyContent:"center",borderRadius:10}}>
+                        <Text style={{backgroundColor:'#7B7DDD',padding:8,lineHeight:22,letterSpacing:2,
+                        color:'white',fontSize:18,textAlign:'left',maxWidth:width-120}}>{rowData.text}</Text>
+                    </View>
+                </View>
+                <View style={{width:60,height:50}}>
+                    <Image style={{width:50,height:50,marginLeft:10,paddingRight:10,borderRadius:25,resizeMode:'contain'}} source={req}></Image>
                 </View>
             </View>
     }
@@ -116,12 +119,12 @@ export default class RobotPage extends Component{
     }
 
     _extraUniqueKey(item ,index){
-        return "index"+index+item.text;
+     return "index"+index+item.text;
     } 
 
     render(){
 
-        return  <View style={{flex:1,backgroundColor:'#F8F8FF'}}>
+        return  <View style={{flex:1,backgroundColor:'white'}}>
                     <FlatList style={{flex:1}}
                     ref={(flatList) => this._flatList = flatList}
                     keyExtractor = {this._extraUniqueKey} 

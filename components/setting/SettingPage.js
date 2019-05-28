@@ -7,7 +7,6 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
   Image,
-  
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';

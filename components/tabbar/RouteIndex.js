@@ -29,6 +29,7 @@
                 backgroundColor: 'white',
                 fontSize:18
             },
+           
             headerBackImage:<Image style={{marginLeft:5,padding:10,width:20,height:20,}} source={require('../src/back.png')}></Image>
         })
     },
@@ -42,13 +43,12 @@
         screen:require('../setting/RobotPage.js').default,
         navigationOptions:({ navigation }) => ({
             headerTitle:'图灵聊天室',
-            headerTintColor:'#333333',
+            // headerTintColor:'#333333',
             headerStyle: {
                 backgroundColor: 'white',
-                fontSize:18
+                fontSize:30
             },
             headerBackImage:<Image style={{marginLeft:5,padding:10,width:20,height:20,}} source={require('../src/back.png')}></Image>
-        
         })
     },
 
