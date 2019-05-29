@@ -26,7 +26,7 @@ export default class RobotPage extends Component{
     }
 
     componentDidMount(){
-        this._requestText('图灵，你好！');
+        this._requestText('😄');
     }
 
     _requestText(text){
@@ -52,7 +52,6 @@ export default class RobotPage extends Component{
         //     }
         // }
         const options = {
-          
                 "key": key,
                 "userId": userId,
                 'info':text
@@ -75,19 +74,19 @@ export default class RobotPage extends Component{
         return rowData.isLeft? 
             <View style={{flexDirection:'row',width:width}}>
                 <Image style={{width:50,height:50,borderRadius:25,marginLeft:10,resizeMode:'contain'}} source={req}></Image>
-                <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:5,marginTop:5}}>
-                    <View style={{flex:1,alignSelf:'flex-start',borderRadius:10}}>
+                <View style={{flex:1,marginLeft:5,marginTop:5}}>
+                    <View style={{justifyContent:'center',flex:1,alignSelf:'flex-start'}}>
                         <Text style={{backgroundColor:'#F2F2F2',lineHeight:22,letterSpacing:2,color:'grey',fontSize:18,
-                                    textAlign:'left',maxWidth:width-120,padding:8}}>{rowData.text}
+                                    textAlign:'left',maxWidth:width-120,padding:8,borderRadius:5,overflow: 'hidden'}}>{rowData.text}
                         </Text>
                     </View>
                 </View>
            </View>:
            <View style={{justifyContent:'center',flexDirection:'row',width:width-10,marginTop:5}}>
                 <View style={{flexDirection:'column',flex:1,marginLeft:60,}}>
-                    <View style={{flex:1,alignSelf:'flex-end',justifyContent:"center",borderRadius:10}}>
+                    <View style={{justifyContent:'center',flex:1,alignSelf:'flex-end'}}>
                         <Text style={{backgroundColor:'#7B7DDD',padding:8,lineHeight:22,letterSpacing:2,
-                        color:'white',fontSize:18,textAlign:'left',maxWidth:width-120}}>{rowData.text}</Text>
+                        color:'white',fontSize:18,textAlign:'left',maxWidth:width-120,borderRadius:5,overflow: 'hidden'}}>{rowData.text}</Text>
                     </View>
                 </View>
                 <View style={{width:60,height:50}}>

@@ -199,7 +199,7 @@ const TabRouteConfigs = {
             ...routeIndex,
       },{
           mode: 'modal',
-          // headerMode: 'none',
+          // headerMode:'screen'
       }
   
   );

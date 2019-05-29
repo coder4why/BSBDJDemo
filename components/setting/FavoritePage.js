@@ -167,7 +167,7 @@ export default class FavoritePage extends Component {
                                 {this._colorViews()}
                             </View>:
                             <View style={{height:50,flexDirection:'row',alignItems:'center'}}>
-                                <Text style={{fontSize:18,color:'#636363',textAlign:'center',marginLeft:5,lineHeight:50}}>关闭弹幕</Text>
+                                <Text style={{fontSize:18,color:'#636363',textAlign:'center',marginLeft:10,lineHeight:50}}>关闭弹幕</Text>
                                 <Switch value={this.state.closeDM} 
                                 style={{marginLeft:Dimensions.get('window').width-140}}
                                 onValueChange = {(value)=> {

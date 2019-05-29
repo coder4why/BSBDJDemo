@@ -8,7 +8,7 @@ import ScrollableTabView , {ScrollableTabBar } from 'react-native-scrollable-tab
 import VideoComponent from './VideoComponent';
 import PropTypes from 'prop-types';
 import  JokeItemComponent from '../joke/components/JokeItemComponent';
-import {TuiJian,Video,Picture,Joke} from '../commons/API';
+import {TuiJian,Video,Picture,Joke,JinHua} from '../commons/API';
 import configureStore from '../../redux/store';
 const store = configureStore();
 
@@ -46,11 +46,11 @@ export default class CustomTabBar extends Component {
 
     _subItems(){
       const style={flex:1,textAlign:'center',fontSize:30,fontWeight:'bold'};
-      const titles = ['推荐','视频','图片','笑话','娱乐']; 
-      const urls = [TuiJian,Video,Picture,Joke,''];
+      const titles = ['推荐','视频','图片','笑话','精华']; 
+      const urls = [TuiJian,Video,Picture,Joke,JinHua];
       var items = [];
       for(var i=0;i<titles.length;i++){
-        if(i<titles.length-1){
+        // if(i<titles.length-1){
           items.push(
             <View key={i} tabLabel={titles[i]} style={{flex:1}}>
                 <JokeItemComponent url={urls[i]} 
@@ -60,15 +60,17 @@ export default class CustomTabBar extends Component {
                 />
             </View>
           );
-        }else{
-          items.push(
-            <View key={i} tabLabel='娱乐' style={style}>
-                <VideoComponent themeColor={this.state.mainColor} onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}/>
-            </View>
-          );
-        } 
       }
+      //   }else{
+      //     items.push(
+      //       <View key={i} tabLabel='娱乐' style={style}>
+      //           <VideoComponent themeColor={this.state.mainColor} onTapPlay={(navigateAction)=>this._onTapPlay(navigateAction)}/>
+      //       </View>
+      //     );
+      //   } 
+      // }
       return items;
+
     }
 
 

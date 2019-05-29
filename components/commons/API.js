@@ -9,6 +9,9 @@ export const Video =   'http://s.budejie.com/v2/topic/list/41/29460360-29485810/
 export const Picture = 'http://s.budejie.com/v2/topic/list/10/29484159-29484197/bsbdjhd-iphone-5.0.9/0-25.json';
 //笑话
 export const Joke =    'http://s.budejie.com/v2/topic/list/29/29486389-28489061/bsbdjhd-iphone-5.0.9/0-25.json';
+//精华
+export const JinHua = 'http://s.budejie.com/topic/list/jingxuan/1/budejie-android-6.2.8/0-20.json?market=baidu&udid=863425026599592&appname=baisibudejie&os=4.2.2&client=android&visiting=&mac=98%3A6c%3Af5%3A4b%3A72%3A6d&ver=6.2.8';
+
 //娱乐
 export const Funny = 'http://d.api.budejie.com/partner/baidu/news/get_article_list/bsbdjhd-iphone-5.0.9.json?'+
 '&androidId=&apMac=&apName=&catIds=1001&connectionType=4&coordinateType=&deviceType=1&height=667&'+

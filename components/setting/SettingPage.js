@@ -18,6 +18,7 @@ export default class SettingPage extends Component {
 
     constructor(props){
         super(props);
+        
         this.state = {
             atavar:defalutAtavar,
             nick_name:'',

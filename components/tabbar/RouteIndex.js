@@ -29,7 +29,6 @@
                 backgroundColor: 'white',
                 fontSize:18
             },
-           
             headerBackImage:<Image style={{marginLeft:5,padding:10,width:20,height:20,}} source={require('../src/back.png')}></Image>
         })
     },
