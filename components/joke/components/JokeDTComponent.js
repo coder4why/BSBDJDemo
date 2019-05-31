@@ -9,7 +9,9 @@ import {getData} from '../../tools/Fetch';
 import { BlurView} from 'react-native-blur';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const {width,height} = Dimensions.get('window');
+const defaultImg = 'https://tse3-mm.cn.bing.net/th?id=OIP.-FzeCjskToNyc3NO-3zGSAHaE1&w=300&h=196&c=7&o=5&dpr=2&pid=1.7'
+
+const {width} = Dimensions.get('window');
 
 export default class JokeDTComponent extends Component{
     //最热： http://d.api.budejie.com/topic/forum/473/1/new/bsbdjhd-iphone-5.0.9/0-20.json
@@ -53,7 +55,7 @@ export default class JokeDTComponent extends Component{
       var that = this;
       getData(ThemeHeader+this.state.theme_id,(response)=>{
           that.setState({
-            headerImage:response.info.image_detail,
+            headerImage:response.info.image_detail==='' || response.info.image_detail.lenght==0?defaultImg:response.info.image_detail ,
             headerCate:response.info.theme_name,
             headerDesc:response.info.info,
           });
@@ -127,7 +129,7 @@ export default class JokeDTComponent extends Component{
      return <View style={{justifyContent: "center",alignItems: "center",width:width,height:200}}>
                   <Image
                     ref={(img) => { this.backgroundImage = img; }}
-                    source={{ uri:this.state.headerImage }}
+                    source={{ uri:this.state.headerImage}}
                     style={{position: "absolute",top: 0,left: 0,bottom: 0,right: 0,resizeMode:'cover'}}
                     onLoadEnd={()=>{this.setState({ viewRef: findNodeHandle(this.backgroundImage) });}}
                   />
