@@ -160,7 +160,7 @@ export default class MusicPage extends Component {
   }
 
   componentDidMount(){
-    this._searchMusic('薛之谦');
+    this._searchMusic('林俊杰');
     Sound.setCategory('Playback');
     setStatusBar(true);
     var that = this;

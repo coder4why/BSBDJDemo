@@ -70,7 +70,7 @@ export default class App extends Component {
                 }}>
                   <Text style={{position:'absolute',textAlign:'center',fontSize:18,color:'white',backgroundColor:'black',
                                 opacity:0.8,marginLeft:Dimensions.get('window').width-85,marginTop:30,width:70,height:36,
-                                borderRadius:18,lineHeight:36
+                                borderRadius:12,lineHeight:36,overflow:'hidden'
                               }}>
                   {'跳过 '+this.state.second+'s'}
                   </Text>
