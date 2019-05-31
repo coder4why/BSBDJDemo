@@ -10,7 +10,7 @@ export const Picture = 'http://s.budejie.com/v2/topic/list/10/29484159-29484197/
 //笑话
 export const Joke =    'http://s.budejie.com/v2/topic/list/29/29486389-28489061/bsbdjhd-iphone-5.0.9/0-25.json';
 //精华
-export const JinHua = 'http://s.budejie.com/topic/list/jingxuan/1/budejie-android-6.2.8/0-20.json?market=baidu&udid=863425026599592&appname=baisibudejie&os=4.2.2&client=android&visiting=&mac=98%3A6c%3Af5%3A4b%3A72%3A6d&ver=6.2.8';
+export const JinHua = 'http://s.budejie.com/topic/list/jingxuan/1/bsbdjhd-iphone-6.0.9/0-10.json';
 
 //娱乐
 export const Funny = 'http://d.api.budejie.com/partner/baidu/news/get_article_list/bsbdjhd-iphone-5.0.9.json?'+
@@ -25,6 +25,8 @@ export const Forum = 'http://d.api.budejie.com/forum/subscribe/bsbdjhd-iphone-5.
 export const Search = 'http://d.api.budejie.com/topic/search/bsbdjhd-iphone-5.0.9/0-20.json?'
                 +'appname=bsbdjhd&asid=1E734422-9067-4077-B534-ECC8CCEF0B24&client=iphone&device=iPhone8%2C1&from=ios'
                 +'&jbk=0&market=appstore&openudid=c140ad305439e74a1cde3d5bae8e66f6520a0a55&t=1558320979&tname=fade&uid=23101975&ver=5.0.9';
+
+export const ThemeHeader = 'http://d.api.budejie.com/tag/info/bsbdjhd-iphone-5.0.9.json?theme_id=';
 
 //关注
 export const GZContents = 'http://d.api.budejie.com/topic/list/jingxuan/attention/bsbdjhd-iphone-5.0.9/0-20.json?'

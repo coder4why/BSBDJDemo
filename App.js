@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen'
 import {getData} from './components/tools/Fetch';
 
+const {width,height} = Dimensions.get('window');
 import configureStore from './redux/store';
 const store = configureStore();
 
@@ -17,7 +18,7 @@ export default class App extends Component {
       super(props);
       this.state={
         second:4,
-        imageUrl:'http://img.spriteapp.cn/spritead/20160812/134021885613.jpg'
+        imageUrl:''
       }
   }
 
@@ -29,7 +30,14 @@ export default class App extends Component {
 
   _requestSplash(){
       var that = this;
-      getData('http://dspsdk.spriteapp.com/get?ad=self.baisibudejieHD.iphone.banner.18110717000',(response)=>{
+      getData('http://dspsdk.spriteapp.com/get?ad=self.baisibudejieHD.iphone.splash.18110717002',(response)=>{
+        if(response.body['config'] == null){
+          that.setState({
+            second:0,
+          });
+          SplashScreen.hide();
+            return;
+        }
         const seq = response.body.config.sequence[0];
         that.setState({
           imageUrl:response.body.data[seq].pic
@@ -52,9 +60,10 @@ export default class App extends Component {
       <Provider store={store}>
         <View style={{flex:1,backgroundColor:'white'}}>
             { 
-              this.state.second>0?
+              this.state.second>0 && this.state.imageUrl.length>0?
               <View style={{flex:1}}>
-                <Image source={{uri:this.state.imageUrl}} style={{flex:1,resizeMode:'cover'}}></Image>
+                <Image source={{uri:this.state.imageUrl}} style={{width:width,height:height-123,resizeMode:'cover'}}></Image>
+                <Image source={require('./components/src/bsbdj.png')} style={{width:width,height:123,resizeMode:'cover'}}></Image>
                 <TouchableWithoutFeedback onPress={()=>{
                   this.setState({second:0});
                   SplashScreen.hide();

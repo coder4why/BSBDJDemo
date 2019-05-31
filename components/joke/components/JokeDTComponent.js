@@ -1,9 +1,15 @@
 
 import React, { Component } from 'react';
-import {View} from 'react-native';
+import {View,Image,findNodeHandle,Dimensions,Text} from 'react-native';
 import ScrollableTabView , {ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import JokeItemComponent from './JokeItemComponent';
 import PropTypes from 'prop-types';
+import {ThemeHeader} from '../../commons/API';
+import {getData} from '../../tools/Fetch';
+import { BlurView} from 'react-native-blur';
+import { ScrollView } from 'react-native-gesture-handler';
+
+const {width,height} = Dimensions.get('window');
 
 export default class JokeDTComponent extends Component{
     //最热： http://d.api.budejie.com/topic/forum/473/1/new/bsbdjhd-iphone-5.0.9/0-20.json
@@ -23,6 +29,11 @@ export default class JokeDTComponent extends Component{
     constructor(props){
       super(props);
       this.state = {
+
+        headerImage:'',
+        headerCate:'',
+        headerDesc:'',
+        viewRef:null,
         scrollEnabled:this.props.scrollEnabled,
         theme_id:this.props.theme_id,
         themeColor:this.props.themeColor,
@@ -32,6 +43,21 @@ export default class JokeDTComponent extends Component{
           `http://d.api.budejie.com/topic/forum/${this.props.theme_id}/1/jingxuan/bsbdjhd-iphone-5.0.9/0-20.json`
         ]
       }
+    }
+
+    componentDidMount(){
+      this._requestHeader();
+    }
+
+    _requestHeader(){
+      var that = this;
+      getData(ThemeHeader+this.state.theme_id,(response)=>{
+          that.setState({
+            headerImage:response.info.image_detail,
+            headerCate:response.info.theme_name,
+            headerDesc:response.info.info,
+          });
+      });
     }
    
     _onTapPlay(navigateAction){
@@ -44,6 +70,7 @@ export default class JokeDTComponent extends Component{
 
     _switchTab(){
       return <ScrollableTabView 
+      scrollEnabled={false}
       locked={false}
       initialPage={0}
       renderTabBar={() =><ScrollableTabBar style={{height: 45}}
@@ -96,8 +123,35 @@ export default class JokeDTComponent extends Component{
       </ScrollableTabView>
     }
 
+    _showHeader(){
+     return <View style={{justifyContent: "center",alignItems: "center",width:width,height:200}}>
+                  <Image
+                    ref={(img) => { this.backgroundImage = img; }}
+                    source={{ uri:this.state.headerImage }}
+                    style={{position: "absolute",top: 0,left: 0,bottom: 0,right: 0,resizeMode:'cover'}}
+                    onLoadEnd={()=>{this.setState({ viewRef: findNodeHandle(this.backgroundImage) });}}
+                  />
+                  <BlurView
+                    style={{ position: "absolute",top: 0,left: 0,bottom: 0,right: 0}}
+                    viewRef={this.state.viewRef}
+                    blurType="light"
+                    blurAmount={15}
+                  />
+                  <View style={{position:'absolute',top:110,height:80,flexDirection:'row'}}>
+                    <Image style={{width:80,height:80,borderRadius:8,marginLeft:10}} source={{ uri:this.state.headerImage }}></Image>
+                    <View style={{marginLeft:10,width:width-100,height:80,justifyContent:'center'}}>
+                      <Text numberOfLines={1} style={{fontSize:18,color:'white',fontWeight:'bold'}}>{this.state.headerCate}</Text>
+                      <Text numberOfLines={1} style={{fontSize:15,color:'white',marginTop:8,letterSpacing:1.5,overflow:'hidden'}}>{this.state.headerDesc}</Text>
+                    </View>
+                  </View>
+            </View>;
+    }
+
     render(){
-      return this._switchTab();
+      return  <ScrollView style={{flex:1}}>
+                {this._showHeader()}
+                {this._switchTab()}
+              </ScrollView>;
     }
 
 }

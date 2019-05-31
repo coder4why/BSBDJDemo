@@ -23,13 +23,14 @@
     JokeDetail:{
         screen:require('../joke/JokeDetail.js').default,
         navigationOptions:({ navigation }) => ({
-            headerTitle:'社区详情',
-            headerTintColor:'#333333',
-            headerStyle: {
-                backgroundColor: 'white',
-                fontSize:18
-            },
-            headerBackImage:<Image style={{marginLeft:5,padding:10,width:20,height:20,}} source={require('../src/back.png')}></Image>
+            header:null,
+            // headerTitle:'社区详情',
+            // headerTintColor:'#333333',
+            // headerStyle: {
+            //     backgroundColor: 'white',
+            //     fontSize:18
+            // },
+            // headerBackImage:<Image style={{marginLeft:5,padding:10,width:20,height:20,}} source={require('../src/back.png')}></Image>
         })
     },
     Release:{

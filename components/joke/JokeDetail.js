@@ -1,11 +1,14 @@
 
 import React, { Component } from 'react';
-import {View,Modal,ActivityIndicator,DeviceEventEmitter } from 'react-native';
+import {View,Modal,ActivityIndicator,DeviceEventEmitter,Image,Dimensions,TouchableWithoutFeedback,Text } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import { WebView } from 'react-native-webview';
 import JokeDTComponent from './components/JokeDTComponent';
 import configureStore from '../../redux/store';
 const store = configureStore();
+
+const {height} = Dimensions.get('window');
+
 
 export default class JokeDetail extends Component{
   
@@ -60,11 +63,22 @@ export default class JokeDetail extends Component{
                     theme_id={this.state.info} 
                     onTapPlay={(navigation)=>this._play(navigation)}
                     showPic={(imageUrl)=>this._showPic(imageUrl)}
-                    scrollEnabled={true}
+                    scrollEnabled={false}
                     themeColor={this.state.themeColor}
                   />
         }
                     
+    }
+
+    _showBack(){
+        return this.state.showPic?null:<TouchableWithoutFeedback onPress={()=>{
+                this.props.navigation.goBack();
+        }}> 
+            <View style={{flexDirection:'row',justifyContent:'center',position:'absolute',padding:10,marginTop:height>=812?40:20}}>
+                <Image style={{width:20,height:20,}} source={require('../src/back_white.png')}></Image>
+                <Text style={{color:'white',fontSize:18,flex:1,fontWeight:'bold'}}>返回</Text>
+            </View>
+        </TouchableWithoutFeedback>
     }
    
     render(){
@@ -72,6 +86,7 @@ export default class JokeDetail extends Component{
         return  <View style={{flex:1}}>
                     {this._showModel()}
                     {this._showContents()}
+                    {this._showBack()}
                 </View>
 
     }
