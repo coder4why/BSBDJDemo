@@ -16,7 +16,7 @@
 
 ### iOS：
 <h2 align"center">
-<img src="/pics/bsbdj.gif" width="231" height="374"/>
+<img src="/pics/bsbdj.gif" width="210" height="374"/>
 
 <img src="/pics/0.png" width="210" height="374"/>
 <img src="/pics/1.png" width="210" height="374"/>
