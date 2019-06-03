@@ -16,26 +16,26 @@
 
 ### iOS：
 <h2 align"center">
-<img src="/pics/bsbdj.gif" width="221" height="393"/>
+<img src="/pics/bsbdj.gif" width="215" height="382"/>
 
-<img src="/pics/0.png" width="221" height="393"/>
-<img src="/pics/1.png" width="221" height="393"/>
-<img src="/pics/2.png" width="221" height="393"/>
-<img src="/pics/3.png" width="221" height="393"/>
+<img src="/pics/0.png" width="215" height="382"/>
+<img src="/pics/1.png" width="215" height="382"/>
+<img src="/pics/2.png" width="215" height="382"/>
+<img src="/pics/3.png" width="215" height="382"/>
 
-<img src="/pics/4.png" width="221" height="393"/>
-<img src="/pics/5.png" width="221" height="393"/>
-<img src="/pics/6.png" width="221" height="393"/>
-<img src="/pics/7.png" width="221" height="393"/>
+<img src="/pics/4.png" width="215" height="382"/>
+<img src="/pics/5.png" width="215" height="382"/>
+<img src="/pics/6.png" width="215" height="382"/>
+<img src="/pics/7.png" width="215" height="382"/>
 
-<img src="/pics/8.png" width="221" height="393"/>
-<img src="/pics/9.png" width="221" height="393"/>
-<img src="/pics/10.png" width="221" height="393"/>
-<img src="/pics/11.png" width="221" height="393"/>
+<img src="/pics/8.png" width="215" height="382"/>
+<img src="/pics/9.png" width="215" height="382"/>
+<img src="/pics/10.png" width="215" height="382"/>
+<img src="/pics/11.png" width="215" height="382"/>
 
-<img src="/pics/12.png" width="221" height="393"/>
-<img src="/pics/13.png" width="221" height="393"/>
-<img src="/pics/14.png" width="221" height="393"/>
+<img src="/pics/12.png" width="215" height="382"/>
+<img src="/pics/13.png" width="215" height="382"/>
+<img src="/pics/14.png" width="215" height="382"/>
 
 
 </h2>
