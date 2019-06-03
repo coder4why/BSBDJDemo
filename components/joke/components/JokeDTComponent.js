@@ -21,6 +21,7 @@ export default class JokeDTComponent extends Component{
     static propTypes = {
       onTapPlay: PropTypes.func,
       showPic:PropTypes.func,
+      offsetY:PropTypes.func
     }
     static defaultProps = {
         theme_id:'',
@@ -149,8 +150,17 @@ export default class JokeDTComponent extends Component{
             </View>;
     }
 
+    _offsetY(y){
+      this.props.offsetY && this.props.offsetY(y);
+    }
+
     render(){
-      return  <ScrollView style={{flex:1}}>
+      return  <ScrollView 
+                ref='scroll'
+                style={{flex:1}}
+                scrollEventThrottle={60}
+                onScroll={(e)=>this._offsetY(e.nativeEvent.contentOffset.y)}
+              >
                 {this._showHeader()}
                 {this._switchTab()}
               </ScrollView>;

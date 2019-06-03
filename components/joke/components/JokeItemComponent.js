@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react'
-// import { connect } from 'react-redux';
 import {
     Text,View,Image,FlatList,Dimensions,
     TouchableWithoutFeedback,
@@ -74,11 +73,9 @@ export default class JokeItemComponent extends Component{
 
     _header(rowData){
         return <View style={{justifyContent:"center",flexDirection:'row',flex:1,}}> 
-                    <View>
                         <Image style={{width:50,height:50,borderRadius:25, marginLeft:5,}} 
                         source={{uri:rowData.u.header.length>0?rowData.u.header[0]:'http://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E5%8D%A0%E4%BD%8D%E5%9B%BE&step_word=&hs=2&pn=28&spn=0&di=11670&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=2&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=-1&cs=648988099%2C969495170&os=19413908%2C1911372760&simid=4215893616%2C559834046&adpicid=0&lpn=0&ln=188&fr=&fmq=1558415628478_R&fm=result&ic=&s=undefined&hd=&latest=&copyright=&se=&sme=&tab=0&width=&height=&face=undefined&ist=&jit=&cg=&bdtype=15&oriquery=&objurl=http%3A%2F%2Fac.tc.qq.com%2Fstore_file_download%3Fbuid%3D15017%26uin%3D1460156420%26dir_path%3D%2F%26name%3D09_07_00_87951a556b39d2169a7ae8e9da624eba_17.jpg&fromurl=ippr_z2C%24qAzdH3FAzdH3F4_z%26e3Bwv_z%26e3Bqq_z%26e3Bv54AzdH3Fviwrpj6AzdH3Ftg1jxAzdH3Ft1AzdH3Fd90AzdH3Fvt1AzdH3F8&gsm=0&rpstart=0&rpnum=0&islist=&querylist=&force=undefined'}}>
                         </Image>
-                    </View>
                     <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:5}}>
                       <Text numberOfLines={1} ellipsizeMode="tail" style={{color:this.state.themeColor,fontSize:16,fontWeight:'bold',overflow:"hidden"}}>{rowData.u.name}</Text>
                       <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:14,overflow:"hidden",marginTop:3}}>{rowData.passtime}</Text>
@@ -216,6 +213,7 @@ export default class JokeItemComponent extends Component{
 
     _jokes(){
         return  <FlatList
+                    ref='scroll'
                     keyExtractor = {this._extraUniqueKey} 
                     data={this.state.results}
                     renderItem = {({item}) => this._renderRow(item)}
@@ -224,6 +222,11 @@ export default class JokeItemComponent extends Component{
                     onEndReachedThreshold={0.2} 
                     onEndReached={()=>this._requestDatas(true)}
                     scrollEnabled={this.state.scrollEnabled}
+                    onScrollEndDrag={
+                        ()=>{
+                            // alert(this.refs.scroll.offset);
+                        }
+                    }
                 />;
 
     }

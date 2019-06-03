@@ -47,3 +47,12 @@ export const MineAds = 'http://s.budejie.com/op/square2/bsbdjhd-iphone-5.0.9/app
 
 //图灵聊天机器人       
 export const TULINGAPI = 'http://www.tuling123.com/openapi/api'; //'http://openapi.tuling123.com/openapi/api/v2';// 
+
+
+export const BaiduMusic = {
+
+    searchApi:'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.search.catalogSug&query=',
+    playApi  :'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.song.play&songid=',  
+    
+
+}

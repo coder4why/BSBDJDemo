@@ -133,7 +133,6 @@ const TabRouteConfigs = {
                     headerStyle: {
                         backgroundColor: navigation.state.index<3?'white':'transparent',
                     },
-
                     headerBackTitle:null,
                     headerTruncatedBackTitle:null,
                     header: 
