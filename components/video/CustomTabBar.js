@@ -93,7 +93,7 @@ export default class CustomTabBar extends Component {
             tabBarBackgroundColor='white'
             tabBarActiveTextColor={this.state.mainColor}
             tabBarInactiveTextColor='grey'
-            tabBarUnderlineStyle={{backgroundColor: this.state.mainColor,height: 1}}
+            tabBarUnderlineStyle={{backgroundColor: this.state.mainColor,height: 2}}
             tabBarTextStyle={{fontSize: 17}}
             >
 

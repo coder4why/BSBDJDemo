@@ -12,9 +12,13 @@ import Toast from 'react-native-easy-toast';
 import {getData} from '../tools/Fetch';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import setStatusBar from '../tools/StatusTool';
+import configureStore from '../../redux/store';
+const store = configureStore();
+
 var { Loading, EasyLoading } = require('react-native-easy-loading');
 var Sound = require('react-native-sound');
 var whoosh;
+
 export default class MusicPage extends Component {
   
   constructor(props){
@@ -58,7 +62,7 @@ export default class MusicPage extends Component {
                   <Image style={{transform: [{rotateZ:`${playMe?this.state.degree:0}deg`}],width:50,height:50,borderRadius:25,marginLeft:10}} source={{uri:rowData.pic}}></Image>
                 </View>
                 <View style={{justifyContent:"center",flexDirection:'column',flex:1,marginLeft:10}}>
-                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'purple',fontSize:16,fontWeight:'bold',overflow:"hidden"}}>{rowData.title}</Text>
+                  <Text numberOfLines={1} ellipsizeMode="tail" style={{color:store.getState().themeColor,fontSize:16,fontWeight:'bold',overflow:"hidden"}}>{rowData.title}</Text>
                   <Text numberOfLines={1} ellipsizeMode="tail" style={{color:'grey',fontSize:14,overflow:"hidden",marginTop:5}}>{rowData.author}</Text>
                 </View>
                 <Image style={{marginTop:15,marginRight:15,width:15,height:15,resizeMode:'contain'}} source={ (playMe)?require('../src/pause.png'):require('../src/play.png')}></Image>

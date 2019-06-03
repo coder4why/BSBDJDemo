@@ -74,7 +74,7 @@ export default class JokeDetail extends Component{
     }
 
     _showBack(){
-        return <View style={{width:width,height:height>=812?84:64,position:'absolute',backgroundColor:`rgba(174, 167, 194, ${this.state.offsetY/(200.0-(height>=812?84:64))})`}}>
+        return <View style={{width:width,height:height>=812?84:64,position:'absolute',backgroundColor:`rgba(174, 167, 194, ${this.state.offsetY/(230.0-(height>=812?84:64))})`}}>
                     <TouchableWithoutFeedback onPress={()=>{
                         this.props.navigation.goBack();
                         }}> 

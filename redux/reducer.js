@@ -1,7 +1,8 @@
 
 
 
-//使用redux更新收藏和取消收藏时，更新视频页面的收藏按钮显示状态；
+//使用redux更新收藏和取消收藏时，更新视频页面的收藏按钮显示状态； 
+//#cc2099
 const defaluteState = {
     themeColor:'purple'
 }

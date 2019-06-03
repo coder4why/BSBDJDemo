@@ -127,7 +127,7 @@ export default class JokeDTComponent extends Component{
     }
 
     _showHeader(){
-     return <View style={{justifyContent: "center",alignItems: "center",width:width,height:200}}>
+     return <View style={{justifyContent: "center",alignItems: "center",width:width,height:230}}>
                   <Image
                     ref={(img) => { this.backgroundImage = img; }}
                     source={{ uri:this.state.headerImage}}
@@ -140,7 +140,7 @@ export default class JokeDTComponent extends Component{
                     blurType="light"
                     blurAmount={15}
                   />
-                  <View style={{position:'absolute',top:110,height:80,flexDirection:'row'}}>
+                  <View style={{position:'absolute',top:140,height:80,flexDirection:'row'}}>
                     <Image style={{width:80,height:80,borderRadius:8,marginLeft:10}} source={{ uri:this.state.headerImage }}></Image>
                     <View style={{marginLeft:10,width:width-100,height:80,justifyContent:'center'}}>
                       <Text numberOfLines={1} style={{fontSize:18,color:'white',fontWeight:'bold'}}>{this.state.headerCate}</Text>
