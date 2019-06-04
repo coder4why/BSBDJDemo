@@ -56,7 +56,7 @@ export default class JokeDetail extends Component{
 
     _showContents(){
         if(this.state.type=='0'){
-            return  <WebView source={{uri: this.state.info}} style={{flex:1}}/>
+            return  <WebView source={{uri: this.state.info}} style={{flex:1,marginTop:height>=812?84:64}}/>
         }else{
            return <JokeDTComponent
                     theme_id={this.state.info} 
@@ -74,13 +74,17 @@ export default class JokeDetail extends Component{
     }
 
     _showBack(){
-        return <View style={{width:width,height:height>=812?84:64,position:'absolute',backgroundColor:`rgba(174, 167, 194, ${this.state.offsetY/(230.0-(height>=812?84:64))})`}}>
+        const alpha = this.state.type=='0'?1:(this.state.offsetY/(230.0-(height>=812?84:64)));
+        const color = this.state.type=='0'?'white':`rgba(174, 167, 194, ${alpha})`;
+        const backReq = this.state.type=='0'?require('../src/back.png'):require('../src/back_white.png');
+        const backColor = this.state.type=='0'?'grey':'white';
+        return <View style={{width:width,height:height>=812?84:64,position:'absolute',backgroundColor:color}}>
                     <TouchableWithoutFeedback onPress={()=>{
                         this.props.navigation.goBack();
                         }}> 
                             <View style={{width:100,height:44,flexDirection:'row',justifyContent:'center',padding:10,marginTop:height>=812?40:20}}>
-                                <Image style={{width:20,height:20,}} source={require('../src/back_white.png')}></Image>
-                                <Text style={{color:'white',fontSize:18,flex:1,fontWeight:'bold'}}>返回</Text>
+                                <Image style={{width:20,height:20,}} source={backReq}></Image>
+                                <Text style={{color:backColor,fontSize:18,flex:1,fontWeight:'bold'}}>返回</Text>
                             </View>
                     </TouchableWithoutFeedback>
                </View>

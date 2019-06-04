@@ -53,7 +53,7 @@ export default class App extends Component {
             second:0,
           });
           SplashScreen.hide();
-            return;
+          return;
         }
         const seq = response.body.config.sequence[0];
         that.setState({

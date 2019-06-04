@@ -4,7 +4,7 @@
 //使用redux更新收藏和取消收藏时，更新视频页面的收藏按钮显示状态； 
 //#cc2099
 const defaluteState = {
-    themeColor:'red'
+    themeColor:'purple'
 }
 
 //redux接受store.dispatch事件；state为store中保存的所有state；

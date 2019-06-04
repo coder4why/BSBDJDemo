@@ -42,12 +42,18 @@
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
-//#if DEBUG
-//  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-//#else
-//  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-//#endif
- return [CodePush bundleURL];
+//  BOOL isSimulator = [UIDevice.currentDevice.model.lowercaseString containsString:@"simulator"];
+//
+//  if (isSimulator) {
+//    #if DEBUG
+//      return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+//    #else
+//      return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+//    #endif
+//  }else{
+    return [CodePush bundleURL];
+//  }
+
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
