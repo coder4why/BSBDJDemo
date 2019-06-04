@@ -11,9 +11,9 @@
         9.更换主题;
         10.图灵聊天室；
         11.自定义TabBar;
-        12.redux等其他内容；
-
-
+        12.Code-Push热更新；
+        13.redux等其他内容；
+        
 ### iOS：
 <h2 align"center">
 <img src="/pics/bsbdj.gif" width="215" height="382"/>
