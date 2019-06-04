@@ -54,7 +54,7 @@ export default class JokeDTComponent extends Component{
 
     _requestHeader(){
       var that = this;
-      getData(ThemeHeader+this.state.theme_id,(response)=>{
+      getData(ThemeHeader+this.state.theme_id,function(response){
           that.setState({
             headerImage:response.info.image_detail==='' || response.info.image_detail.lenght==0?defaultImg:response.info.image_detail ,
             headerCate:response.info.theme_name,

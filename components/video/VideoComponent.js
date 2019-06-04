@@ -59,7 +59,7 @@ export default class VideComponent extends Component {
         refreshing:true
       });
     }
-    getData('https://api.apiopen.top/getJoke?page=0&count=20&type=video',(response)=>{
+    getData('https://api.apiopen.top/getJoke?page=0&count=20&type=video',function(response){
     if(response.code == 200){
       if(array.length>0){
         array = isMore?this.state.videoLists.concat(response.result):response.result.concat(this.state.videoLists);

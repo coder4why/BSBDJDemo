@@ -30,6 +30,7 @@
 		2E1F9B222293C8F80084B6EC /* GIFImageViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F9AE82293C8F80084B6EC /* GIFImageViewManager.m */; };
 		2E1F9B232293C8F80084B6EC /* CADisplayLineImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F9AEA2293C8F80084B6EC /* CADisplayLineImage.m */; };
 		2E1F9B242293C8F80084B6EC /* GIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F9AEC2293C8F80084B6EC /* GIFImageView.m */; };
+		2E2D6D1622A645B7007E4EA9 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E2D6D1522A64575007E4EA9 /* libCodePush.a */; };
 		2E46DDE6228BFC6800269E35 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E46DDE5228BFC4B00269E35 /* libSplashScreen.a */; };
 		2E5042BF22896FC5000ADBF5 /* libRNSqlite2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5042BE22896FAD000ADBF5 /* libRNSqlite2.a */; };
 		2E8FD0C3228540CF00617FF8 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8FD0C2228540CF00617FF8 /* libiconv.tbd */; };
@@ -182,6 +183,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNCWebView;
+		};
+		2E2D6D1422A64575007E4EA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E2D6D1022A64575007E4EA9 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = CodePush;
 		};
 		2E370B232296537F00B82BC5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -438,7 +446,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
@@ -470,6 +477,8 @@
 		2E1F9AEC2293C8F80084B6EC /* GIFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIFImageView.m; sourceTree = "<group>"; };
 		2E1F9AED2293C8F80084B6EC /* CADisplayLineImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADisplayLineImage.h; sourceTree = "<group>"; };
 		2E1F9AEE2293C8F80084B6EC /* GIFImageViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIFImageViewManager.h; sourceTree = "<group>"; };
+		2E2D6B8B22A60685007E4EA9 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = LZKKDemo/main.jsbundle; sourceTree = "<group>"; };
+		2E2D6D1022A64575007E4EA9 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		2E46DDB0228BFC4B00269E35 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		2E50428A22896FAD000ADBF5 /* RNSqlite2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSqlite2.xcodeproj; path = "../node_modules/react-native-sqlite-2/ios/RNSqlite2.xcodeproj"; sourceTree = "<group>"; };
 		2E8FD0C2228540CF00617FF8 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -545,6 +554,7 @@
 				2E1F9A9D2293B3A60084B6EC /* libRCTWeChat.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
+				2E2D6D1622A645B7007E4EA9 /* libCodePush.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				EB09FDF0B5AE4699A5018326 /* libRNGestureHandler.a in Frameworks */,
 				8C71824182E448668C068D1D /* libRCTVideo.a in Frameworks */,
@@ -641,7 +651,7 @@
 		13B07FAE1A68108700A75B9A /* LZKKDemo */ = {
 			isa = PBXGroup;
 			children = (
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				2E2D6B8B22A60685007E4EA9 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				2EFE3FAA229558D500F4B47C /* Bugly.framework */,
@@ -720,6 +730,14 @@
 				2E1F9AEE2293C8F80084B6EC /* GIFImageViewManager.h */,
 			);
 			path = ios_gifview;
+			sourceTree = "<group>";
+		};
+		2E2D6D1122A64575007E4EA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E2D6D1522A64575007E4EA9 /* libCodePush.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		2E370B202296537F00B82BC5 /* Products */ = {
@@ -861,6 +879,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2E2D6D1022A64575007E4EA9 /* CodePush.xcodeproj */,
 				2EF7B89F22A0C8B3009B4D34 /* RNBlur.xcodeproj */,
 				2E1F99FD229398420084B6EC /* RNCWebView.xcodeproj */,
 				2E46DDB0228BFC4B00269E35 /* SplashScreen.xcodeproj */,
@@ -980,6 +999,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 2E2D6D1122A64575007E4EA9 /* Products */;
+					ProjectRef = 2E2D6D1022A64575007E4EA9 /* CodePush.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -1213,6 +1236,13 @@
 			fileType = archive.ar;
 			path = libRNCWebView.a;
 			remoteRef = 2E1F9A2D229398430084B6EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2E2D6D1522A64575007E4EA9 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 2E2D6D1422A64575007E4EA9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2E370B242296537F00B82BC5 /* libRNImagePicker.a */ = {
@@ -1495,7 +1525,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1641,6 +1671,111 @@
 			};
 			name = Release;
 		};
+		2E2D6CD522A64119007E4EA9 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODEPUSH_K = "";
+				CODEPUSH_KEY = "K0rYB8A2Sb65wm4FepQWLU6SY1wY62c80f9a-8362-49b7-bb61-4945d164c5f4";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yongnian Yan (M4NMHZHTWB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongnian Yan (M4NMHZHTWB)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Staging;
+		};
+		2E2D6CD622A64119007E4EA9 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yongnian Yan (M4NMHZHTWB)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2R8GD39REK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../node_modules/react-native-qq/ios/RCTQQAPI",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-audio/ios",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-qq/ios/RCTQQAPI/**",
+					"$(SRCROOT)/../node_modules/react-native-wechat/ios",
+					"$(SRCROOT)/../node_modules/react-native-weibo/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+				);
+				INFOPLIST_FILE = LZKKDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/LZKKDemo\"",
+					"\"$(SRCROOT)/LZKKDemo\"",
+					"\"$(SRCROOT)/LZKKDemo\"",
+					"\"$(SRCROOT)/LZKKDemo\"",
+					"\"$(SRCROOT)/LZKKDemo\"",
+					"\"$(SRCROOT)/LZKKDemo\"",
+				);
+				OTHER_CFLAGS = (
+					"-isystem",
+					"\"$(SRCROOT)/../node_modules/react-native-qq/ios/RCTQQAPI\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+					"-framework",
+					TencentOpenAPI,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.welltalent.dzblistening;
+				PRODUCT_NAME = LZKKDemo;
+				PROVISIONING_PROFILE_SPECIFIER = devUse;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s i386";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Staging;
+		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1668,6 +1803,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODEPUSH_K = "";
+				CODEPUSH_KEY = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yongnian Yan (M4NMHZHTWB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongnian Yan (M4NMHZHTWB)";
 				COPY_PHASE_STRIP = NO;
@@ -1722,6 +1859,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODEPUSH_K = "";
+				CODEPUSH_KEY = "o4fyCNKKfmpZ_u7g6wDqlsfk9IVr62c80f9a-8362-49b7-bb61-4945d164c5f4";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yongnian Yan (M4NMHZHTWB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongnian Yan (M4NMHZHTWB)";
 				COPY_PHASE_STRIP = YES;
@@ -1750,6 +1889,7 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+				2E2D6CD622A64119007E4EA9 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1759,6 +1899,7 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+				2E2D6CD522A64119007E4EA9 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -6,12 +6,7 @@ export function getData(url,callBack){
     fetch(url)
     .then((response) => response.json())
     .then((responseData)=>callBack(responseData))
-    .catch((error)=>{
-        console.log('------------------------------------');
-        console.log(error.message);
-        console.log('------------------------------------');
-        callBack(error);
-    })
+    .catch((error)=>callBack(error))
     .done();
 };
     

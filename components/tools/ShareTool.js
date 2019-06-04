@@ -29,7 +29,7 @@ export const ShareTool = {
                 getData('https://graph.qq.com/user/get_simple_userinfo?access_token=' + data.access_token 
                         +'&openid=' + data.openid
                         +'&oauth_consumer_key='+data.oauth_consumer_key,
-                        (response)=>{
+                        function(response){
                             callback(response);
                         }
                 )
@@ -87,7 +87,9 @@ export const ShareTool = {
                         appId +'&secret=' + secret +
                         '&code=' + responseCode.code +
                         '&grant_type=authorization_code',
-                (resp)=>that.getUserInfoFormWx(resp,(response)=>callback(response)))
+                        function(resp){
+                            that.getUserInfoFormWx(resp,(response)=>callback(response));
+                        });
                 break;
             case -4:
         //用户拒绝
@@ -104,7 +106,7 @@ export const ShareTool = {
         console.log('-------------🚪----------------------');
         var url = 'https://api.weixin.qq.com/sns/userinfo?access_token=' +
         res.access_token +'&openid=' + res.openid;
-        getData(url, (respnse)=>callBack(respnse));
+        getData(url, function(respnse){callBack(respnse)});
     },
 
     wechat(title,imageUrl,webpageUrl){

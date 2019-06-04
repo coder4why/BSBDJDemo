@@ -34,7 +34,7 @@ export default class JokeContents extends Component {
    
     componentDidMount(){
         var that = this;
-        getData(Forum,(response)=>{
+        getData(Forum,function(response){
             that.setState({
                 items:response.list
             });
