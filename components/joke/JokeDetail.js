@@ -75,9 +75,9 @@ export default class JokeDetail extends Component{
 
     _showBack(){
         const alpha = this.state.type=='0'?1:(this.state.offsetY/(230.0-(height>=812?84:64)));
-        const color = this.state.type=='0'?'white':`rgba(174, 167, 194, ${alpha})`;
-        const backReq = this.state.type=='0'?require('../src/back.png'):require('../src/back_white.png');
-        const backColor = this.state.type=='0'?'grey':'white';
+        const color = this.state.type=='0'?'white':`rgba(255, 255, 255, ${alpha})`;
+        var backReq = this.state.type=='0'?require('../src/back.png'):(this.state.offsetY>=100?require('../src/back.png'):require('../src/back_white.png'));
+        var backColor = this.state.type=='0'?'grey':((this.state.offsetY>=100)?'grey':'white');
         return <View style={{width:width,height:height>=812?84:64,position:'absolute',backgroundColor:color}}>
                     <TouchableWithoutFeedback onPress={()=>{
                         this.props.navigation.goBack();
